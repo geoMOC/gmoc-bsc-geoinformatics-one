@@ -1,0 +1,603 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Rasterbasierte räumliche Analysemethoden | Lab of Environmental Informatics</title>
+<meta name="description" content="Die Motivation GI-S in der Geographie einzusetzen ist vielfältig. Zunächst kann es jedoch als grundsätzliches Selbstverständnis einer quantitativ denkenden Wissenschaftsdisziplin gelten, eine transparente, also belegbare und nachvollziehbare, Basis für räumliche Informationen zu schaffen. Da nicht nur aus konzeptionellen sondern auch aus praktischen Gründen Daten immer unvollständig sind (und daher auch das Wissen), ist die Verbesserung dieser lückenhaften Daten ein wichtiger und häufig grundlegender Schritt hin zur Kenntnis und Information.  ">
+
+
+  <meta name="author" content="Christoph Reudenbach">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Lab of Environmental Informatics">
+<meta property="og:title" content="Rasterbasierte räumliche Analysemethoden">
+<meta property="og:url" content="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-01_reader_rasteranalyse.html">
+
+
+  <meta property="og:description" content="Die Motivation GI-S in der Geographie einzusetzen ist vielfältig. Zunächst kann es jedoch als grundsätzliches Selbstverständnis einer quantitativ denkenden Wissenschaftsdisziplin gelten, eine transparente, also belegbare und nachvollziehbare, Basis für räumliche Informationen zu schaffen. Da nicht nur aus konzeptionellen sondern auch aus praktischen Gründen Daten immer unvollständig sind (und daher auch das Wissen), ist die Verbesserung dieser lückenhaften Daten ein wichtiger und häufig grundlegender Schritt hin zur Kenntnis und Information.  ">
+
+
+
+
+
+  <meta name="twitter:site" content="@creuden">
+  <meta name="twitter:title" content="Rasterbasierte räumliche Analysemethoden">
+  <meta name="twitter:description" content="Die Motivation GI-S in der Geographie einzusetzen ist vielfältig. Zunächst kann es jedoch als grundsätzliches Selbstverständnis einer quantitativ denkenden Wissenschaftsdisziplin gelten, eine transparente, also belegbare und nachvollziehbare, Basis für räumliche Informationen zu schaffen. Da nicht nur aus konzeptionellen sondern auch aus praktischen Gründen Daten immer unvollständig sind (und daher auch das Wissen), ist die Verbesserung dieser lückenhaften Daten ein wichtiger und häufig grundlegender Schritt hin zur Kenntnis und Information.  ">
+  <meta name="twitter:url" content="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-01_reader_rasteranalyse.html">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@https://twitter.com/creuden">
+  
+
+
+
+  <meta property="article:published_time" content="2020-11-12T11:04:15+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-01_reader_rasteranalyse.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Lab of Environmental Informatics",
+      "url": "http://localhost:4000/moer-bsc-geoinformatics-basic-one/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/moer-bsc-geoinformatics-basic-one/feed.xml" type="application/atom+xml" rel="alternate" title="Lab of Environmental Informatics Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/moer-bsc-geoinformatics-basic-one/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+    	<a class="site-title" href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/" style="padding:0px"><img src="http://localhost:4000/moer-bsc-geoinformatics-basic-one/assets/images/logo_umr.png" style="padding-right:15px">Lab of Environmental Informatics</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//units.html" >Course-Units</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//unit00/unit00-04_faq.html" >FAQ</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://ilias.uni-marburg.de/ilias.php?ref_id=1858892&cmdClass=ilrepositorygui&cmdNode=ts&baseClass=ilrepositorygui" >ILIAS</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://oer.uni-marburg.de/goto.php?target=cat_1651239&client_id=UNIMR" >OER</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//sitemap.html" >Overview</a>
+            </li>
+          
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+  
+    
+      
+      
+      
+    
+    
+	      
+            <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit00/unit00-01_overview.html" class="">Formales</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit01/unit01-01_reader_geo_raum.html" class="">Reader Geographische Raumkonzepte</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit02/unit02-01_reader_gi_raum.html" class="">Reader GI Raumkonzepte</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit03/unit03-01_reader_abfragen.html" class="">Reader Fragen & Antworten</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-01_reader_rasteranalyse.html" class="">Reader Räumliche Analysen</a>
+		  </span>
+          <ul>
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-01_reader_rasteranalyse.html" class="active">Rasterbasierte räumliche Analysemethoden</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-02_reader_rasteranalyse.html" class="">Geometrische Analysen - Thiessen Polygone</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-03_reader_rasteranalyse.html" class="">Informationsloser Raum  – Distanz-basierte Interpolation</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-04_reader_rasteranalyse.html" class="">Digitale Geländemodelle  – Von der Höhe zur komplexen Information</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-05_reader_rasteranalyse.html" class="">– Funktionale Ableitungen</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-06_reader_rasteranalyse.html" class="">– Sichtweite und Sichtfeld</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-07_reader_rasteranalyse.html" class="">– Prozessorientierte Ableitung von Informationen</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-08_reader_rasteranalyse.html" class="">Quellenverzeichnis</a></li>
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit05/unit05-01_reader_mce.html" class="">Reader Entscheidungsfindung</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit06/unit06-01_reader_PA.html" class="">Reader Projektarbeit</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit08/unit08-01_reader_QGIS_01.html" class="">Reader QGIS</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit09/unit09-02_worksheet.html" class="">Arbeitsblätter</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+  </ul>
+</nav>
+	      
+    
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Rasterbasierte räumliche Analysemethoden">
+    <meta itemprop="description" content="Die Motivation GI-S in der Geographie einzusetzen ist vielfältig. Zunächst kann es jedoch als grundsätzliches Selbstverständnis einer quantitativ denkenden Wissenschaftsdisziplin gelten, eine transparente, also belegbare und nachvollziehbare, Basis für räumliche Informationen zu schaffen. Da nicht nur aus konzeptionellen sondern auch aus praktischen Gründen Daten immer unvollständig sind (und daher auch das Wissen), ist die Verbesserung dieser lückenhaften Daten ein wichtiger und häufig grundlegender Schritt hin zur Kenntnis und Information.">
+    <meta itemprop="datePublished" content="2020-11-12T11:04:15+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Rasterbasierte räumliche Analysemethoden
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Inhalt</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#räumliche-abfrage--räumliche-analyse">Räumliche Abfrage – räumliche Analyse?</a></li>
+  <li><a href="#räumliche-analysen-in-der-geographie">Räumliche Analysen in der Geographie</a></li>
+  <li><a href="#lernziele">Lernziele</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>Die Motivation GI-S in der Geographie einzusetzen ist vielfältig. Zunächst kann es jedoch als grundsätzliches Selbstverständnis einer quantitativ denkenden Wissenschaftsdisziplin gelten, eine transparente, also belegbare und nachvollziehbare, Basis für räumliche Informationen zu schaffen. Da nicht nur aus konzeptionellen sondern auch aus praktischen Gründen Daten immer unvollständig sind (und daher auch das Wissen), ist die Verbesserung dieser lückenhaften Daten ein wichtiger und häufig grundlegender Schritt hin zur Kenntnis und Information.<!--more--></p>
+
+<p>Wir haben bislang thematische (oder semantische), räumliche und zeitliche Beziehungen (und Abfragen) kennengelernt. Räumliche Beziehungen können unterschieden werden in: topologische Beziehungen und Distanzbeziehungen. Abfragen in Relationen haben uns nicht nur die Eigenschaften der untersuchten Objekte interessiert, sondern vor allem die unterschiedlichsten Verknüpfungsmöglichkeiten dieser Parameter. Neben den Lagebeziehungen stellen vor allem die Distanzbeziehungen quantitative Methoden zur Abgrenzung von im Raum ähnlichen Merkmalswerten oder auch der Schließung von Lücken fehlender räumlicher Information durch Interpolation zur Verfügung.</p>
+
+<h3 id="räumliche-abfrage--räumliche-analyse">Räumliche Abfrage – räumliche Analyse?</h3>
+
+<p>Bei Verwendung von GI-Systemen unterscheiden sich räumliche Analysen und Abfragen nur durch den Grad der Komplexität und ihre Auswirkung auf die Datenbasis. Von räumlichen Analysen spricht man wenn funktionale Zusammenhänge in gekoppelte bzw. verschachtelte Abfragen eingebaut werden und die Ergebnisse physikalisch in die Datenbank als eigener Datensatz eingespeist werden. Die unterschiedlichen Methoden räumlicher Analyse sind nicht erst durch die Entwicklung der GI-Systeme entstanden. Viele Verfahren wurden bereits frühzeitig und häufig völlig unabhängig von GI-Systemen entwickelt und erst später in die GIS-Software integriert. Allerdings ist erst durch zunehmende Verbreitung und nutzerorientierter Entwicklung von GIS-Software das Methodenspektrum der räumlichen Analyse effizient und wirkungsvoll anwendbar geworden. Dies nicht zuletzt, da gegenwärtige GI-Systeme auch die weiteren notwendigen Dienste wie Datenerfassung, Datenverwaltung oder Visualisierung anbieten.</p>
+
+<h3 id="räumliche-analysen-in-der-geographie">Räumliche Analysen in der Geographie</h3>
+
+<p>Die Wurzeln der räumlichen Analyse reichen weit in die Vergangenheit zurück. Der Reader von (Berry et al. 1998) enthält eine Auswahl von frühen Artikeln, die sich mit Anwendungen der räumlichen Statistik und quantitativen Raumanalyse beschäftigen. Teilweise gehen die Ansätze bis in die 1930er Jahre zurück sind aber vor allem aber auf eine erste fruchtbare Epoche in den 1950er und 1960er Jahre konzentriert. Die Bereitschaft zur Verwendung statistischer und anderer quantitativer Methoden zur Analyse von räumlichen Mustern und Prozessen war vor allem ausgeprägt in den Raumwissenschaften, die die Beschreibung und Erklärung räumlicher Muster und Prozesse als zentralen wissenschaftlichen Gegenstand beinhalten (z.B Landschaftsökologie).</p>
+
+<p>In der deutschsprachigen Geographie hängt die quantitative Analyse von Raumphänomenen eng mit dem durch studentische Initiative forcierten Paradigmenwechsel des “Kieler Geographentag” 1969 zusammen (Monheim et al. 1999). Die zentralen Publikationen von (Bartels 1968) und (Hard 1970) stehen repräsentativ für diesen entscheidenden und bis heute wirksamen Bruch in der Geographie. Während im allgemeinen Lehrbetrieb bis heute von “Landschaften” gesprochen wird, ist seit den 1980er Jahren im Zuge der Durchsetzung von GI-S als integrierende Arbeitsplattform eine zunehmende Konvergenz der verwendeten Methoden der Raumanalyse in den an der Entwicklung der GIS-Technologie beteiligten Wissenschaften zu beobachten. Dies kann etwa an der allgemein als Grundlage anerkanntem Lehrbuch von (Bill 1999) nachvollzogen werden.</p>
+
+<h3 id="lernziele">Lernziele</h3>
+
+<ul>
+  <li>Sie verstehen das Prinzip der Ableitung räumlicher Informationen durch mathematische oder thematische Umformung der Primärdaten</li>
+  <li>Sie kennen die unterschiedlichen Distanzbeziehungen zwischen den verschiedenen geometrischen Primitiven (Punkte, Linien, Polygone)</li>
+  <li>Sie verstehen das Prinzip des Puffer und der Distanztransformation</li>
+  <li>Sie erwerben einen Überblick über die wichtigsten Möglichkeiten räumlicher Analyse</li>
+  <li>Sie erwerben die Fähigkeit räumliche Ableitung aus Primärdaten zu erstellen und dies geographisch zu interpretieren</li>
+  <li>Sie lernen wie räumlich wirksame Prozesskonzepte in Ihre Analysen integrierbar sind.</li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-11-12T11:04:15+01:00">November 12, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/moer-bsc-geoinformatics-basic-one/unit04/unit04-02_reader_rasteranalyse.html" class="pagination--pager" title="Geometrische Analysen - Thiessen Polygone
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+      <li><a href="https://twitter.com/creuden"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="https://github.com/GeoMOER"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright"> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> &copy; 2020 Lab of Environmental Informatics
+. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>, <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> &amp; <a href="https://www.uni-marburg.de/fb19" rel="nofollow">Geography@Marburg University</a>.</div>
+
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/moer-bsc-geoinformatics-basic-one/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

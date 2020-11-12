@@ -1,0 +1,606 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Quellenverzeichnis | Lab of Environmental Informatics</title>
+<meta name="description" content="   Bartels, D., 1968. Zur wissenschaftstheo- retischen Grundlegung einer Geographie des Menschen. Wiesbaden: Steiner.   Baumgartner, H., 1995. Wölfe: Die Räuber kommen wieder. Facts, Nr. 29, 86. )   Berry, B.J.L., Marble, D.F., 1998. Spatial Analysis: A Reader in Statistical Geography. Englewood Cliffs, New Jersey: Prentice Hall.   Bill, R., 1999. Grundlagen der Geo-Informationssysteme. Karlsruhe: Wichmann Verlag.   Boots, B., 1999. Spatial Tessellations.   Brändli, M., 1997. Modelle und Methoden für die Extraktion geomorphologischer und hydrologischer Objekte aus digitalen Geländemodellen. Unpublished . Geographisches Institut der Universität Zürich.   Burrough, P.A., McDonnell, R.A., 1998. Principles of Geographical Information Systems. New York: Oxford University Press.   GIS.MA (2009). GISMA online. Marburg: GISMA.   GITTA (2005). Geographic Information Technology Training Alliance online [Accessed 19.3.2009].   Hard, G., 1970. Die Landschaft der Sprache und die Landschaft der Geographen semantische und forschungslogische Studien zu einigen zentralen Denkfiguren in der deutschen geographischen Literatur.. Colloquium geographicum , 11, .   Horn, B., 1981. Hill shading and the reflectance map. In: Proceedings of the IEEE, vol. 69. p. 14-47.   Hugentobler, M., 2000. Fortpflanzung von Unsicherheiten in dreiecksbasierten digitalen Geländemodellen mit Intervallarithmetik. Published (Diplomarbeit). Geographisches Institut der Universität Zürich.   Jones, Ch., 1997. Geographical Information Systems and Computer Cartography. Longman Singapore Publishers (pte) Ltd..   Kaiser, F.J., 1983. Die Fallstudie: Theorie und Praxis der Fallstudiendidaktik 6. Bad Heilbrunn: Klinkhardt.   KORA, 2005. Koordinierte Forschungsprojekte zur Erhaltung und zum Management der Raubtiere in der Schweiz. Bern: BUWAL.   Mitas, L.; Mitasova, H., 1999. Spatial Interpolation. In: Longley, P. A.; Goodchild, M. F.; Maguire, D. J.; Rhind, D. W., ed. Geographical Information Systems (GIS): Principles, Techniques, Management and Applications. New York: John Wiley, 481–492. Herunterladen   Monheim, H., Schwarte, M., Winkelkötter, C., 1999. Die deutsche Geographie dreißig Jahre nach Kiel Stadt-Land-Fluß oder ernstzunehmende Raumwissenschaft?. Standort – Zeitschrift für angewandte Geographie, Volume 23, Number 3, 46-49.   Moore, I. D., 1996. Hydrological Modeling and GIS. In: M. F. Goodchild, L. T. Steyaert, B. O. Parks, C. Johnston, D. Maidment, M. Crane, and S. Glendinning, ed. GIS and Environmental Modeling: Progress and Research Issues. Fort Collins, Colorado: GIS World Books.   Müller, C., 2007. Implementation von Problem-based Learning. Bern: hep-verlag.   Müller, J.; Jäggi, M.; Katz, W.;; Petrascheck, A.; Zimmermann, M.; Vuilleumier, M., 1991. Fallstudie Hochwasser. In: Frey, K., ed. ETH-Fallstudien. Zürich: Orell-Füssli-Verlag.   Reinmann-Rothmeier, G. &amp; H. Mandl, 2001. Unterrichten und Lernumgebungen gestalten. In: Krapp, A. B. Weidemann, ed. Pädagogische Psychologie. Ein Lehrbuch.. Weinheim: BeltzPVU.   Shepard, D., 1968. A two-dimensional interpolation function for irregularly-spaced data. In: Proceedings of the 1968 23rd ACM national conference. 517–523.   Swisstopo, 1991. Digital Terrain Model DTM/DHM25, 1:25000. Bern: Swisstopo. Reproduced with authorisation by swisstopo (BA057224) Herunterladen   Swisstopo, 2000. Landeskarte der Schweiz – Blatt Albis 1111, 1:25000. Bern: Swisstopo. Reproduziert mit Bewilligung von swisstopo (BA057224) Herunterladen   Wilson, J. , Gallant, J., 2000. Terrain Analysis: Principles and Applications. New York: John Wiley and sons.   Wood, J. (2005). LandSerf online[Accessed 2009-10-08].   Worboys, Michael F., 1996. Metrics and topologies for geographic space. In: Kraak, M. J., Molenaar, M., ed. Advances in Geographical Information Systems Research II: Proceedings of the International Symposium on Spatial Datat handling. International Geographical Union, 7A.1–7A.11. Herunterladen   Wyatt, P., 2000. The Interpolation Process. Directions Magazine. Herunterladen   Zevenbergen, L.; Thorne, C., 1987. Quantitative analysis of land surface topography. Earth Surface Processes and Landforms, 12 (1), p. 47-56.   ">
+
+
+  <meta name="author" content="Christoph Reudenbach">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Lab of Environmental Informatics">
+<meta property="og:title" content="Quellenverzeichnis">
+<meta property="og:url" content="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-08_reader_rasteranalyse.html">
+
+
+  <meta property="og:description" content="   Bartels, D., 1968. Zur wissenschaftstheo- retischen Grundlegung einer Geographie des Menschen. Wiesbaden: Steiner.   Baumgartner, H., 1995. Wölfe: Die Räuber kommen wieder. Facts, Nr. 29, 86. )   Berry, B.J.L., Marble, D.F., 1998. Spatial Analysis: A Reader in Statistical Geography. Englewood Cliffs, New Jersey: Prentice Hall.   Bill, R., 1999. Grundlagen der Geo-Informationssysteme. Karlsruhe: Wichmann Verlag.   Boots, B., 1999. Spatial Tessellations.   Brändli, M., 1997. Modelle und Methoden für die Extraktion geomorphologischer und hydrologischer Objekte aus digitalen Geländemodellen. Unpublished . Geographisches Institut der Universität Zürich.   Burrough, P.A., McDonnell, R.A., 1998. Principles of Geographical Information Systems. New York: Oxford University Press.   GIS.MA (2009). GISMA online. Marburg: GISMA.   GITTA (2005). Geographic Information Technology Training Alliance online [Accessed 19.3.2009].   Hard, G., 1970. Die Landschaft der Sprache und die Landschaft der Geographen semantische und forschungslogische Studien zu einigen zentralen Denkfiguren in der deutschen geographischen Literatur.. Colloquium geographicum , 11, .   Horn, B., 1981. Hill shading and the reflectance map. In: Proceedings of the IEEE, vol. 69. p. 14-47.   Hugentobler, M., 2000. Fortpflanzung von Unsicherheiten in dreiecksbasierten digitalen Geländemodellen mit Intervallarithmetik. Published (Diplomarbeit). Geographisches Institut der Universität Zürich.   Jones, Ch., 1997. Geographical Information Systems and Computer Cartography. Longman Singapore Publishers (pte) Ltd..   Kaiser, F.J., 1983. Die Fallstudie: Theorie und Praxis der Fallstudiendidaktik 6. Bad Heilbrunn: Klinkhardt.   KORA, 2005. Koordinierte Forschungsprojekte zur Erhaltung und zum Management der Raubtiere in der Schweiz. Bern: BUWAL.   Mitas, L.; Mitasova, H., 1999. Spatial Interpolation. In: Longley, P. A.; Goodchild, M. F.; Maguire, D. J.; Rhind, D. W., ed. Geographical Information Systems (GIS): Principles, Techniques, Management and Applications. New York: John Wiley, 481–492. Herunterladen   Monheim, H., Schwarte, M., Winkelkötter, C., 1999. Die deutsche Geographie dreißig Jahre nach Kiel Stadt-Land-Fluß oder ernstzunehmende Raumwissenschaft?. Standort – Zeitschrift für angewandte Geographie, Volume 23, Number 3, 46-49.   Moore, I. D., 1996. Hydrological Modeling and GIS. In: M. F. Goodchild, L. T. Steyaert, B. O. Parks, C. Johnston, D. Maidment, M. Crane, and S. Glendinning, ed. GIS and Environmental Modeling: Progress and Research Issues. Fort Collins, Colorado: GIS World Books.   Müller, C., 2007. Implementation von Problem-based Learning. Bern: hep-verlag.   Müller, J.; Jäggi, M.; Katz, W.;; Petrascheck, A.; Zimmermann, M.; Vuilleumier, M., 1991. Fallstudie Hochwasser. In: Frey, K., ed. ETH-Fallstudien. Zürich: Orell-Füssli-Verlag.   Reinmann-Rothmeier, G. &amp; H. Mandl, 2001. Unterrichten und Lernumgebungen gestalten. In: Krapp, A. B. Weidemann, ed. Pädagogische Psychologie. Ein Lehrbuch.. Weinheim: BeltzPVU.   Shepard, D., 1968. A two-dimensional interpolation function for irregularly-spaced data. In: Proceedings of the 1968 23rd ACM national conference. 517–523.   Swisstopo, 1991. Digital Terrain Model DTM/DHM25, 1:25000. Bern: Swisstopo. Reproduced with authorisation by swisstopo (BA057224) Herunterladen   Swisstopo, 2000. Landeskarte der Schweiz – Blatt Albis 1111, 1:25000. Bern: Swisstopo. Reproduziert mit Bewilligung von swisstopo (BA057224) Herunterladen   Wilson, J. , Gallant, J., 2000. Terrain Analysis: Principles and Applications. New York: John Wiley and sons.   Wood, J. (2005). LandSerf online[Accessed 2009-10-08].   Worboys, Michael F., 1996. Metrics and topologies for geographic space. In: Kraak, M. J., Molenaar, M., ed. Advances in Geographical Information Systems Research II: Proceedings of the International Symposium on Spatial Datat handling. International Geographical Union, 7A.1–7A.11. Herunterladen   Wyatt, P., 2000. The Interpolation Process. Directions Magazine. Herunterladen   Zevenbergen, L.; Thorne, C., 1987. Quantitative analysis of land surface topography. Earth Surface Processes and Landforms, 12 (1), p. 47-56.   ">
+
+
+
+
+
+  <meta name="twitter:site" content="@creuden">
+  <meta name="twitter:title" content="Quellenverzeichnis">
+  <meta name="twitter:description" content="   Bartels, D., 1968. Zur wissenschaftstheo- retischen Grundlegung einer Geographie des Menschen. Wiesbaden: Steiner.   Baumgartner, H., 1995. Wölfe: Die Räuber kommen wieder. Facts, Nr. 29, 86. )   Berry, B.J.L., Marble, D.F., 1998. Spatial Analysis: A Reader in Statistical Geography. Englewood Cliffs, New Jersey: Prentice Hall.   Bill, R., 1999. Grundlagen der Geo-Informationssysteme. Karlsruhe: Wichmann Verlag.   Boots, B., 1999. Spatial Tessellations.   Brändli, M., 1997. Modelle und Methoden für die Extraktion geomorphologischer und hydrologischer Objekte aus digitalen Geländemodellen. Unpublished . Geographisches Institut der Universität Zürich.   Burrough, P.A., McDonnell, R.A., 1998. Principles of Geographical Information Systems. New York: Oxford University Press.   GIS.MA (2009). GISMA online. Marburg: GISMA.   GITTA (2005). Geographic Information Technology Training Alliance online [Accessed 19.3.2009].   Hard, G., 1970. Die Landschaft der Sprache und die Landschaft der Geographen semantische und forschungslogische Studien zu einigen zentralen Denkfiguren in der deutschen geographischen Literatur.. Colloquium geographicum , 11, .   Horn, B., 1981. Hill shading and the reflectance map. In: Proceedings of the IEEE, vol. 69. p. 14-47.   Hugentobler, M., 2000. Fortpflanzung von Unsicherheiten in dreiecksbasierten digitalen Geländemodellen mit Intervallarithmetik. Published (Diplomarbeit). Geographisches Institut der Universität Zürich.   Jones, Ch., 1997. Geographical Information Systems and Computer Cartography. Longman Singapore Publishers (pte) Ltd..   Kaiser, F.J., 1983. Die Fallstudie: Theorie und Praxis der Fallstudiendidaktik 6. Bad Heilbrunn: Klinkhardt.   KORA, 2005. Koordinierte Forschungsprojekte zur Erhaltung und zum Management der Raubtiere in der Schweiz. Bern: BUWAL.   Mitas, L.; Mitasova, H., 1999. Spatial Interpolation. In: Longley, P. A.; Goodchild, M. F.; Maguire, D. J.; Rhind, D. W., ed. Geographical Information Systems (GIS): Principles, Techniques, Management and Applications. New York: John Wiley, 481–492. Herunterladen   Monheim, H., Schwarte, M., Winkelkötter, C., 1999. Die deutsche Geographie dreißig Jahre nach Kiel Stadt-Land-Fluß oder ernstzunehmende Raumwissenschaft?. Standort – Zeitschrift für angewandte Geographie, Volume 23, Number 3, 46-49.   Moore, I. D., 1996. Hydrological Modeling and GIS. In: M. F. Goodchild, L. T. Steyaert, B. O. Parks, C. Johnston, D. Maidment, M. Crane, and S. Glendinning, ed. GIS and Environmental Modeling: Progress and Research Issues. Fort Collins, Colorado: GIS World Books.   Müller, C., 2007. Implementation von Problem-based Learning. Bern: hep-verlag.   Müller, J.; Jäggi, M.; Katz, W.;; Petrascheck, A.; Zimmermann, M.; Vuilleumier, M., 1991. Fallstudie Hochwasser. In: Frey, K., ed. ETH-Fallstudien. Zürich: Orell-Füssli-Verlag.   Reinmann-Rothmeier, G. &amp; H. Mandl, 2001. Unterrichten und Lernumgebungen gestalten. In: Krapp, A. B. Weidemann, ed. Pädagogische Psychologie. Ein Lehrbuch.. Weinheim: BeltzPVU.   Shepard, D., 1968. A two-dimensional interpolation function for irregularly-spaced data. In: Proceedings of the 1968 23rd ACM national conference. 517–523.   Swisstopo, 1991. Digital Terrain Model DTM/DHM25, 1:25000. Bern: Swisstopo. Reproduced with authorisation by swisstopo (BA057224) Herunterladen   Swisstopo, 2000. Landeskarte der Schweiz – Blatt Albis 1111, 1:25000. Bern: Swisstopo. Reproduziert mit Bewilligung von swisstopo (BA057224) Herunterladen   Wilson, J. , Gallant, J., 2000. Terrain Analysis: Principles and Applications. New York: John Wiley and sons.   Wood, J. (2005). LandSerf online[Accessed 2009-10-08].   Worboys, Michael F., 1996. Metrics and topologies for geographic space. In: Kraak, M. J., Molenaar, M., ed. Advances in Geographical Information Systems Research II: Proceedings of the International Symposium on Spatial Datat handling. International Geographical Union, 7A.1–7A.11. Herunterladen   Wyatt, P., 2000. The Interpolation Process. Directions Magazine. Herunterladen   Zevenbergen, L.; Thorne, C., 1987. Quantitative analysis of land surface topography. Earth Surface Processes and Landforms, 12 (1), p. 47-56.   ">
+  <meta name="twitter:url" content="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-08_reader_rasteranalyse.html">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@https://twitter.com/creuden">
+  
+
+
+
+  <meta property="article:published_time" content="2020-11-12T11:04:15+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-08_reader_rasteranalyse.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Lab of Environmental Informatics",
+      "url": "http://localhost:4000/moer-bsc-geoinformatics-basic-one/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/moer-bsc-geoinformatics-basic-one/feed.xml" type="application/atom+xml" rel="alternate" title="Lab of Environmental Informatics Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/moer-bsc-geoinformatics-basic-one/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+    	<a class="site-title" href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/" style="padding:0px"><img src="http://localhost:4000/moer-bsc-geoinformatics-basic-one/assets/images/logo_umr.png" style="padding-right:15px">Lab of Environmental Informatics</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//units.html" >Course-Units</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//unit00/unit00-04_faq.html" >FAQ</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://ilias.uni-marburg.de/ilias.php?ref_id=1858892&cmdClass=ilrepositorygui&cmdNode=ts&baseClass=ilrepositorygui" >ILIAS</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://oer.uni-marburg.de/goto.php?target=cat_1651239&client_id=UNIMR" >OER</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//sitemap.html" >Overview</a>
+            </li>
+          
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+  
+    
+      
+      
+      
+    
+    
+	      
+            <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit00/unit00-01_overview.html" class="">Formales</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit01/unit01-01_reader_geo_raum.html" class="">Reader Geographische Raumkonzepte</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit02/unit02-01_reader_gi_raum.html" class="">Reader GI Raumkonzepte</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit03/unit03-01_reader_abfragen.html" class="">Reader Fragen & Antworten</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-01_reader_rasteranalyse.html" class="">Reader Räumliche Analysen</a>
+		  </span>
+          <ul>
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-01_reader_rasteranalyse.html" class="">Rasterbasierte räumliche Analysemethoden</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-02_reader_rasteranalyse.html" class="">Geometrische Analysen - Thiessen Polygone</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-03_reader_rasteranalyse.html" class="">Informationsloser Raum  – Distanz-basierte Interpolation</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-04_reader_rasteranalyse.html" class="">Digitale Geländemodelle  – Von der Höhe zur komplexen Information</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-05_reader_rasteranalyse.html" class="">– Funktionale Ableitungen</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-06_reader_rasteranalyse.html" class="">– Sichtweite und Sichtfeld</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-07_reader_rasteranalyse.html" class="">– Prozessorientierte Ableitung von Informationen</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-08_reader_rasteranalyse.html" class="active">Quellenverzeichnis</a></li>
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit05/unit05-01_reader_mce.html" class="">Reader Entscheidungsfindung</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit06/unit06-01_reader_PA.html" class="">Reader Projektarbeit</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit08/unit08-01_reader_QGIS_01.html" class="">Reader QGIS</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit09/unit09-02_worksheet.html" class="">Arbeitsblätter</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+  </ul>
+</nav>
+	      
+    
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Quellenverzeichnis">
+    <meta itemprop="description" content="  Bartels, D., 1968. Zur wissenschaftstheo- retischen Grundlegung einer Geographie des Menschen. Wiesbaden: Steiner.  Baumgartner, H., 1995. Wölfe: Die Räuber kommen wieder. Facts, Nr. 29, 86. )  Berry, B.J.L., Marble, D.F., 1998. Spatial Analysis: A Reader in Statistical Geography. Englewood Cliffs, New Jersey: Prentice Hall.  Bill, R., 1999. Grundlagen der Geo-Informationssysteme. Karlsruhe: Wichmann Verlag.  Boots, B., 1999. Spatial Tessellations.  Brändli, M., 1997. Modelle und Methoden für die Extraktion geomorphologischer und hydrologischer Objekte aus digitalen Geländemodellen. Unpublished . Geographisches Institut der Universität Zürich.  Burrough, P.A., McDonnell, R.A., 1998. Principles of Geographical Information Systems. New York: Oxford University Press.  GIS.MA (2009). GISMA online. Marburg: GISMA.  GITTA (2005). Geographic Information Technology Training Alliance online [Accessed 19.3.2009].  Hard, G., 1970. Die Landschaft der Sprache und die Landschaft der Geographen semantische und forschungslogische Studien zu einigen zentralen Denkfiguren in der deutschen geographischen Literatur.. Colloquium geographicum , 11, .  Horn, B., 1981. Hill shading and the reflectance map. In: Proceedings of the IEEE, vol. 69. p. 14-47.  Hugentobler, M., 2000. Fortpflanzung von Unsicherheiten in dreiecksbasierten digitalen Geländemodellen mit Intervallarithmetik. Published (Diplomarbeit). Geographisches Institut der Universität Zürich.  Jones, Ch., 1997. Geographical Information Systems and Computer Cartography. Longman Singapore Publishers (pte) Ltd..  Kaiser, F.J., 1983. Die Fallstudie: Theorie und Praxis der Fallstudiendidaktik 6. Bad Heilbrunn: Klinkhardt.  KORA, 2005. Koordinierte Forschungsprojekte zur Erhaltung und zum Management der Raubtiere in der Schweiz. Bern: BUWAL.  Mitas, L.; Mitasova, H., 1999. Spatial Interpolation. In: Longley, P. A.; Goodchild, M. F.; Maguire, D. J.; Rhind, D. W., ed. Geographical Information Systems (GIS): Principles, Techniques, Management and Applications. New York: John Wiley, 481–492. Herunterladen  Monheim, H., Schwarte, M., Winkelkötter, C., 1999. Die deutsche Geographie dreißig Jahre nach Kiel Stadt-Land-Fluß oder ernstzunehmende Raumwissenschaft?. Standort – Zeitschrift für angewandte Geographie, Volume 23, Number 3, 46-49.  Moore, I. D., 1996. Hydrological Modeling and GIS. In: M. F. Goodchild, L. T. Steyaert, B. O. Parks, C. Johnston, D. Maidment, M. Crane, and S. Glendinning, ed. GIS and Environmental Modeling: Progress and Research Issues. Fort Collins, Colorado: GIS World Books.  Müller, C., 2007. Implementation von Problem-based Learning. Bern: hep-verlag.  Müller, J.; Jäggi, M.; Katz, W.;; Petrascheck, A.; Zimmermann, M.; Vuilleumier, M., 1991. Fallstudie Hochwasser. In: Frey, K., ed. ETH-Fallstudien. Zürich: Orell-Füssli-Verlag.  Reinmann-Rothmeier, G. &amp; H. Mandl, 2001. Unterrichten und Lernumgebungen gestalten. In: Krapp, A. B. Weidemann, ed. Pädagogische Psychologie. Ein Lehrbuch.. Weinheim: BeltzPVU.  Shepard, D., 1968. A two-dimensional interpolation function for irregularly-spaced data. In: Proceedings of the 1968 23rd ACM national conference. 517–523.  Swisstopo, 1991. Digital Terrain Model DTM/DHM25, 1:25000. Bern: Swisstopo. Reproduced with authorisation by swisstopo (BA057224) Herunterladen  Swisstopo, 2000. Landeskarte der Schweiz – Blatt Albis 1111, 1:25000. Bern: Swisstopo. Reproduziert mit Bewilligung von swisstopo (BA057224) Herunterladen  Wilson, J. , Gallant, J., 2000. Terrain Analysis: Principles and Applications. New York: John Wiley and sons.  Wood, J. (2005). LandSerf online[Accessed 2009-10-08].  Worboys, Michael F., 1996. Metrics and topologies for geographic space. In: Kraak, M. J., Molenaar, M., ed. Advances in Geographical Information Systems Research II: Proceedings of the International Symposium on Spatial Datat handling. International Geographical Union, 7A.1–7A.11. Herunterladen  Wyatt, P., 2000. The Interpolation Process. Directions Magazine. Herunterladen  Zevenbergen, L.; Thorne, C., 1987. Quantitative analysis of land surface topography. Earth Surface Processes and Landforms, 12 (1), p. 47-56.">
+    <meta itemprop="datePublished" content="2020-11-12T11:04:15+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Quellenverzeichnis
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Inhalt</h4></header>
+              
+
+            </nav>
+          </aside>
+        
+        <ul>
+  <li><strong>Bartels, D.</strong>, 1968. Zur wissenschaftstheo- retischen Grundlegung einer Geographie des Menschen. Wiesbaden: Steiner.</li>
+  <li><strong>Baumgartner, H.</strong>, 1995. Wölfe: Die Räuber kommen wieder. Facts, Nr. 29, 86. )</li>
+  <li><strong>Berry, B.J.L., Marble, D.F.</strong>, 1998. Spatial Analysis: A Reader in Statistical Geography. Englewood Cliffs, New Jersey: Prentice Hall.</li>
+  <li><strong>Bill, R.</strong>, 1999. Grundlagen der Geo-Informationssysteme. Karlsruhe: Wichmann Verlag.</li>
+  <li><strong>Boots, B.</strong>, 1999. Spatial Tessellations.</li>
+  <li><strong>Brändli, M.</strong>, 1997. Modelle und Methoden für die Extraktion geomorphologischer und hydrologischer Objekte aus digitalen Geländemodellen. Unpublished . Geographisches Institut der Universität Zürich.</li>
+  <li><strong>Burrough, P.A., McDonnell, R.A.</strong>, 1998. Principles of Geographical Information Systems. New York: Oxford University Press.</li>
+  <li><strong>GIS.MA</strong> (2009). GISMA <a href="https://minibsc.gis-ma.org/GISBScL3/de/html/index.html">online</a>. Marburg: GISMA.</li>
+  <li><strong>GITTA</strong> (2005). Geographic Information Technology Training Alliance <a href="http://www.gitta.info/website/en/html/modules_overview.html">online</a> [Accessed 19.3.2009].</li>
+  <li><strong>Hard, G.</strong>, 1970. Die Landschaft der Sprache und die Landschaft der Geographen semantische und forschungslogische Studien zu einigen zentralen Denkfiguren in der deutschen geographischen Literatur.. Colloquium geographicum , 11, .</li>
+  <li><strong>Horn, B.</strong>, 1981. Hill shading and the reflectance map. In: Proceedings of the IEEE, vol. 69. p. 14-47.</li>
+  <li><strong>Hugentobler, M.</strong>, 2000. Fortpflanzung von Unsicherheiten in dreiecksbasierten digitalen Geländemodellen mit Intervallarithmetik. Published (Diplomarbeit). Geographisches Institut der Universität Zürich.</li>
+  <li><strong>Jones, Ch.</strong>, 1997. Geographical Information Systems and Computer Cartography. Longman Singapore Publishers (pte) Ltd..</li>
+  <li><strong>Kaiser, F.J.</strong>, 1983. Die Fallstudie: Theorie und Praxis der Fallstudiendidaktik 6. Bad Heilbrunn: Klinkhardt.</li>
+  <li><strong>KORA</strong>, 2005. Koordinierte Forschungsprojekte zur Erhaltung und zum Management der Raubtiere in der Schweiz. Bern: BUWAL.</li>
+  <li><strong>Mitas, L.; Mitasova, H.</strong>, 1999. Spatial Interpolation. In: Longley, <strong>P. A.; Goodchild, M. F.; Maguire</strong>, D. J.; Rhind, D. W., ed. Geographical Information Systems (GIS): Principles, Techniques, Management and Applications. New York: John Wiley, 481–492. <a href="http://altair.physics.ncsu.edu/">Herunterladen</a></li>
+  <li><strong>Monheim, H., Schwarte, M., Winkelkötter, C.</strong>, 1999. Die deutsche Geographie dreißig Jahre nach Kiel Stadt-Land-Fluß oder ernstzunehmende Raumwissenschaft?. Standort – Zeitschrift für angewandte Geographie, Volume 23, Number 3, 46-49.</li>
+  <li><strong>Moore, I. D.</strong>, 1996. Hydrological Modeling and GIS. In: <strong>M. F. Goodchild, L. T. Steyaert, B. O. Parks, C. Johnston, D. Maidment, M. Crane, and S. Glendinning</strong>, ed. GIS and Environmental Modeling: Progress and Research Issues. Fort Collins, Colorado: GIS World Books.</li>
+  <li><strong>Müller, C.</strong>, 2007. Implementation von Problem-based Learning. Bern: hep-verlag.</li>
+  <li><strong>Müller, J.; Jäggi, M.; Katz, W.;; Petrascheck, A.; Zimmermann, M.; Vuilleumier, M.</strong>, 1991. Fallstudie Hochwasser. In: <strong>Frey, K.</strong>, ed. ETH-Fallstudien. Zürich: Orell-Füssli-Verlag.</li>
+  <li><strong>Reinmann-Rothmeier, G. &amp; H. Mandl</strong>, 2001. Unterrichten und Lernumgebungen gestalten. In: <strong>Krapp, A. B. Weidemann</strong>, ed. Pädagogische Psychologie. Ein Lehrbuch.. Weinheim: BeltzPVU.</li>
+  <li><strong>Shepard, D.</strong>, 1968. A two-dimensional interpolation function for irregularly-spaced data. In: Proceedings of the 1968 23rd ACM national conference. 517–523.</li>
+  <li><strong>Swisstopo</strong>, 1991. Digital Terrain Model DTM/DHM25, 1:25000. Bern: Swisstopo. Reproduced with authorisation by swisstopo (BA057224) <a href="http://www.swisstopo.ch/">Herunterladen</a></li>
+  <li><strong>Swisstopo</strong>, 2000. Landeskarte der Schweiz – Blatt Albis 1111, 1:25000. Bern: Swisstopo. Reproduziert mit Bewilligung von swisstopo (BA057224) <a href="http://www.swisstopo.ch/">Herunterladen</a></li>
+  <li><strong>Wilson, J. , Gallant, J</strong>., 2000. Terrain Analysis: Principles and Applications. New York: John Wiley and sons.</li>
+  <li><strong>Wood, J.</strong> (2005). LandSerf <a href="http://www.landserf.org/">online</a>[Accessed 2009-10-08].</li>
+  <li><strong>Worboys, Michael F.</strong>, 1996. Metrics and topologies for geographic space. In: <strong>Kraak, M. J., Molenaar, M.</strong>, ed. Advances in Geographical Information Systems Research II: Proceedings of the International Symposium on Spatial Datat handling. International Geographical Union, 7A.1–7A.11. <a href="http://www.spatial.maine.edu/%7Eworboys/mywebpapers/sdh1996.pdf">Herunterladen</a></li>
+  <li><strong>Wyatt, P.</strong>, 2000. The Interpolation Process. Directions Magazine. <a href="http://www.directionsmag.com/article.php?article_id=52f">Herunterladen</a></li>
+  <li><strong>Zevenbergen, L.; Thorne, C.</strong>, 1987. Quantitative analysis of land surface topography. Earth Surface Processes and Landforms, 12 (1), p. 47-56.</li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-11-12T11:04:15+01:00">November 12, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/moer-bsc-geoinformatics-basic-one/unit04/unit04-07_reader_rasteranalyse.html" class="pagination--pager" title="– Prozessorientierte Ableitung von Informationen
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+      <li><a href="https://twitter.com/creuden"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="https://github.com/GeoMOER"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright"> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> &copy; 2020 Lab of Environmental Informatics
+. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>, <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> &amp; <a href="https://www.uni-marburg.de/fb19" rel="nofollow">Geography@Marburg University</a>.</div>
+
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/moer-bsc-geoinformatics-basic-one/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

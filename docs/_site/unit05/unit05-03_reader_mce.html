@@ -1,0 +1,672 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Kriterienverschneidung | Lab of Environmental Informatics</title>
+<meta name="description" content="Das Prinzip der Verschneidung („overlay“) räumlicher Daten ist konzeptionell sehr einfach. Zunächst werden zwei oder mehr thematische Informationsebenen desselben Raumausschnittes überlagert. Da es sich um die Manipulation von Geometrien handelt wird die Topologie der neuen Datenebene aufgrund dieser Überlagerung neuberechnet. Bezogen auf ein Vektordatenmodell sieht das wie folgt aus: Liegt ein betrachteter Punkt innerhalb eines Polygons, erhält er diese Information als neues Attribut. Schneiden sich zwei Linien, so wird an ihrem Schnittpunkt ein neuer Knoten eingeführt. Schneiden sich zwei Polygone, erhält die Schnittmenge eine eigene Identifikationsnummer usw.. Damit diese räumliche Datenintegration korrekt ist, müssen alle Eingangsebenen ein identisches Referenzierungssystem aufweisen. Die Integration von Informationen aus verschiedenen Quellen durch Verschneidung ist eine der bedeutendsten räumlichen Grundfunktionen eines GIS.  Boolesche Verschneidung  In einfachen Eignungsanalysen führt oft bereits die logische Kombination von wahr/falsch-Informationen zur Lösung. Angenommen, die in den Marburger Uniwald eingewanderte Wildkatze siedelt nur im Laubwald und nur in steilen Gebieten, so reichen wenige logische Überlegungen, um die geeigneten Lebensräume für die Katze zu ermitteln. Jedes dieser beiden Kriterien kann mit einer binären Informationsebene modelliert werden (Wald/Nicht-Wald und Steil/Nicht-Steil). Als potenzielle Lebensräume eignen sich nun genau die Gebiete, für die beide Kriterien zutreffen. Mit anderen Worten: Gebiete, die wahr sind für Wald UND für steil. Die Boolesche Verschneidung eignet sich v. a. bei Eignungsanalysen mit randscharfen und klar ausschliessenden Kriterien. Kann als Katzenlebensraum das Siedlungsgebiet und die landwirtschaftliche Nutzfläche zum Beginn der Analyse bereits ausgeschlossen werden, so ist das potenzielle Eignungsgebiet mit einer einfachen Booleschen Verschneidung rasch  ermittelt.  Für viele Fragen ist allerdings die Einteilung der Welt in nur zwei Kategorien unbefriedigend oder besser unzureichend. So lassen sich v. a. für Kriterien der natürlichen Umwelt selten trennscharfe Grenzen angeben.  Die gewichtete Verschneidung  Für viele Fragestellungen stellt die Einteilung der Realität in die binäre Kategorie wahr oder falsch  eine unzureichende Abbildung der Realität dar. Die gleichgewichtete ausschliessende Wirksamkeit der Einflussfaktoren bildet meist nicht die reale Gewichtungen von Entscheidungen ab.  So mag, wer ein neues Mobiltelefon kauft, Marke und Funktion bedeutsamer finden als Displaygröße, Preis oder Robustheit. Dieses allgemeine Prinzip der Gewichtung von Einflussfaktoren wird auch bei der Eignungsanalyse mit GIS verwendet. Der entsprechende Ansatz heißt gewichtete Verschneidung.  In vielen Raumanalysen sind bestimmte Kriterien bezogen auf die Zielsetzung um ein n-faches wichtiger als andere. Oft ist es gerade ein Anspruch an eine Standortsuche, mehrere geeignete Orte darauf hin zu vergleichen, ob und wie stark sie einer Reihe von unterschiedlich wichtigen Kriterien entsprechen. Durch das Ebenenprinzip der GI-Systeme lässt sich die Verschneidung sehr einfach um die Idee unterschiedlich wichtiger Kriterien erweitern. Jeder Themenebene wird entsprechend ihrer relativen Bedeutung gegenüber den anderen ein numerischer Gewichtsfaktor zugeordnet. Anschließend werden die derart gewichteten Informationsebenen verschnitten wie bisher. Wie die Boolesche Verschneidung ist auch die gewichtete Verschneidung grundsätzlich sowohl im Raster- als auch im Vektormodell möglich. So könnten z.B. Tourismusexperten einer Urlaubsinsel die negative Wirkung von Hotels und Bars für ein Alternativtourismuskonzept mit dem Faktor 0.1 und  Quad-Trek-Routen durchs Binnenland mit dem Faktor 1 gewichten. In der Regel sollten die Wertebereiche der Eingangs-Informationsebenen normalisiert sein (also zwischen z.B. 0 und 1 skaliert). In der entstehenden Eignungsebene werden die geeigneten Räume oder Standorte durch besonders hohe Werte identifizierbar.  Katzen im LAhntal  Betrachten Sie das folgende Beispiel. Hier wird die gewichtete Verschneidung am Beispiel des Wildkatzenlebensraums im Marburger Uniwald eingeführt. Im Hinblick auf eine realistischere Modellierung der geeigneten Lebensräume verwendet das folgende Beispiel nicht mehr ausschließlich binäre Eingangsdaten wie die Boolesche Verschneidung, sondern sogenannte Ratiodaten:     Vegetationsdichte anstelle „Wald/Nicht-Wald“   Hangneigung anstelle „steil/nicht-steil“   Bevölkerungsdichte anstelle „Siedlung/Nicht-Siedlung“   Der wohl einfachste Ansatz für eine gewichtete Verschneidung bildet die gewichtete lineare Summierung im Rastermodell. Die folgenden Punkte zeigen das Standardvorgehen bei der Anwendung dieses Algorithmus:     Kriterienwahl: Der erste Schritt besteht in der Wahl der Kriterien, die den gesuchten Raum charakterisieren.   Standardisierung: Nun müssen die unterschiedlichen Messskalen der Eingangsdatensätze aufeinander abgestimmt werden. Es wenig sinnvoll, die prozentuale Hangneigung direkt mit einer Bevölkerungsdichte zu verrechnen. Deshalb weist man den Eingangsdaten völlig verschiedene Einheiten einer standardisierten numerischen Indexskala zu (beispielsweise 0–1, 0–100, 0–255). Daraus folgt, dass die Werte der resultierenden Eignungsebenen keine Einheiten mehr tragen, sondern lediglich einen numerischen Eignungsindex. Die Zuordnung der Eingangswerte auf die Indexskala kann auf verschiedene Weise erfolgen, am einfachsten ist eine lineare Zuordnung. Bei der gewichteten Verschneidung bezeichnet die Standardisierung die Übersetzung der heterogenen Eingangsdaten in eine für alle Ebenen einheitliche Skala.   Verteilung der Gewichte: Weiter erhält jede Informationsebene einen Multiplikator, ein Gewicht. Die Gewichte widerspiegeln die relative Bedeutung der Informationsebenen zueinander. Die wichtigste Ebene erhält das größte Gewicht. Die richtige Wahl der Gewichte wird in „Bestimmung der Gewichte“ behandelt.   Anwendung des Algorithmus: Beim Algorithmus der gewichteten linearen Summierung werden alle Rasterzellen einer Informationsebene mit ihrem Gewicht multipliziert und die Ebenen anschließend addiert. In der resultierenden Eignungsebene weisen die geeigneten Rasterzellen hohe, die ungeeigneten hingegen tiefe Werte auf.                               Weighted Overlay im Rasterdatenmodell (GITTA 2005)                                           Weighted Overlay im Vektordatenmodell (GITTA 2005)               In dieser Darstellung erhielten die beiden Eignungskriterien für den Katzenlebensraum im Lahntal Gewichte entsprechend ihrer relativen Bedeutung. Die Infomationsebene „bewaldet“ wird mit dem Faktor 3 gewichtet, diejenige mit dem Kriterium „steiles Gelände“ mit dem Faktor 2. Nach der Zuweisung der Gewichte werden die beiden Ebenen addiert. Die Eignungswerte der resultierenden Informationsebene reichen von 0 (ungeeignet) bis 5 (sehr geeignet).  Methoden zur Bestimmung der Gewichte  Im Prozess der Entscheidungsfindung ist, wie bereits angeschnitten wurde, für verschiedenen Interessengruppen die einzelnen Bewertung und Bedeutung der einzelnen Kriterien unterschiedlich. Wie sollen solche Bewertungen vergleichbar gemacht werden? Genau die gleiche Frage stellt sich bei der Suche nach dem Lebensraum für den Wolf in St. Gittal. Angenommen die Experten und Expertinnen hätten sich darauf geeinigt, eine gewichtete Verschneidung für ihre Eignungsanalyse zu verwenden. Wie sollen sie nun die einzelnen Kriterien gewichten? Wie kommen die Experten darauf, dass etwa das Kriterium „Rückzugsgebiet Wald“ 1,5-mal so wichtig sein soll wie „steiles und felsiges Gelände“? Die Verteilung der Gewichte ist bei einer Eignungsanalyse mit gewichteter Verschneidung genauso wichtig wie schwierig. Diese Unit zeigt drei Methoden, wie im Dialog mit den Experten eine Gewichtung der Kriterien erfolgen kann.  Gewichtung nach Ranglisten  Am einfachsten erfolgt eine Gewichtung über eine Rangierung („ranking“) der Kriterien. Dabei kann aufsteigend oder absteigend rangiert werden. Aufsteigend bedeutet, dass das wichtigste Kriterium den Rang 1 erhält, das zweitwichtigste den Rang 2 usw. Durch eine absteigende Rangierung erhält das unwichtigste Kriterium den Rang 1, das nächst wichtigere den Rang 2 usw. Sind die Ränge einmal verteilt, können die den Rängen entsprechenden numerischen Gewichte auf verschiedene Weise abgeleitet werden.     Summierend: Bei n Kriterien erhält der Rang r das Gewicht n – r + 1.   Reziprok: Bei n Kriterien erhält der Rang r das Gewicht 1 / r, also seinen Kehrwert.   Exponentiell: Bei n Kriterien erhält der Rang r das Gewicht (n – r + 1) ^ p. Dabei ist der Exponent p ein Parameter, um die Verteilung der Gewichte zu steuern. Ist p = 0, erhalten alle Kriterien das gleiche Gewicht. Der Wert p = 1 gewichtet wie die summierende Gewichtung. Je höher p wird, desto steiler wird die Gewichtsverteilung.   Meist werden die einzelnen Gewichte um eine einfache Vergleichbarkeit zu erhalten normalisiert: Durch die Division der einzelnen Gewichte durch die Summe aller Gewichte werden die einzelnen Gewichte zu Bruchzahlen im Wertebereich 0-1 umgerechnet. Die Summe der normalisierten Gewichte beträgt 1.  Kritische Diskussion der Gewichtungsmethoden  Auch die gewichtete Verschneidung hat Schwachpunkte und weist Probleme auf. Das größte Problem bildet sicher die Zuordnung der Gewichte. Wie Sie selbst gesehen haben, beeinflussen sie das Resultat einer Eignungsanalyse erheblich. Mit welcher Rechtfertigung erhielt die Vegetationsebene im obigen Beispiel das größte Gewicht? Meist nehmen Experten und Expertinnen diese Gewichtung vor und berufen sich dabei auf Angaben in der Fachliteratur. Aber unterschiedliche Fachleute werden die Gewichtung der Kriterien je nach eigenen Interessen unterschiedlich vornehmen. So dürften Biologen, Touristiker und Jäger die Gewichtungen zur Bestimmung der geeigneten Wolfslebensräume in St. Gittal sehr unterschiedlich vornehmen. Im obigen Beispiel erfolgte die Gewichtung willkürlich. Die folgende Unit zeigt, dass es auch andere Vorgehensweisen gibt. Weiter gilt es festzuhalten, dass in vielen SDSS-Anwendungen gezielt ein experimenteller Umgang mit der Gewichtsverteilung gepflegt wird. Im Sinne von „was wäre wenn“-Szenarien kann so der Einfluss verschiedener Kriterien in einer Eignunsanalyse untersucht werden. Ein weiteres Problemfeld ist die Wahl des Evaluationsalgorithmus. Anstatt einer linearen Zuordnung der Eingangs- auf die Indexskala, wären beliebige andere Funktionen denkbar. Und anstatt die gewichteten Eingangsebenen zu summieren, könnten sie auch z. B. multipliziert oder verrechnet werden. Die Resultate einer Eignungsanalyse können selbst bei identischen Eingangsdaten und identischen Gewichten je nach Wahl des Verrechnungsmodus beträchtlich variieren. Aus diesen Gründen ist beim Einsatz der gewichteten Verschneidung stets darauf zu achten, die Entstehungsbedingungen der Resultate klar aufzuzeigen. Nur so können die Eignungskarten als das dienen, was sie wirklich sind: ein objektives Hilfsmittel zur Entscheidungsunterstützung.  Die gezeigten Methoden unterscheiden sich durch die ihnen zugrunde liegende Skala. Die Gewichtung nach Ranglisten und die Gewichtung durch Einstufungstehen weitgehnd ohne theoretische Grundlage da. Welche der Methoden zum Einsatz kommt, hängt von einer Reihe von Fragen ab: Wie genau muss die Analyse sein? Wie gross ist die Fachkompetenz und die Erfahrung der Fachleute mit gewichteter Verschneidung? Oder wie schwierig ist die Integration der Methode in ein GIS? Die grosse Gefahr beim Einsatz von Gewichtungen in der räumlichen MCE liegt in der unbedarften, unvorsichtigen oder falschen Festlegung der Gewichte. Falsche Gewichte führen zu falschen Resultaten der Eignungsanalyse und können so zu falschen Entscheidungen führen. Diese Gefahr besteht bei allen drei Methoden, da die Gewichtung letztlich immer in der Verantwortung von Fachleuten liegt.  Jede Eignungskarte oder Raumanalyse muss vollständig Transparenz darstellen wie sie aus welchen Gründen erzeugt wurde  Denken Sie mit…     Betrachten Sie erneut die Übung zur gewichteten Verschneidung.   Wie würden Sie vorhehen um eine transparente Dokumentation ihrer gewählten Gewichte vorzunehmen?   Wie würden Sie vorgehen um die Gewichte zu ermitteln?   ">
+
+
+  <meta name="author" content="Christoph Reudenbach">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Lab of Environmental Informatics">
+<meta property="og:title" content="Kriterienverschneidung">
+<meta property="og:url" content="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit05/unit05-03_reader_mce.html">
+
+
+  <meta property="og:description" content="Das Prinzip der Verschneidung („overlay“) räumlicher Daten ist konzeptionell sehr einfach. Zunächst werden zwei oder mehr thematische Informationsebenen desselben Raumausschnittes überlagert. Da es sich um die Manipulation von Geometrien handelt wird die Topologie der neuen Datenebene aufgrund dieser Überlagerung neuberechnet. Bezogen auf ein Vektordatenmodell sieht das wie folgt aus: Liegt ein betrachteter Punkt innerhalb eines Polygons, erhält er diese Information als neues Attribut. Schneiden sich zwei Linien, so wird an ihrem Schnittpunkt ein neuer Knoten eingeführt. Schneiden sich zwei Polygone, erhält die Schnittmenge eine eigene Identifikationsnummer usw.. Damit diese räumliche Datenintegration korrekt ist, müssen alle Eingangsebenen ein identisches Referenzierungssystem aufweisen. Die Integration von Informationen aus verschiedenen Quellen durch Verschneidung ist eine der bedeutendsten räumlichen Grundfunktionen eines GIS.  Boolesche Verschneidung  In einfachen Eignungsanalysen führt oft bereits die logische Kombination von wahr/falsch-Informationen zur Lösung. Angenommen, die in den Marburger Uniwald eingewanderte Wildkatze siedelt nur im Laubwald und nur in steilen Gebieten, so reichen wenige logische Überlegungen, um die geeigneten Lebensräume für die Katze zu ermitteln. Jedes dieser beiden Kriterien kann mit einer binären Informationsebene modelliert werden (Wald/Nicht-Wald und Steil/Nicht-Steil). Als potenzielle Lebensräume eignen sich nun genau die Gebiete, für die beide Kriterien zutreffen. Mit anderen Worten: Gebiete, die wahr sind für Wald UND für steil. Die Boolesche Verschneidung eignet sich v. a. bei Eignungsanalysen mit randscharfen und klar ausschliessenden Kriterien. Kann als Katzenlebensraum das Siedlungsgebiet und die landwirtschaftliche Nutzfläche zum Beginn der Analyse bereits ausgeschlossen werden, so ist das potenzielle Eignungsgebiet mit einer einfachen Booleschen Verschneidung rasch  ermittelt.  Für viele Fragen ist allerdings die Einteilung der Welt in nur zwei Kategorien unbefriedigend oder besser unzureichend. So lassen sich v. a. für Kriterien der natürlichen Umwelt selten trennscharfe Grenzen angeben.  Die gewichtete Verschneidung  Für viele Fragestellungen stellt die Einteilung der Realität in die binäre Kategorie wahr oder falsch  eine unzureichende Abbildung der Realität dar. Die gleichgewichtete ausschliessende Wirksamkeit der Einflussfaktoren bildet meist nicht die reale Gewichtungen von Entscheidungen ab.  So mag, wer ein neues Mobiltelefon kauft, Marke und Funktion bedeutsamer finden als Displaygröße, Preis oder Robustheit. Dieses allgemeine Prinzip der Gewichtung von Einflussfaktoren wird auch bei der Eignungsanalyse mit GIS verwendet. Der entsprechende Ansatz heißt gewichtete Verschneidung.  In vielen Raumanalysen sind bestimmte Kriterien bezogen auf die Zielsetzung um ein n-faches wichtiger als andere. Oft ist es gerade ein Anspruch an eine Standortsuche, mehrere geeignete Orte darauf hin zu vergleichen, ob und wie stark sie einer Reihe von unterschiedlich wichtigen Kriterien entsprechen. Durch das Ebenenprinzip der GI-Systeme lässt sich die Verschneidung sehr einfach um die Idee unterschiedlich wichtiger Kriterien erweitern. Jeder Themenebene wird entsprechend ihrer relativen Bedeutung gegenüber den anderen ein numerischer Gewichtsfaktor zugeordnet. Anschließend werden die derart gewichteten Informationsebenen verschnitten wie bisher. Wie die Boolesche Verschneidung ist auch die gewichtete Verschneidung grundsätzlich sowohl im Raster- als auch im Vektormodell möglich. So könnten z.B. Tourismusexperten einer Urlaubsinsel die negative Wirkung von Hotels und Bars für ein Alternativtourismuskonzept mit dem Faktor 0.1 und  Quad-Trek-Routen durchs Binnenland mit dem Faktor 1 gewichten. In der Regel sollten die Wertebereiche der Eingangs-Informationsebenen normalisiert sein (also zwischen z.B. 0 und 1 skaliert). In der entstehenden Eignungsebene werden die geeigneten Räume oder Standorte durch besonders hohe Werte identifizierbar.  Katzen im LAhntal  Betrachten Sie das folgende Beispiel. Hier wird die gewichtete Verschneidung am Beispiel des Wildkatzenlebensraums im Marburger Uniwald eingeführt. Im Hinblick auf eine realistischere Modellierung der geeigneten Lebensräume verwendet das folgende Beispiel nicht mehr ausschließlich binäre Eingangsdaten wie die Boolesche Verschneidung, sondern sogenannte Ratiodaten:     Vegetationsdichte anstelle „Wald/Nicht-Wald“   Hangneigung anstelle „steil/nicht-steil“   Bevölkerungsdichte anstelle „Siedlung/Nicht-Siedlung“   Der wohl einfachste Ansatz für eine gewichtete Verschneidung bildet die gewichtete lineare Summierung im Rastermodell. Die folgenden Punkte zeigen das Standardvorgehen bei der Anwendung dieses Algorithmus:     Kriterienwahl: Der erste Schritt besteht in der Wahl der Kriterien, die den gesuchten Raum charakterisieren.   Standardisierung: Nun müssen die unterschiedlichen Messskalen der Eingangsdatensätze aufeinander abgestimmt werden. Es wenig sinnvoll, die prozentuale Hangneigung direkt mit einer Bevölkerungsdichte zu verrechnen. Deshalb weist man den Eingangsdaten völlig verschiedene Einheiten einer standardisierten numerischen Indexskala zu (beispielsweise 0–1, 0–100, 0–255). Daraus folgt, dass die Werte der resultierenden Eignungsebenen keine Einheiten mehr tragen, sondern lediglich einen numerischen Eignungsindex. Die Zuordnung der Eingangswerte auf die Indexskala kann auf verschiedene Weise erfolgen, am einfachsten ist eine lineare Zuordnung. Bei der gewichteten Verschneidung bezeichnet die Standardisierung die Übersetzung der heterogenen Eingangsdaten in eine für alle Ebenen einheitliche Skala.   Verteilung der Gewichte: Weiter erhält jede Informationsebene einen Multiplikator, ein Gewicht. Die Gewichte widerspiegeln die relative Bedeutung der Informationsebenen zueinander. Die wichtigste Ebene erhält das größte Gewicht. Die richtige Wahl der Gewichte wird in „Bestimmung der Gewichte“ behandelt.   Anwendung des Algorithmus: Beim Algorithmus der gewichteten linearen Summierung werden alle Rasterzellen einer Informationsebene mit ihrem Gewicht multipliziert und die Ebenen anschließend addiert. In der resultierenden Eignungsebene weisen die geeigneten Rasterzellen hohe, die ungeeigneten hingegen tiefe Werte auf.                               Weighted Overlay im Rasterdatenmodell (GITTA 2005)                                           Weighted Overlay im Vektordatenmodell (GITTA 2005)               In dieser Darstellung erhielten die beiden Eignungskriterien für den Katzenlebensraum im Lahntal Gewichte entsprechend ihrer relativen Bedeutung. Die Infomationsebene „bewaldet“ wird mit dem Faktor 3 gewichtet, diejenige mit dem Kriterium „steiles Gelände“ mit dem Faktor 2. Nach der Zuweisung der Gewichte werden die beiden Ebenen addiert. Die Eignungswerte der resultierenden Informationsebene reichen von 0 (ungeeignet) bis 5 (sehr geeignet).  Methoden zur Bestimmung der Gewichte  Im Prozess der Entscheidungsfindung ist, wie bereits angeschnitten wurde, für verschiedenen Interessengruppen die einzelnen Bewertung und Bedeutung der einzelnen Kriterien unterschiedlich. Wie sollen solche Bewertungen vergleichbar gemacht werden? Genau die gleiche Frage stellt sich bei der Suche nach dem Lebensraum für den Wolf in St. Gittal. Angenommen die Experten und Expertinnen hätten sich darauf geeinigt, eine gewichtete Verschneidung für ihre Eignungsanalyse zu verwenden. Wie sollen sie nun die einzelnen Kriterien gewichten? Wie kommen die Experten darauf, dass etwa das Kriterium „Rückzugsgebiet Wald“ 1,5-mal so wichtig sein soll wie „steiles und felsiges Gelände“? Die Verteilung der Gewichte ist bei einer Eignungsanalyse mit gewichteter Verschneidung genauso wichtig wie schwierig. Diese Unit zeigt drei Methoden, wie im Dialog mit den Experten eine Gewichtung der Kriterien erfolgen kann.  Gewichtung nach Ranglisten  Am einfachsten erfolgt eine Gewichtung über eine Rangierung („ranking“) der Kriterien. Dabei kann aufsteigend oder absteigend rangiert werden. Aufsteigend bedeutet, dass das wichtigste Kriterium den Rang 1 erhält, das zweitwichtigste den Rang 2 usw. Durch eine absteigende Rangierung erhält das unwichtigste Kriterium den Rang 1, das nächst wichtigere den Rang 2 usw. Sind die Ränge einmal verteilt, können die den Rängen entsprechenden numerischen Gewichte auf verschiedene Weise abgeleitet werden.     Summierend: Bei n Kriterien erhält der Rang r das Gewicht n – r + 1.   Reziprok: Bei n Kriterien erhält der Rang r das Gewicht 1 / r, also seinen Kehrwert.   Exponentiell: Bei n Kriterien erhält der Rang r das Gewicht (n – r + 1) ^ p. Dabei ist der Exponent p ein Parameter, um die Verteilung der Gewichte zu steuern. Ist p = 0, erhalten alle Kriterien das gleiche Gewicht. Der Wert p = 1 gewichtet wie die summierende Gewichtung. Je höher p wird, desto steiler wird die Gewichtsverteilung.   Meist werden die einzelnen Gewichte um eine einfache Vergleichbarkeit zu erhalten normalisiert: Durch die Division der einzelnen Gewichte durch die Summe aller Gewichte werden die einzelnen Gewichte zu Bruchzahlen im Wertebereich 0-1 umgerechnet. Die Summe der normalisierten Gewichte beträgt 1.  Kritische Diskussion der Gewichtungsmethoden  Auch die gewichtete Verschneidung hat Schwachpunkte und weist Probleme auf. Das größte Problem bildet sicher die Zuordnung der Gewichte. Wie Sie selbst gesehen haben, beeinflussen sie das Resultat einer Eignungsanalyse erheblich. Mit welcher Rechtfertigung erhielt die Vegetationsebene im obigen Beispiel das größte Gewicht? Meist nehmen Experten und Expertinnen diese Gewichtung vor und berufen sich dabei auf Angaben in der Fachliteratur. Aber unterschiedliche Fachleute werden die Gewichtung der Kriterien je nach eigenen Interessen unterschiedlich vornehmen. So dürften Biologen, Touristiker und Jäger die Gewichtungen zur Bestimmung der geeigneten Wolfslebensräume in St. Gittal sehr unterschiedlich vornehmen. Im obigen Beispiel erfolgte die Gewichtung willkürlich. Die folgende Unit zeigt, dass es auch andere Vorgehensweisen gibt. Weiter gilt es festzuhalten, dass in vielen SDSS-Anwendungen gezielt ein experimenteller Umgang mit der Gewichtsverteilung gepflegt wird. Im Sinne von „was wäre wenn“-Szenarien kann so der Einfluss verschiedener Kriterien in einer Eignunsanalyse untersucht werden. Ein weiteres Problemfeld ist die Wahl des Evaluationsalgorithmus. Anstatt einer linearen Zuordnung der Eingangs- auf die Indexskala, wären beliebige andere Funktionen denkbar. Und anstatt die gewichteten Eingangsebenen zu summieren, könnten sie auch z. B. multipliziert oder verrechnet werden. Die Resultate einer Eignungsanalyse können selbst bei identischen Eingangsdaten und identischen Gewichten je nach Wahl des Verrechnungsmodus beträchtlich variieren. Aus diesen Gründen ist beim Einsatz der gewichteten Verschneidung stets darauf zu achten, die Entstehungsbedingungen der Resultate klar aufzuzeigen. Nur so können die Eignungskarten als das dienen, was sie wirklich sind: ein objektives Hilfsmittel zur Entscheidungsunterstützung.  Die gezeigten Methoden unterscheiden sich durch die ihnen zugrunde liegende Skala. Die Gewichtung nach Ranglisten und die Gewichtung durch Einstufungstehen weitgehnd ohne theoretische Grundlage da. Welche der Methoden zum Einsatz kommt, hängt von einer Reihe von Fragen ab: Wie genau muss die Analyse sein? Wie gross ist die Fachkompetenz und die Erfahrung der Fachleute mit gewichteter Verschneidung? Oder wie schwierig ist die Integration der Methode in ein GIS? Die grosse Gefahr beim Einsatz von Gewichtungen in der räumlichen MCE liegt in der unbedarften, unvorsichtigen oder falschen Festlegung der Gewichte. Falsche Gewichte führen zu falschen Resultaten der Eignungsanalyse und können so zu falschen Entscheidungen führen. Diese Gefahr besteht bei allen drei Methoden, da die Gewichtung letztlich immer in der Verantwortung von Fachleuten liegt.  Jede Eignungskarte oder Raumanalyse muss vollständig Transparenz darstellen wie sie aus welchen Gründen erzeugt wurde  Denken Sie mit…     Betrachten Sie erneut die Übung zur gewichteten Verschneidung.   Wie würden Sie vorhehen um eine transparente Dokumentation ihrer gewählten Gewichte vorzunehmen?   Wie würden Sie vorgehen um die Gewichte zu ermitteln?   ">
+
+
+
+
+
+  <meta name="twitter:site" content="@creuden">
+  <meta name="twitter:title" content="Kriterienverschneidung">
+  <meta name="twitter:description" content="Das Prinzip der Verschneidung („overlay“) räumlicher Daten ist konzeptionell sehr einfach. Zunächst werden zwei oder mehr thematische Informationsebenen desselben Raumausschnittes überlagert. Da es sich um die Manipulation von Geometrien handelt wird die Topologie der neuen Datenebene aufgrund dieser Überlagerung neuberechnet. Bezogen auf ein Vektordatenmodell sieht das wie folgt aus: Liegt ein betrachteter Punkt innerhalb eines Polygons, erhält er diese Information als neues Attribut. Schneiden sich zwei Linien, so wird an ihrem Schnittpunkt ein neuer Knoten eingeführt. Schneiden sich zwei Polygone, erhält die Schnittmenge eine eigene Identifikationsnummer usw.. Damit diese räumliche Datenintegration korrekt ist, müssen alle Eingangsebenen ein identisches Referenzierungssystem aufweisen. Die Integration von Informationen aus verschiedenen Quellen durch Verschneidung ist eine der bedeutendsten räumlichen Grundfunktionen eines GIS.  Boolesche Verschneidung  In einfachen Eignungsanalysen führt oft bereits die logische Kombination von wahr/falsch-Informationen zur Lösung. Angenommen, die in den Marburger Uniwald eingewanderte Wildkatze siedelt nur im Laubwald und nur in steilen Gebieten, so reichen wenige logische Überlegungen, um die geeigneten Lebensräume für die Katze zu ermitteln. Jedes dieser beiden Kriterien kann mit einer binären Informationsebene modelliert werden (Wald/Nicht-Wald und Steil/Nicht-Steil). Als potenzielle Lebensräume eignen sich nun genau die Gebiete, für die beide Kriterien zutreffen. Mit anderen Worten: Gebiete, die wahr sind für Wald UND für steil. Die Boolesche Verschneidung eignet sich v. a. bei Eignungsanalysen mit randscharfen und klar ausschliessenden Kriterien. Kann als Katzenlebensraum das Siedlungsgebiet und die landwirtschaftliche Nutzfläche zum Beginn der Analyse bereits ausgeschlossen werden, so ist das potenzielle Eignungsgebiet mit einer einfachen Booleschen Verschneidung rasch  ermittelt.  Für viele Fragen ist allerdings die Einteilung der Welt in nur zwei Kategorien unbefriedigend oder besser unzureichend. So lassen sich v. a. für Kriterien der natürlichen Umwelt selten trennscharfe Grenzen angeben.  Die gewichtete Verschneidung  Für viele Fragestellungen stellt die Einteilung der Realität in die binäre Kategorie wahr oder falsch  eine unzureichende Abbildung der Realität dar. Die gleichgewichtete ausschliessende Wirksamkeit der Einflussfaktoren bildet meist nicht die reale Gewichtungen von Entscheidungen ab.  So mag, wer ein neues Mobiltelefon kauft, Marke und Funktion bedeutsamer finden als Displaygröße, Preis oder Robustheit. Dieses allgemeine Prinzip der Gewichtung von Einflussfaktoren wird auch bei der Eignungsanalyse mit GIS verwendet. Der entsprechende Ansatz heißt gewichtete Verschneidung.  In vielen Raumanalysen sind bestimmte Kriterien bezogen auf die Zielsetzung um ein n-faches wichtiger als andere. Oft ist es gerade ein Anspruch an eine Standortsuche, mehrere geeignete Orte darauf hin zu vergleichen, ob und wie stark sie einer Reihe von unterschiedlich wichtigen Kriterien entsprechen. Durch das Ebenenprinzip der GI-Systeme lässt sich die Verschneidung sehr einfach um die Idee unterschiedlich wichtiger Kriterien erweitern. Jeder Themenebene wird entsprechend ihrer relativen Bedeutung gegenüber den anderen ein numerischer Gewichtsfaktor zugeordnet. Anschließend werden die derart gewichteten Informationsebenen verschnitten wie bisher. Wie die Boolesche Verschneidung ist auch die gewichtete Verschneidung grundsätzlich sowohl im Raster- als auch im Vektormodell möglich. So könnten z.B. Tourismusexperten einer Urlaubsinsel die negative Wirkung von Hotels und Bars für ein Alternativtourismuskonzept mit dem Faktor 0.1 und  Quad-Trek-Routen durchs Binnenland mit dem Faktor 1 gewichten. In der Regel sollten die Wertebereiche der Eingangs-Informationsebenen normalisiert sein (also zwischen z.B. 0 und 1 skaliert). In der entstehenden Eignungsebene werden die geeigneten Räume oder Standorte durch besonders hohe Werte identifizierbar.  Katzen im LAhntal  Betrachten Sie das folgende Beispiel. Hier wird die gewichtete Verschneidung am Beispiel des Wildkatzenlebensraums im Marburger Uniwald eingeführt. Im Hinblick auf eine realistischere Modellierung der geeigneten Lebensräume verwendet das folgende Beispiel nicht mehr ausschließlich binäre Eingangsdaten wie die Boolesche Verschneidung, sondern sogenannte Ratiodaten:     Vegetationsdichte anstelle „Wald/Nicht-Wald“   Hangneigung anstelle „steil/nicht-steil“   Bevölkerungsdichte anstelle „Siedlung/Nicht-Siedlung“   Der wohl einfachste Ansatz für eine gewichtete Verschneidung bildet die gewichtete lineare Summierung im Rastermodell. Die folgenden Punkte zeigen das Standardvorgehen bei der Anwendung dieses Algorithmus:     Kriterienwahl: Der erste Schritt besteht in der Wahl der Kriterien, die den gesuchten Raum charakterisieren.   Standardisierung: Nun müssen die unterschiedlichen Messskalen der Eingangsdatensätze aufeinander abgestimmt werden. Es wenig sinnvoll, die prozentuale Hangneigung direkt mit einer Bevölkerungsdichte zu verrechnen. Deshalb weist man den Eingangsdaten völlig verschiedene Einheiten einer standardisierten numerischen Indexskala zu (beispielsweise 0–1, 0–100, 0–255). Daraus folgt, dass die Werte der resultierenden Eignungsebenen keine Einheiten mehr tragen, sondern lediglich einen numerischen Eignungsindex. Die Zuordnung der Eingangswerte auf die Indexskala kann auf verschiedene Weise erfolgen, am einfachsten ist eine lineare Zuordnung. Bei der gewichteten Verschneidung bezeichnet die Standardisierung die Übersetzung der heterogenen Eingangsdaten in eine für alle Ebenen einheitliche Skala.   Verteilung der Gewichte: Weiter erhält jede Informationsebene einen Multiplikator, ein Gewicht. Die Gewichte widerspiegeln die relative Bedeutung der Informationsebenen zueinander. Die wichtigste Ebene erhält das größte Gewicht. Die richtige Wahl der Gewichte wird in „Bestimmung der Gewichte“ behandelt.   Anwendung des Algorithmus: Beim Algorithmus der gewichteten linearen Summierung werden alle Rasterzellen einer Informationsebene mit ihrem Gewicht multipliziert und die Ebenen anschließend addiert. In der resultierenden Eignungsebene weisen die geeigneten Rasterzellen hohe, die ungeeigneten hingegen tiefe Werte auf.                               Weighted Overlay im Rasterdatenmodell (GITTA 2005)                                           Weighted Overlay im Vektordatenmodell (GITTA 2005)               In dieser Darstellung erhielten die beiden Eignungskriterien für den Katzenlebensraum im Lahntal Gewichte entsprechend ihrer relativen Bedeutung. Die Infomationsebene „bewaldet“ wird mit dem Faktor 3 gewichtet, diejenige mit dem Kriterium „steiles Gelände“ mit dem Faktor 2. Nach der Zuweisung der Gewichte werden die beiden Ebenen addiert. Die Eignungswerte der resultierenden Informationsebene reichen von 0 (ungeeignet) bis 5 (sehr geeignet).  Methoden zur Bestimmung der Gewichte  Im Prozess der Entscheidungsfindung ist, wie bereits angeschnitten wurde, für verschiedenen Interessengruppen die einzelnen Bewertung und Bedeutung der einzelnen Kriterien unterschiedlich. Wie sollen solche Bewertungen vergleichbar gemacht werden? Genau die gleiche Frage stellt sich bei der Suche nach dem Lebensraum für den Wolf in St. Gittal. Angenommen die Experten und Expertinnen hätten sich darauf geeinigt, eine gewichtete Verschneidung für ihre Eignungsanalyse zu verwenden. Wie sollen sie nun die einzelnen Kriterien gewichten? Wie kommen die Experten darauf, dass etwa das Kriterium „Rückzugsgebiet Wald“ 1,5-mal so wichtig sein soll wie „steiles und felsiges Gelände“? Die Verteilung der Gewichte ist bei einer Eignungsanalyse mit gewichteter Verschneidung genauso wichtig wie schwierig. Diese Unit zeigt drei Methoden, wie im Dialog mit den Experten eine Gewichtung der Kriterien erfolgen kann.  Gewichtung nach Ranglisten  Am einfachsten erfolgt eine Gewichtung über eine Rangierung („ranking“) der Kriterien. Dabei kann aufsteigend oder absteigend rangiert werden. Aufsteigend bedeutet, dass das wichtigste Kriterium den Rang 1 erhält, das zweitwichtigste den Rang 2 usw. Durch eine absteigende Rangierung erhält das unwichtigste Kriterium den Rang 1, das nächst wichtigere den Rang 2 usw. Sind die Ränge einmal verteilt, können die den Rängen entsprechenden numerischen Gewichte auf verschiedene Weise abgeleitet werden.     Summierend: Bei n Kriterien erhält der Rang r das Gewicht n – r + 1.   Reziprok: Bei n Kriterien erhält der Rang r das Gewicht 1 / r, also seinen Kehrwert.   Exponentiell: Bei n Kriterien erhält der Rang r das Gewicht (n – r + 1) ^ p. Dabei ist der Exponent p ein Parameter, um die Verteilung der Gewichte zu steuern. Ist p = 0, erhalten alle Kriterien das gleiche Gewicht. Der Wert p = 1 gewichtet wie die summierende Gewichtung. Je höher p wird, desto steiler wird die Gewichtsverteilung.   Meist werden die einzelnen Gewichte um eine einfache Vergleichbarkeit zu erhalten normalisiert: Durch die Division der einzelnen Gewichte durch die Summe aller Gewichte werden die einzelnen Gewichte zu Bruchzahlen im Wertebereich 0-1 umgerechnet. Die Summe der normalisierten Gewichte beträgt 1.  Kritische Diskussion der Gewichtungsmethoden  Auch die gewichtete Verschneidung hat Schwachpunkte und weist Probleme auf. Das größte Problem bildet sicher die Zuordnung der Gewichte. Wie Sie selbst gesehen haben, beeinflussen sie das Resultat einer Eignungsanalyse erheblich. Mit welcher Rechtfertigung erhielt die Vegetationsebene im obigen Beispiel das größte Gewicht? Meist nehmen Experten und Expertinnen diese Gewichtung vor und berufen sich dabei auf Angaben in der Fachliteratur. Aber unterschiedliche Fachleute werden die Gewichtung der Kriterien je nach eigenen Interessen unterschiedlich vornehmen. So dürften Biologen, Touristiker und Jäger die Gewichtungen zur Bestimmung der geeigneten Wolfslebensräume in St. Gittal sehr unterschiedlich vornehmen. Im obigen Beispiel erfolgte die Gewichtung willkürlich. Die folgende Unit zeigt, dass es auch andere Vorgehensweisen gibt. Weiter gilt es festzuhalten, dass in vielen SDSS-Anwendungen gezielt ein experimenteller Umgang mit der Gewichtsverteilung gepflegt wird. Im Sinne von „was wäre wenn“-Szenarien kann so der Einfluss verschiedener Kriterien in einer Eignunsanalyse untersucht werden. Ein weiteres Problemfeld ist die Wahl des Evaluationsalgorithmus. Anstatt einer linearen Zuordnung der Eingangs- auf die Indexskala, wären beliebige andere Funktionen denkbar. Und anstatt die gewichteten Eingangsebenen zu summieren, könnten sie auch z. B. multipliziert oder verrechnet werden. Die Resultate einer Eignungsanalyse können selbst bei identischen Eingangsdaten und identischen Gewichten je nach Wahl des Verrechnungsmodus beträchtlich variieren. Aus diesen Gründen ist beim Einsatz der gewichteten Verschneidung stets darauf zu achten, die Entstehungsbedingungen der Resultate klar aufzuzeigen. Nur so können die Eignungskarten als das dienen, was sie wirklich sind: ein objektives Hilfsmittel zur Entscheidungsunterstützung.  Die gezeigten Methoden unterscheiden sich durch die ihnen zugrunde liegende Skala. Die Gewichtung nach Ranglisten und die Gewichtung durch Einstufungstehen weitgehnd ohne theoretische Grundlage da. Welche der Methoden zum Einsatz kommt, hängt von einer Reihe von Fragen ab: Wie genau muss die Analyse sein? Wie gross ist die Fachkompetenz und die Erfahrung der Fachleute mit gewichteter Verschneidung? Oder wie schwierig ist die Integration der Methode in ein GIS? Die grosse Gefahr beim Einsatz von Gewichtungen in der räumlichen MCE liegt in der unbedarften, unvorsichtigen oder falschen Festlegung der Gewichte. Falsche Gewichte führen zu falschen Resultaten der Eignungsanalyse und können so zu falschen Entscheidungen führen. Diese Gefahr besteht bei allen drei Methoden, da die Gewichtung letztlich immer in der Verantwortung von Fachleuten liegt.  Jede Eignungskarte oder Raumanalyse muss vollständig Transparenz darstellen wie sie aus welchen Gründen erzeugt wurde  Denken Sie mit…     Betrachten Sie erneut die Übung zur gewichteten Verschneidung.   Wie würden Sie vorhehen um eine transparente Dokumentation ihrer gewählten Gewichte vorzunehmen?   Wie würden Sie vorgehen um die Gewichte zu ermitteln?   ">
+  <meta name="twitter:url" content="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit05/unit05-03_reader_mce.html">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@https://twitter.com/creuden">
+  
+
+
+
+  <meta property="article:published_time" content="2020-11-12T11:04:15+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit05/unit05-03_reader_mce.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Lab of Environmental Informatics",
+      "url": "http://localhost:4000/moer-bsc-geoinformatics-basic-one/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/moer-bsc-geoinformatics-basic-one/feed.xml" type="application/atom+xml" rel="alternate" title="Lab of Environmental Informatics Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/moer-bsc-geoinformatics-basic-one/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+    	<a class="site-title" href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/" style="padding:0px"><img src="http://localhost:4000/moer-bsc-geoinformatics-basic-one/assets/images/logo_umr.png" style="padding-right:15px">Lab of Environmental Informatics</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//units.html" >Course-Units</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//unit00/unit00-04_faq.html" >FAQ</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://ilias.uni-marburg.de/ilias.php?ref_id=1858892&cmdClass=ilrepositorygui&cmdNode=ts&baseClass=ilrepositorygui" >ILIAS</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://oer.uni-marburg.de/goto.php?target=cat_1651239&client_id=UNIMR" >OER</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//sitemap.html" >Overview</a>
+            </li>
+          
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+  
+    
+      
+      
+      
+    
+    
+	      
+            <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit00/unit00-01_overview.html" class="">Formales</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit01/unit01-01_reader_geo_raum.html" class="">Reader Geographische Raumkonzepte</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit02/unit02-01_reader_gi_raum.html" class="">Reader GI Raumkonzepte</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit03/unit03-01_reader_abfragen.html" class="">Reader Fragen & Antworten</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-01_reader_rasteranalyse.html" class="">Reader Räumliche Analysen</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit05/unit05-01_reader_mce.html" class="">Reader Entscheidungsfindung</a>
+		  </span>
+          <ul>
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit05/unit05-01_reader_mce.html" class="">Komplexe Entscheidungen</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit05/unit05-02_reader_mce.html" class="">Eignungsanalysen</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit05/unit05-03_reader_mce.html" class="active">Kriterienverschneidung</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit05/unit05-04_reader_mce.html" class="">Multikriterien, Multiziel-Analyse</a></li>
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit06/unit06-01_reader_PA.html" class="">Reader Projektarbeit</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit08/unit08-01_reader_QGIS_01.html" class="">Reader QGIS</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit09/unit09-02_worksheet.html" class="">Arbeitsblätter</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+  </ul>
+</nav>
+	      
+    
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Kriterienverschneidung">
+    <meta itemprop="description" content="Das Prinzip der Verschneidung („overlay“) räumlicher Daten ist konzeptionell sehr einfach. Zunächst werden zwei oder mehr thematische Informationsebenen desselben Raumausschnittes überlagert. Da es sich um die Manipulation von Geometrien handelt wird die Topologie der neuen Datenebene aufgrund dieser Überlagerung neuberechnet. Bezogen auf ein Vektordatenmodell sieht das wie folgt aus: Liegt ein betrachteter Punkt innerhalb eines Polygons, erhält er diese Information als neues Attribut. Schneiden sich zwei Linien, so wird an ihrem Schnittpunkt ein neuer Knoten eingeführt. Schneiden sich zwei Polygone, erhält die Schnittmenge eine eigene Identifikationsnummer usw.. Damit diese räumliche Datenintegration korrekt ist, müssen alle Eingangsebenen ein identisches Referenzierungssystem aufweisen. Die Integration von Informationen aus verschiedenen Quellen durch Verschneidung ist eine der bedeutendsten räumlichen Grundfunktionen eines GIS.Boolesche VerschneidungIn einfachen Eignungsanalysen führt oft bereits die logische Kombination von wahr/falsch-Informationen zur Lösung. Angenommen, die in den Marburger Uniwald eingewanderte Wildkatze siedelt nur im Laubwald und nur in steilen Gebieten, so reichen wenige logische Überlegungen, um die geeigneten Lebensräume für die Katze zu ermitteln. Jedes dieser beiden Kriterien kann mit einer binären Informationsebene modelliert werden (Wald/Nicht-Wald und Steil/Nicht-Steil). Als potenzielle Lebensräume eignen sich nun genau die Gebiete, für die beide Kriterien zutreffen. Mit anderen Worten: Gebiete, die wahr sind für Wald UND für steil. Die Boolesche Verschneidung eignet sich v. a. bei Eignungsanalysen mit randscharfen und klar ausschliessenden Kriterien. Kann als Katzenlebensraum das Siedlungsgebiet und die landwirtschaftliche Nutzfläche zum Beginn der Analyse bereits ausgeschlossen werden, so ist das potenzielle Eignungsgebiet mit einer einfachen Booleschen Verschneidung rasch  ermittelt.Für viele Fragen ist allerdings die Einteilung der Welt in nur zwei Kategorien unbefriedigend oder besser unzureichend. So lassen sich v. a. für Kriterien der natürlichen Umwelt selten trennscharfe Grenzen angeben.Die gewichtete VerschneidungFür viele Fragestellungen stellt die Einteilung der Realität in die binäre Kategorie wahr oder falsch  eine unzureichende Abbildung der Realität dar. Die gleichgewichtete ausschliessende Wirksamkeit der Einflussfaktoren bildet meist nicht die reale Gewichtungen von Entscheidungen ab.So mag, wer ein neues Mobiltelefon kauft, Marke und Funktion bedeutsamer finden als Displaygröße, Preis oder Robustheit. Dieses allgemeine Prinzip der Gewichtung von Einflussfaktoren wird auch bei der Eignungsanalyse mit GIS verwendet. Der entsprechende Ansatz heißt gewichtete Verschneidung.In vielen Raumanalysen sind bestimmte Kriterien bezogen auf die Zielsetzung um ein n-faches wichtiger als andere. Oft ist es gerade ein Anspruch an eine Standortsuche, mehrere geeignete Orte darauf hin zu vergleichen, ob und wie stark sie einer Reihe von unterschiedlich wichtigen Kriterien entsprechen. Durch das Ebenenprinzip der GI-Systeme lässt sich die Verschneidung sehr einfach um die Idee unterschiedlich wichtiger Kriterien erweitern. Jeder Themenebene wird entsprechend ihrer relativen Bedeutung gegenüber den anderen ein numerischer Gewichtsfaktor zugeordnet. Anschließend werden die derart gewichteten Informationsebenen verschnitten wie bisher. Wie die Boolesche Verschneidung ist auch die gewichtete Verschneidung grundsätzlich sowohl im Raster- als auch im Vektormodell möglich. So könnten z.B. Tourismusexperten einer Urlaubsinsel die negative Wirkung von Hotels und Bars für ein Alternativtourismuskonzept mit dem Faktor 0.1 und  Quad-Trek-Routen durchs Binnenland mit dem Faktor 1 gewichten. In der Regel sollten die Wertebereiche der Eingangs-Informationsebenen normalisiert sein (also zwischen z.B. 0 und 1 skaliert). In der entstehenden Eignungsebene werden die geeigneten Räume oder Standorte durch besonders hohe Werte identifizierbar.Katzen im LAhntalBetrachten Sie das folgende Beispiel. Hier wird die gewichtete Verschneidung am Beispiel des Wildkatzenlebensraums im Marburger Uniwald eingeführt. Im Hinblick auf eine realistischere Modellierung der geeigneten Lebensräume verwendet das folgende Beispiel nicht mehr ausschließlich binäre Eingangsdaten wie die Boolesche Verschneidung, sondern sogenannte Ratiodaten:  Vegetationsdichte anstelle „Wald/Nicht-Wald“  Hangneigung anstelle „steil/nicht-steil“  Bevölkerungsdichte anstelle „Siedlung/Nicht-Siedlung“Der wohl einfachste Ansatz für eine gewichtete Verschneidung bildet die gewichtete lineare Summierung im Rastermodell. Die folgenden Punkte zeigen das Standardvorgehen bei der Anwendung dieses Algorithmus:  Kriterienwahl: Der erste Schritt besteht in der Wahl der Kriterien, die den gesuchten Raum charakterisieren.  Standardisierung: Nun müssen die unterschiedlichen Messskalen der Eingangsdatensätze aufeinander abgestimmt werden. Es wenig sinnvoll, die prozentuale Hangneigung direkt mit einer Bevölkerungsdichte zu verrechnen. Deshalb weist man den Eingangsdaten völlig verschiedene Einheiten einer standardisierten numerischen Indexskala zu (beispielsweise 0–1, 0–100, 0–255). Daraus folgt, dass die Werte der resultierenden Eignungsebenen keine Einheiten mehr tragen, sondern lediglich einen numerischen Eignungsindex. Die Zuordnung der Eingangswerte auf die Indexskala kann auf verschiedene Weise erfolgen, am einfachsten ist eine lineare Zuordnung. Bei der gewichteten Verschneidung bezeichnet die Standardisierung die Übersetzung der heterogenen Eingangsdaten in eine für alle Ebenen einheitliche Skala.  Verteilung der Gewichte: Weiter erhält jede Informationsebene einen Multiplikator, ein Gewicht. Die Gewichte widerspiegeln die relative Bedeutung der Informationsebenen zueinander. Die wichtigste Ebene erhält das größte Gewicht. Die richtige Wahl der Gewichte wird in „Bestimmung der Gewichte“ behandelt.  Anwendung des Algorithmus: Beim Algorithmus der gewichteten linearen Summierung werden alle Rasterzellen einer Informationsebene mit ihrem Gewicht multipliziert und die Ebenen anschließend addiert. In der resultierenden Eignungsebene weisen die geeigneten Rasterzellen hohe, die ungeeigneten hingegen tiefe Werte auf.                    Weighted Overlay im Rasterdatenmodell (GITTA 2005)                            Weighted Overlay im Vektordatenmodell (GITTA 2005)        In dieser Darstellung erhielten die beiden Eignungskriterien für den Katzenlebensraum im Lahntal Gewichte entsprechend ihrer relativen Bedeutung. Die Infomationsebene „bewaldet“ wird mit dem Faktor 3 gewichtet, diejenige mit dem Kriterium „steiles Gelände“ mit dem Faktor 2. Nach der Zuweisung der Gewichte werden die beiden Ebenen addiert. Die Eignungswerte der resultierenden Informationsebene reichen von 0 (ungeeignet) bis 5 (sehr geeignet).Methoden zur Bestimmung der GewichteIm Prozess der Entscheidungsfindung ist, wie bereits angeschnitten wurde, für verschiedenen Interessengruppen die einzelnen Bewertung und Bedeutung der einzelnen Kriterien unterschiedlich. Wie sollen solche Bewertungen vergleichbar gemacht werden? Genau die gleiche Frage stellt sich bei der Suche nach dem Lebensraum für den Wolf in St. Gittal. Angenommen die Experten und Expertinnen hätten sich darauf geeinigt, eine gewichtete Verschneidung für ihre Eignungsanalyse zu verwenden. Wie sollen sie nun die einzelnen Kriterien gewichten? Wie kommen die Experten darauf, dass etwa das Kriterium „Rückzugsgebiet Wald“ 1,5-mal so wichtig sein soll wie „steiles und felsiges Gelände“? Die Verteilung der Gewichte ist bei einer Eignungsanalyse mit gewichteter Verschneidung genauso wichtig wie schwierig. Diese Unit zeigt drei Methoden, wie im Dialog mit den Experten eine Gewichtung der Kriterien erfolgen kann.Gewichtung nach RanglistenAm einfachsten erfolgt eine Gewichtung über eine Rangierung („ranking“) der Kriterien. Dabei kann aufsteigend oder absteigend rangiert werden. Aufsteigend bedeutet, dass das wichtigste Kriterium den Rang 1 erhält, das zweitwichtigste den Rang 2 usw. Durch eine absteigende Rangierung erhält das unwichtigste Kriterium den Rang 1, das nächst wichtigere den Rang 2 usw. Sind die Ränge einmal verteilt, können die den Rängen entsprechenden numerischen Gewichte auf verschiedene Weise abgeleitet werden.  Summierend: Bei n Kriterien erhält der Rang r das Gewicht n – r + 1.  Reziprok: Bei n Kriterien erhält der Rang r das Gewicht 1 / r, also seinen Kehrwert.  Exponentiell: Bei n Kriterien erhält der Rang r das Gewicht (n – r + 1) ^ p. Dabei ist der Exponent p ein Parameter, um die Verteilung der Gewichte zu steuern. Ist p = 0, erhalten alle Kriterien das gleiche Gewicht. Der Wert p = 1 gewichtet wie die summierende Gewichtung. Je höher p wird, desto steiler wird die Gewichtsverteilung.Meist werden die einzelnen Gewichte um eine einfache Vergleichbarkeit zu erhalten normalisiert: Durch die Division der einzelnen Gewichte durch die Summe aller Gewichte werden die einzelnen Gewichte zu Bruchzahlen im Wertebereich 0-1 umgerechnet. Die Summe der normalisierten Gewichte beträgt 1.Kritische Diskussion der GewichtungsmethodenAuch die gewichtete Verschneidung hat Schwachpunkte und weist Probleme auf. Das größte Problem bildet sicher die Zuordnung der Gewichte. Wie Sie selbst gesehen haben, beeinflussen sie das Resultat einer Eignungsanalyse erheblich. Mit welcher Rechtfertigung erhielt die Vegetationsebene im obigen Beispiel das größte Gewicht? Meist nehmen Experten und Expertinnen diese Gewichtung vor und berufen sich dabei auf Angaben in der Fachliteratur. Aber unterschiedliche Fachleute werden die Gewichtung der Kriterien je nach eigenen Interessen unterschiedlich vornehmen. So dürften Biologen, Touristiker und Jäger die Gewichtungen zur Bestimmung der geeigneten Wolfslebensräume in St. Gittal sehr unterschiedlich vornehmen. Im obigen Beispiel erfolgte die Gewichtung willkürlich. Die folgende Unit zeigt, dass es auch andere Vorgehensweisen gibt. Weiter gilt es festzuhalten, dass in vielen SDSS-Anwendungen gezielt ein experimenteller Umgang mit der Gewichtsverteilung gepflegt wird. Im Sinne von „was wäre wenn“-Szenarien kann so der Einfluss verschiedener Kriterien in einer Eignunsanalyse untersucht werden. Ein weiteres Problemfeld ist die Wahl des Evaluationsalgorithmus. Anstatt einer linearen Zuordnung der Eingangs- auf die Indexskala, wären beliebige andere Funktionen denkbar. Und anstatt die gewichteten Eingangsebenen zu summieren, könnten sie auch z. B. multipliziert oder verrechnet werden. Die Resultate einer Eignungsanalyse können selbst bei identischen Eingangsdaten und identischen Gewichten je nach Wahl des Verrechnungsmodus beträchtlich variieren. Aus diesen Gründen ist beim Einsatz der gewichteten Verschneidung stets darauf zu achten, die Entstehungsbedingungen der Resultate klar aufzuzeigen. Nur so können die Eignungskarten als das dienen, was sie wirklich sind: ein objektives Hilfsmittel zur Entscheidungsunterstützung.Die gezeigten Methoden unterscheiden sich durch die ihnen zugrunde liegende Skala. Die Gewichtung nach Ranglisten und die Gewichtung durch Einstufungstehen weitgehnd ohne theoretische Grundlage da. Welche der Methoden zum Einsatz kommt, hängt von einer Reihe von Fragen ab: Wie genau muss die Analyse sein? Wie gross ist die Fachkompetenz und die Erfahrung der Fachleute mit gewichteter Verschneidung? Oder wie schwierig ist die Integration der Methode in ein GIS? Die grosse Gefahr beim Einsatz von Gewichtungen in der räumlichen MCE liegt in der unbedarften, unvorsichtigen oder falschen Festlegung der Gewichte. Falsche Gewichte führen zu falschen Resultaten der Eignungsanalyse und können so zu falschen Entscheidungen führen. Diese Gefahr besteht bei allen drei Methoden, da die Gewichtung letztlich immer in der Verantwortung von Fachleuten liegt.Jede Eignungskarte oder Raumanalyse muss vollständig Transparenz darstellen wie sie aus welchen Gründen erzeugt wurdeDenken Sie mit…  Betrachten Sie erneut die Übung zur gewichteten Verschneidung.  Wie würden Sie vorhehen um eine transparente Dokumentation ihrer gewählten Gewichte vorzunehmen?  Wie würden Sie vorgehen um die Gewichte zu ermitteln?">
+    <meta itemprop="datePublished" content="2020-11-12T11:04:15+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Kriterienverschneidung
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Inhalt</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#boolesche-verschneidung">Boolesche Verschneidung</a></li>
+  <li><a href="#die-gewichtete-verschneidung">Die gewichtete Verschneidung</a></li>
+  <li><a href="#katzen-im-lahntal">Katzen im LAhntal</a></li>
+  <li><a href="#gewichtung-nach-ranglisten">Gewichtung nach Ranglisten</a></li>
+  <li><a href="#kritische-diskussion-der-gewichtungsmethoden">Kritische Diskussion der Gewichtungsmethoden</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>Das Prinzip der Verschneidung („overlay“) räumlicher Daten ist konzeptionell sehr einfach. Zunächst werden zwei oder mehr thematische Informationsebenen desselben Raumausschnittes überlagert. Da es sich um die Manipulation von Geometrien handelt wird die Topologie der neuen Datenebene aufgrund dieser Überlagerung neuberechnet. Bezogen auf ein Vektordatenmodell sieht das wie folgt aus: Liegt ein betrachteter Punkt innerhalb eines Polygons, erhält er diese Information als neues Attribut. Schneiden sich zwei Linien, so wird an ihrem Schnittpunkt ein neuer Knoten eingeführt. Schneiden sich zwei Polygone, erhält die Schnittmenge eine eigene Identifikationsnummer usw.. Damit diese räumliche Datenintegration korrekt ist, müssen alle Eingangsebenen ein <strong>identisches Referenzierungssystem</strong> aufweisen. Die Integration von Informationen aus verschiedenen Quellen durch Verschneidung ist eine der bedeutendsten räumlichen Grundfunktionen eines GIS.</p>
+
+<h3 id="boolesche-verschneidung">Boolesche Verschneidung</h3>
+
+<p>In einfachen Eignungsanalysen führt oft bereits die logische Kombination von wahr/falsch-Informationen zur Lösung. Angenommen, die in den Marburger Uniwald eingewanderte Wildkatze siedelt nur im Laubwald und nur in steilen Gebieten, so reichen wenige logische Überlegungen, um die geeigneten Lebensräume für die Katze zu ermitteln. Jedes dieser beiden Kriterien kann mit einer binären Informationsebene modelliert werden (Wald/Nicht-Wald und Steil/Nicht-Steil). Als potenzielle Lebensräume eignen sich nun genau die Gebiete, für die beide Kriterien zutreffen. Mit anderen Worten: Gebiete, die <em>wahr</em> sind für Wald <strong>UND</strong> für steil. Die Boolesche Verschneidung eignet sich v. a. bei Eignungsanalysen mit randscharfen und klar ausschliessenden Kriterien. Kann als Katzenlebensraum das Siedlungsgebiet und die landwirtschaftliche Nutzfläche zum Beginn der Analyse bereits ausgeschlossen werden, so ist das potenzielle Eignungsgebiet mit einer einfachen Booleschen Verschneidung rasch  ermittelt.</p>
+
+<p>Für viele Fragen ist allerdings die Einteilung der Welt in nur zwei Kategorien unbefriedigend oder besser unzureichend. So lassen sich v. a. für Kriterien der natürlichen Umwelt selten trennscharfe Grenzen angeben.</p>
+
+<h3 id="die-gewichtete-verschneidung">Die gewichtete Verschneidung</h3>
+
+<p>Für viele Fragestellungen stellt die Einteilung der Realität in die binäre Kategorie <em>wahr</em> oder <em>falsch</em>  eine unzureichende Abbildung der Realität dar. Die gleichgewichtete ausschliessende Wirksamkeit der Einflussfaktoren bildet meist nicht die reale Gewichtungen von Entscheidungen ab.</p>
+
+<p>So mag, wer ein neues Mobiltelefon kauft, Marke und Funktion bedeutsamer finden als Displaygröße, Preis oder Robustheit. Dieses allgemeine Prinzip der Gewichtung von Einflussfaktoren wird auch bei der Eignungsanalyse mit GIS verwendet. Der entsprechende Ansatz heißt <em>gewichtete Verschneidung</em>.</p>
+
+<p>In vielen Raumanalysen sind bestimmte Kriterien bezogen auf die Zielsetzung um ein n-faches wichtiger als andere. Oft ist es gerade ein Anspruch an eine Standortsuche, mehrere geeignete Orte darauf hin zu vergleichen, ob und wie stark sie einer Reihe von unterschiedlich wichtigen Kriterien entsprechen. Durch das Ebenenprinzip der GI-Systeme lässt sich die Verschneidung sehr einfach um die Idee unterschiedlich wichtiger Kriterien erweitern. Jeder Themenebene wird entsprechend ihrer relativen Bedeutung gegenüber den anderen ein numerischer Gewichtsfaktor zugeordnet. Anschließend werden die derart gewichteten Informationsebenen verschnitten wie bisher. Wie die Boolesche Verschneidung ist auch die gewichtete Verschneidung grundsätzlich sowohl im Raster- als auch im Vektormodell möglich. So könnten z.B. Tourismusexperten einer Urlaubsinsel die negative Wirkung von Hotels und Bars für ein Alternativtourismuskonzept mit dem Faktor 0.1 und  Quad-Trek-Routen durchs Binnenland mit dem Faktor 1 gewichten. In der Regel sollten die Wertebereiche der Eingangs-Informationsebenen normalisiert sein (also zwischen z.B. 0 und 1 skaliert). In der entstehenden Eignungsebene werden die geeigneten Räume oder Standorte durch besonders hohe Werte identifizierbar.</p>
+
+<h3 id="katzen-im-lahntal">Katzen im LAhntal</h3>
+
+<p>Betrachten Sie das folgende Beispiel. Hier wird die gewichtete Verschneidung am Beispiel des Wildkatzenlebensraums im Marburger Uniwald eingeführt. Im Hinblick auf eine realistischere Modellierung der geeigneten Lebensräume verwendet das folgende Beispiel nicht mehr ausschließlich binäre Eingangsdaten wie die Boolesche Verschneidung, sondern sogenannte Ratiodaten:</p>
+
+<ul>
+  <li>Vegetationsdichte anstelle „Wald/Nicht-Wald“</li>
+  <li>Hangneigung anstelle „steil/nicht-steil“</li>
+  <li>Bevölkerungsdichte anstelle „Siedlung/Nicht-Siedlung“</li>
+</ul>
+
+<p>Der wohl einfachste Ansatz für eine gewichtete Verschneidung bildet die gewichtete lineare Summierung im Rastermodell. Die folgenden Punkte zeigen das Standardvorgehen bei der Anwendung dieses Algorithmus:</p>
+
+<ul>
+  <li><em>Kriterienwahl:</em> Der erste Schritt besteht in der Wahl der Kriterien, die den gesuchten Raum charakterisieren.</li>
+  <li><em>Standardisierung:</em> Nun müssen die unterschiedlichen Messskalen der Eingangsdatensätze aufeinander abgestimmt werden. Es wenig sinnvoll, die prozentuale Hangneigung direkt mit einer Bevölkerungsdichte zu verrechnen. Deshalb weist man den Eingangsdaten völlig verschiedene Einheiten einer standardisierten numerischen Indexskala zu (beispielsweise 0–1, 0–100, 0–255). Daraus folgt, dass die Werte der resultierenden Eignungsebenen keine Einheiten mehr tragen, sondern lediglich einen numerischen Eignungsindex. Die Zuordnung der Eingangswerte auf die Indexskala kann auf verschiedene Weise erfolgen, am einfachsten ist eine lineare Zuordnung. Bei der gewichteten Verschneidung bezeichnet die Standardisierung die Übersetzung der heterogenen Eingangsdaten in eine für alle Ebenen einheitliche Skala.</li>
+  <li><em>Verteilung der Gewichte:</em> Weiter erhält jede Informationsebene einen Multiplikator, ein Gewicht. Die Gewichte widerspiegeln die relative Bedeutung der Informationsebenen zueinander. Die wichtigste Ebene erhält das größte Gewicht. Die richtige Wahl der Gewichte wird in „Bestimmung der Gewichte“ behandelt.</li>
+  <li><em>Anwendung des Algorithmus:</em> Beim Algorithmus der gewichteten linearen Summierung werden alle Rasterzellen einer Informationsebene mit ihrem Gewicht multipliziert und die Ebenen anschließend addiert. In der resultierenden Eignungsebene weisen die geeigneten Rasterzellen hohe, die ungeeigneten hingegen tiefe Werte auf.</li>
+</ul>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/Raster.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" />
+  
+
+  
+    <figcaption>
+      Weighted Overlay im Rasterdatenmodell (GITTA 2005)
+
+    </figcaption>
+  
+  
+</figure>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/Vector.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" />
+  
+
+  
+    <figcaption>
+      Weighted Overlay im Vektordatenmodell (GITTA 2005)
+
+    </figcaption>
+  
+  
+</figure>
+
+<p>In dieser Darstellung erhielten die beiden Eignungskriterien für den Katzenlebensraum im Lahntal Gewichte entsprechend ihrer relativen Bedeutung. Die Infomationsebene „bewaldet“ wird mit dem Faktor 3 gewichtet, diejenige mit dem Kriterium „steiles Gelände“ mit dem Faktor 2. Nach der Zuweisung der Gewichte werden die beiden Ebenen addiert. Die Eignungswerte der resultierenden Informationsebene reichen von 0 (ungeeignet) bis 5 (sehr geeignet).</p>
+
+<h2 id="methoden-zur-bestimmung-der-gewichte">Methoden zur Bestimmung der Gewichte</h2>
+
+<p>Im Prozess der Entscheidungsfindung ist, wie bereits angeschnitten wurde, für verschiedenen Interessengruppen die einzelnen Bewertung und Bedeutung der einzelnen Kriterien unterschiedlich. Wie sollen solche Bewertungen vergleichbar gemacht werden? Genau die gleiche Frage stellt sich bei der Suche nach dem Lebensraum für den Wolf in St. Gittal. Angenommen die Experten und Expertinnen hätten sich darauf geeinigt, eine gewichtete Verschneidung für ihre Eignungsanalyse zu verwenden. Wie sollen sie nun die einzelnen Kriterien gewichten? Wie kommen die Experten darauf, dass etwa das Kriterium „Rückzugsgebiet Wald“ 1,5-mal so wichtig sein soll wie „steiles und felsiges Gelände“? Die Verteilung der Gewichte ist bei einer Eignungsanalyse mit gewichteter Verschneidung genauso wichtig wie schwierig. Diese Unit zeigt drei Methoden, wie im Dialog mit den Experten eine Gewichtung der Kriterien erfolgen kann.</p>
+
+<h3 id="gewichtung-nach-ranglisten">Gewichtung nach Ranglisten</h3>
+
+<p>Am einfachsten erfolgt eine Gewichtung über eine Rangierung („ranking“) der Kriterien. Dabei kann aufsteigend oder absteigend rangiert werden. Aufsteigend bedeutet, dass das wichtigste Kriterium den Rang 1 erhält, das zweitwichtigste den Rang 2 usw. Durch eine absteigende Rangierung erhält das unwichtigste Kriterium den Rang 1, das nächst wichtigere den Rang 2 usw. Sind die Ränge einmal verteilt, können die den Rängen entsprechenden numerischen Gewichte auf verschiedene Weise abgeleitet werden.</p>
+
+<ul>
+  <li><em>Summierend</em>: Bei <em>n</em> Kriterien erhält der Rang <em>r</em> das Gewicht <em>n – r + 1</em>.</li>
+  <li><em>Reziprok</em>: Bei <em>n</em> Kriterien erhält der Rang <em>r</em> das Gewicht <em>1 / r</em>, also seinen Kehrwert.</li>
+  <li><em>Exponentiell</em>: Bei <em>n</em> Kriterien erhält der Rang <em>r</em> das Gewicht <em>(n – r + 1) ^ p</em>. Dabei ist der Exponent <em>p</em> ein Parameter, um die Verteilung der Gewichte zu steuern. Ist <em>p = 0</em>, erhalten alle Kriterien das gleiche Gewicht. Der Wert <em>p = 1</em> gewichtet wie die summierende Gewichtung. Je höher <em>p</em> wird, desto steiler wird die Gewichtsverteilung.</li>
+</ul>
+
+<p>Meist werden die einzelnen Gewichte um eine einfache Vergleichbarkeit zu erhalten normalisiert: Durch die Division der einzelnen Gewichte durch die Summe aller Gewichte werden die einzelnen Gewichte zu Bruchzahlen im Wertebereich 0-1 umgerechnet. Die Summe der normalisierten Gewichte beträgt 1.</p>
+
+<h3 id="kritische-diskussion-der-gewichtungsmethoden">Kritische Diskussion der Gewichtungsmethoden</h3>
+
+<p>Auch die gewichtete Verschneidung hat Schwachpunkte und weist Probleme auf. Das größte Problem bildet sicher die <strong>Zuordnung</strong> der Gewichte. Wie Sie selbst gesehen haben, beeinflussen sie das Resultat einer Eignungsanalyse erheblich. Mit welcher Rechtfertigung erhielt die Vegetationsebene im obigen Beispiel das größte Gewicht? Meist nehmen Experten und Expertinnen diese Gewichtung vor und berufen sich dabei auf Angaben in der Fachliteratur. Aber unterschiedliche Fachleute werden die Gewichtung der Kriterien je nach eigenen Interessen unterschiedlich vornehmen. So dürften Biologen, Touristiker und Jäger die Gewichtungen zur Bestimmung der geeigneten Wolfslebensräume in St. Gittal sehr unterschiedlich vornehmen. Im obigen Beispiel erfolgte die Gewichtung willkürlich. Die folgende Unit zeigt, dass es auch andere Vorgehensweisen gibt. Weiter gilt es festzuhalten, dass in vielen SDSS-Anwendungen gezielt ein experimenteller Umgang mit der Gewichtsverteilung gepflegt wird. Im Sinne von „was wäre wenn“-Szenarien kann so der Einfluss verschiedener Kriterien in einer Eignunsanalyse untersucht werden. Ein weiteres Problemfeld ist die Wahl des Evaluationsalgorithmus. Anstatt einer linearen Zuordnung der Eingangs- auf die Indexskala, wären beliebige andere Funktionen denkbar. Und anstatt die gewichteten Eingangsebenen zu summieren, könnten sie auch z. B. multipliziert oder verrechnet werden. Die Resultate einer Eignungsanalyse können selbst bei identischen Eingangsdaten und identischen Gewichten je nach Wahl des Verrechnungsmodus beträchtlich variieren. Aus diesen Gründen ist beim Einsatz der gewichteten Verschneidung stets darauf zu achten, die Entstehungsbedingungen der Resultate klar aufzuzeigen. Nur so können die Eignungskarten als das dienen, was sie wirklich sind: ein objektives Hilfsmittel zur Entscheidungsunterstützung.</p>
+
+<p>Die gezeigten Methoden unterscheiden sich durch die ihnen zugrunde liegende Skala. Die Gewichtung nach Ranglisten und die Gewichtung durch Einstufungstehen weitgehnd ohne theoretische Grundlage da. Welche der Methoden zum Einsatz kommt, hängt von einer Reihe von Fragen ab: Wie genau muss die Analyse sein? Wie gross ist die Fachkompetenz und die Erfahrung der Fachleute mit gewichteter Verschneidung? Oder wie schwierig ist die Integration der Methode in ein GIS? Die grosse Gefahr beim Einsatz von Gewichtungen in der räumlichen MCE liegt in der <em>unbedarften</em>, <em>unvorsichtigen</em> oder <em>falschen</em> Festlegung der Gewichte. Falsche Gewichte führen zu falschen Resultaten der Eignungsanalyse und können so zu falschen Entscheidungen führen. Diese Gefahr besteht bei allen drei Methoden, da die Gewichtung letztlich immer in der Verantwortung von Fachleuten liegt.</p>
+
+<p>Jede Eignungskarte oder Raumanalyse muss vollständig Transparenz darstellen wie sie aus welchen Gründen erzeugt wurde</p>
+
+<h2 id="denken-sie-mit">Denken Sie mit…</h2>
+
+<ul>
+  <li>Betrachten Sie erneut die Übung zur gewichteten Verschneidung.</li>
+  <li>Wie würden Sie vorhehen um eine transparente Dokumentation ihrer gewählten Gewichte vorzunehmen?</li>
+  <li>Wie würden Sie vorgehen um die Gewichte zu ermitteln?</li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-11-12T11:04:15+01:00">November 12, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/moer-bsc-geoinformatics-basic-one/unit05/unit05-02_reader_mce.html" class="pagination--pager" title="Eignungsanalysen
+">Previous</a>
+    
+    
+      <a href="/moer-bsc-geoinformatics-basic-one/unit05/unit05-04_reader_mce.html" class="pagination--pager" title="Multikriterien, Multiziel-Analyse
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+      <li><a href="https://twitter.com/creuden"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="https://github.com/GeoMOER"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright"> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> &copy; 2020 Lab of Environmental Informatics
+. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>, <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> &amp; <a href="https://www.uni-marburg.de/fb19" rel="nofollow">Geography@Marburg University</a>.</div>
+
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/moer-bsc-geoinformatics-basic-one/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

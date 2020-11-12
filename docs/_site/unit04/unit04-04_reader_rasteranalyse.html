@@ -1,0 +1,766 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Digitale Geländemodelle  – Von der Höhe zur komplexen Information | Lab of Environmental Informatics</title>
+<meta name="description" content="Digitale Geländemodelle sind eine weithin genutzte Datenquelle für die räumliche Analyse. Im Original enthalten Sie in einem Rasterdatenmodell die Information der Höhe einer Rasterzelle. Aus dieser   Information können zahlreiche abgeleitete Informationen erzeugt werden. Diese Einheit ist exemplarisch   als leicht nachvollziehbares Beispiel für das Vorgehen bei Ableitung von Informationen aus raum kontinuierlichen Datensätzen gedacht. Neben der reinen Ableitung werden daher zudem mögliche funktionale Ableitungskonzepte wie potentielle Massentransporte, Feuchtigkeitsindizes angesprochen.  Geomorphometrie oder wie aus einfachen Ableitungen wertvolle Informationen entstehen  Die Geomorphometrie beschäftigt sich mit der quantitativen Beschreibung und Analyse der Erdoberfläche. Zu diesem Zweck werden aus digitalen Geländemodellen (DGM) verschiedene Geländeparameter abgeleitet. Neigung, Exposition und Kurvatur (Krümmung) des Geländes gehören zu den Informationen, die am häufigsten aus Geländemodellen extrahiert und in verschiedensten Anwendungen eingesetzt werden. Als Beispiele seien die Verwendung der Exposition in vegetationsgeographischen Fragestellungen, die Modellierung von potentiellem alpinem Permafrost (Höhe, Zürich, Schweiz Exposition und Neigung) oder die Modellierung von Lawinengefahren (Neigung, Exposition) genannt.  Beispiele impliziter Information  Ein digitales Geländemodell enthält neben der reinen Höhe der Raumkoordinaten (oder Raumflächen) eine Reihe weiterer, impliziter Information. “Implizite Information” heißt, dass zusätzliche Informationen aus der lagebezogenen Höheninformation eines Geländemodells abgeleitet werden können, ohne explizit gespeichert zu sein. Zur Ableitung solcher impliziter Information sind in der Regel geeignete mathematische Methoden notwendig. Dieser Zusammenhang von impliziter und expliziter Information lässt sich analog auf eine Vielzahl von Datensätzen und Geoobjekten übertragen. Die nachfolgenden Abbildungen zeigen ein Geländemodell des Türlersees (bei Zürich in der Schweiz) und durch Ableitung erzeugte Information aus diesen Daten.  Primärdatensatz Höhe                              Digitales Geländemodell vom Gebiet Türlersee als geschummerte Höhenschichtdarstellung (Hugentobler 2000)               Ableitung Höhenprofil                              Höhenprofil aus DGM  Türlersee (GITTA 2005)               Auf Grundlage eines digitalen Geländemodells können durch Extraktion der Höhenwerte Profile zwischen zwei Punkten berechnet werden. Derartige Profile sind in vielen anwendungsorientierten Fragestellungen relevant, z. B. für die Planung im Straßenbau oder als Sichtlinien (Seilbahnen, Funkverbindungen). Erweitert man dieses Konzept können alle räumlich verteilten Informationen auf einer direkten also geometrisch kürzesten Verbindungen analysiert und dargestellt werden  Ableitung Profilllinie als Pauschalgefälle                              Pauschalgefälle aus DGM  Türlersee (GITTA 2005)               Das Pauschalgefälle ist eine weitere Ableitung aus der Profillinie. Es beschreibt die mittlere Neigung zwischen zwei Punkten im Gelände und ist folglich skalenabhängig. Ein wichtiges Anwendungsgebiet ist die einfache Abschätzung von Sturz-Prozessen (Steinschlag, Eisschlag).  Falllinie                              Falllinie aus DGM  Türlersee (GITTA 2005)               In einem digitalen Geländemodell kennzeichnet die Falllinie, ausgehend von einem beliebigen Punkt, den Pfad (=verknüpfte Einzelstrecken) entlang dessen die Schwerkraft wirkt (=Vektor Oberlieger-Unterlieger). Oder konkret ausgedrückt den Weg des fließenden Wassers oder rollenden Steins. So können u. a. zur Modellierung von Eis- und Steinschlag, aber auch für die Berechnung von Einzugsgebieten verwendet werden. Erweitert man dieses Konzept indem z.B. statt Höhenwerte in Metern Kosten in Euro als “Kostengebirge” aufgefasst werden, Können so Pfade geringster Kosten (oder Widerstands) bestimmt werden.  Wassereinzugsgebiete                              Wassereinzugsgebiet auf der Grundlage eines DGM (GITTA 2005)               Die Ableitung von Wassereinzugsgebieten aus digitalen Geländemodellen nutzt das Konzept der Falllinie. Vernetzt man alle Falllinien die einen gemeinsamen Unterlieger als Ausflusspunkt haben und grenzt diesen Raum ab so erzeugt man ein durch die Oberflächenmorphologie determiniertes Wassereinzugsgebiet. Solche Wassereinzugsgebiete sind eine wichtige Komponente in vielen hydrologischen, geomorphologischen und landschaftskundlichen GIS-Anwendungen.  Die zuvor angesprochenen Beipiele sollen einen Eindruck von der Vielfältigkeit der Informationsgewinnung durch Ableitungen vermitteln. In der nachfolgenden Tabelle wird ein Überblick über weitere Informationsprodukte, die aus Geländemodellen ableitbar sind gegeben. Dieser Überblick ist keineswegs vollständig. Vielmehr stellt er in willkürlicher Mischung unterschiedliche Stufen der Ableitung zusammen. Versuchen Sie herauszufinden welche Information eine Ableitung erster bzw. zweiter Ordnung ist.                 Information       Output-Typ       Beschreibung                 Neigung       Zahl       Neigung an einem Punkt                 Pauschalgefälle       Zahl       Gefälle zwischen zwei Punkten                 Exposition       Zahl       Ausrichtung des Hanges                 Kurvatur       Zahl       Krümmung in eine bestimmte Richtung (z. B. Plan- oder Profilkurvatur)                 Intervisibilität       Ja/ Nein       Gibt an, ob der Betrachter einen bestimmten Punkt sehen kann                 Sichtbares Gebiet       Polygone       Gebiet, welches von einem oder mehreren Punkten aus sichtbar ist                 Reliefschatten       Bild       Schattenwurf durch das Gelände bei einer bestimmten Sonnenposition                 Flussnetzwerk       Linien       /                 Einzugsgebiete       Polygone       /                 Profil       Linie       Höhenprofil entlang einer bestimmten Linie                 Volumen       Zahl       Füllungs- oder Abtragsvolumen für ein Gebiet und für eine bestimmte Höhe                 Perspektivische Abbildung       Bild       /                 Falllinie       Linie       Pfad entlang der steilsten Neigung           ">
+
+
+  <meta name="author" content="Christoph Reudenbach">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Lab of Environmental Informatics">
+<meta property="og:title" content="Digitale Geländemodelle  – Von der Höhe zur komplexen Information">
+<meta property="og:url" content="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-04_reader_rasteranalyse.html">
+
+
+  <meta property="og:description" content="Digitale Geländemodelle sind eine weithin genutzte Datenquelle für die räumliche Analyse. Im Original enthalten Sie in einem Rasterdatenmodell die Information der Höhe einer Rasterzelle. Aus dieser   Information können zahlreiche abgeleitete Informationen erzeugt werden. Diese Einheit ist exemplarisch   als leicht nachvollziehbares Beispiel für das Vorgehen bei Ableitung von Informationen aus raum kontinuierlichen Datensätzen gedacht. Neben der reinen Ableitung werden daher zudem mögliche funktionale Ableitungskonzepte wie potentielle Massentransporte, Feuchtigkeitsindizes angesprochen.  Geomorphometrie oder wie aus einfachen Ableitungen wertvolle Informationen entstehen  Die Geomorphometrie beschäftigt sich mit der quantitativen Beschreibung und Analyse der Erdoberfläche. Zu diesem Zweck werden aus digitalen Geländemodellen (DGM) verschiedene Geländeparameter abgeleitet. Neigung, Exposition und Kurvatur (Krümmung) des Geländes gehören zu den Informationen, die am häufigsten aus Geländemodellen extrahiert und in verschiedensten Anwendungen eingesetzt werden. Als Beispiele seien die Verwendung der Exposition in vegetationsgeographischen Fragestellungen, die Modellierung von potentiellem alpinem Permafrost (Höhe, Zürich, Schweiz Exposition und Neigung) oder die Modellierung von Lawinengefahren (Neigung, Exposition) genannt.  Beispiele impliziter Information  Ein digitales Geländemodell enthält neben der reinen Höhe der Raumkoordinaten (oder Raumflächen) eine Reihe weiterer, impliziter Information. “Implizite Information” heißt, dass zusätzliche Informationen aus der lagebezogenen Höheninformation eines Geländemodells abgeleitet werden können, ohne explizit gespeichert zu sein. Zur Ableitung solcher impliziter Information sind in der Regel geeignete mathematische Methoden notwendig. Dieser Zusammenhang von impliziter und expliziter Information lässt sich analog auf eine Vielzahl von Datensätzen und Geoobjekten übertragen. Die nachfolgenden Abbildungen zeigen ein Geländemodell des Türlersees (bei Zürich in der Schweiz) und durch Ableitung erzeugte Information aus diesen Daten.  Primärdatensatz Höhe                              Digitales Geländemodell vom Gebiet Türlersee als geschummerte Höhenschichtdarstellung (Hugentobler 2000)               Ableitung Höhenprofil                              Höhenprofil aus DGM  Türlersee (GITTA 2005)               Auf Grundlage eines digitalen Geländemodells können durch Extraktion der Höhenwerte Profile zwischen zwei Punkten berechnet werden. Derartige Profile sind in vielen anwendungsorientierten Fragestellungen relevant, z. B. für die Planung im Straßenbau oder als Sichtlinien (Seilbahnen, Funkverbindungen). Erweitert man dieses Konzept können alle räumlich verteilten Informationen auf einer direkten also geometrisch kürzesten Verbindungen analysiert und dargestellt werden  Ableitung Profilllinie als Pauschalgefälle                              Pauschalgefälle aus DGM  Türlersee (GITTA 2005)               Das Pauschalgefälle ist eine weitere Ableitung aus der Profillinie. Es beschreibt die mittlere Neigung zwischen zwei Punkten im Gelände und ist folglich skalenabhängig. Ein wichtiges Anwendungsgebiet ist die einfache Abschätzung von Sturz-Prozessen (Steinschlag, Eisschlag).  Falllinie                              Falllinie aus DGM  Türlersee (GITTA 2005)               In einem digitalen Geländemodell kennzeichnet die Falllinie, ausgehend von einem beliebigen Punkt, den Pfad (=verknüpfte Einzelstrecken) entlang dessen die Schwerkraft wirkt (=Vektor Oberlieger-Unterlieger). Oder konkret ausgedrückt den Weg des fließenden Wassers oder rollenden Steins. So können u. a. zur Modellierung von Eis- und Steinschlag, aber auch für die Berechnung von Einzugsgebieten verwendet werden. Erweitert man dieses Konzept indem z.B. statt Höhenwerte in Metern Kosten in Euro als “Kostengebirge” aufgefasst werden, Können so Pfade geringster Kosten (oder Widerstands) bestimmt werden.  Wassereinzugsgebiete                              Wassereinzugsgebiet auf der Grundlage eines DGM (GITTA 2005)               Die Ableitung von Wassereinzugsgebieten aus digitalen Geländemodellen nutzt das Konzept der Falllinie. Vernetzt man alle Falllinien die einen gemeinsamen Unterlieger als Ausflusspunkt haben und grenzt diesen Raum ab so erzeugt man ein durch die Oberflächenmorphologie determiniertes Wassereinzugsgebiet. Solche Wassereinzugsgebiete sind eine wichtige Komponente in vielen hydrologischen, geomorphologischen und landschaftskundlichen GIS-Anwendungen.  Die zuvor angesprochenen Beipiele sollen einen Eindruck von der Vielfältigkeit der Informationsgewinnung durch Ableitungen vermitteln. In der nachfolgenden Tabelle wird ein Überblick über weitere Informationsprodukte, die aus Geländemodellen ableitbar sind gegeben. Dieser Überblick ist keineswegs vollständig. Vielmehr stellt er in willkürlicher Mischung unterschiedliche Stufen der Ableitung zusammen. Versuchen Sie herauszufinden welche Information eine Ableitung erster bzw. zweiter Ordnung ist.                 Information       Output-Typ       Beschreibung                 Neigung       Zahl       Neigung an einem Punkt                 Pauschalgefälle       Zahl       Gefälle zwischen zwei Punkten                 Exposition       Zahl       Ausrichtung des Hanges                 Kurvatur       Zahl       Krümmung in eine bestimmte Richtung (z. B. Plan- oder Profilkurvatur)                 Intervisibilität       Ja/ Nein       Gibt an, ob der Betrachter einen bestimmten Punkt sehen kann                 Sichtbares Gebiet       Polygone       Gebiet, welches von einem oder mehreren Punkten aus sichtbar ist                 Reliefschatten       Bild       Schattenwurf durch das Gelände bei einer bestimmten Sonnenposition                 Flussnetzwerk       Linien       /                 Einzugsgebiete       Polygone       /                 Profil       Linie       Höhenprofil entlang einer bestimmten Linie                 Volumen       Zahl       Füllungs- oder Abtragsvolumen für ein Gebiet und für eine bestimmte Höhe                 Perspektivische Abbildung       Bild       /                 Falllinie       Linie       Pfad entlang der steilsten Neigung           ">
+
+
+
+
+
+  <meta name="twitter:site" content="@creuden">
+  <meta name="twitter:title" content="Digitale Geländemodelle  – Von der Höhe zur komplexen Information">
+  <meta name="twitter:description" content="Digitale Geländemodelle sind eine weithin genutzte Datenquelle für die räumliche Analyse. Im Original enthalten Sie in einem Rasterdatenmodell die Information der Höhe einer Rasterzelle. Aus dieser   Information können zahlreiche abgeleitete Informationen erzeugt werden. Diese Einheit ist exemplarisch   als leicht nachvollziehbares Beispiel für das Vorgehen bei Ableitung von Informationen aus raum kontinuierlichen Datensätzen gedacht. Neben der reinen Ableitung werden daher zudem mögliche funktionale Ableitungskonzepte wie potentielle Massentransporte, Feuchtigkeitsindizes angesprochen.  Geomorphometrie oder wie aus einfachen Ableitungen wertvolle Informationen entstehen  Die Geomorphometrie beschäftigt sich mit der quantitativen Beschreibung und Analyse der Erdoberfläche. Zu diesem Zweck werden aus digitalen Geländemodellen (DGM) verschiedene Geländeparameter abgeleitet. Neigung, Exposition und Kurvatur (Krümmung) des Geländes gehören zu den Informationen, die am häufigsten aus Geländemodellen extrahiert und in verschiedensten Anwendungen eingesetzt werden. Als Beispiele seien die Verwendung der Exposition in vegetationsgeographischen Fragestellungen, die Modellierung von potentiellem alpinem Permafrost (Höhe, Zürich, Schweiz Exposition und Neigung) oder die Modellierung von Lawinengefahren (Neigung, Exposition) genannt.  Beispiele impliziter Information  Ein digitales Geländemodell enthält neben der reinen Höhe der Raumkoordinaten (oder Raumflächen) eine Reihe weiterer, impliziter Information. “Implizite Information” heißt, dass zusätzliche Informationen aus der lagebezogenen Höheninformation eines Geländemodells abgeleitet werden können, ohne explizit gespeichert zu sein. Zur Ableitung solcher impliziter Information sind in der Regel geeignete mathematische Methoden notwendig. Dieser Zusammenhang von impliziter und expliziter Information lässt sich analog auf eine Vielzahl von Datensätzen und Geoobjekten übertragen. Die nachfolgenden Abbildungen zeigen ein Geländemodell des Türlersees (bei Zürich in der Schweiz) und durch Ableitung erzeugte Information aus diesen Daten.  Primärdatensatz Höhe                              Digitales Geländemodell vom Gebiet Türlersee als geschummerte Höhenschichtdarstellung (Hugentobler 2000)               Ableitung Höhenprofil                              Höhenprofil aus DGM  Türlersee (GITTA 2005)               Auf Grundlage eines digitalen Geländemodells können durch Extraktion der Höhenwerte Profile zwischen zwei Punkten berechnet werden. Derartige Profile sind in vielen anwendungsorientierten Fragestellungen relevant, z. B. für die Planung im Straßenbau oder als Sichtlinien (Seilbahnen, Funkverbindungen). Erweitert man dieses Konzept können alle räumlich verteilten Informationen auf einer direkten also geometrisch kürzesten Verbindungen analysiert und dargestellt werden  Ableitung Profilllinie als Pauschalgefälle                              Pauschalgefälle aus DGM  Türlersee (GITTA 2005)               Das Pauschalgefälle ist eine weitere Ableitung aus der Profillinie. Es beschreibt die mittlere Neigung zwischen zwei Punkten im Gelände und ist folglich skalenabhängig. Ein wichtiges Anwendungsgebiet ist die einfache Abschätzung von Sturz-Prozessen (Steinschlag, Eisschlag).  Falllinie                              Falllinie aus DGM  Türlersee (GITTA 2005)               In einem digitalen Geländemodell kennzeichnet die Falllinie, ausgehend von einem beliebigen Punkt, den Pfad (=verknüpfte Einzelstrecken) entlang dessen die Schwerkraft wirkt (=Vektor Oberlieger-Unterlieger). Oder konkret ausgedrückt den Weg des fließenden Wassers oder rollenden Steins. So können u. a. zur Modellierung von Eis- und Steinschlag, aber auch für die Berechnung von Einzugsgebieten verwendet werden. Erweitert man dieses Konzept indem z.B. statt Höhenwerte in Metern Kosten in Euro als “Kostengebirge” aufgefasst werden, Können so Pfade geringster Kosten (oder Widerstands) bestimmt werden.  Wassereinzugsgebiete                              Wassereinzugsgebiet auf der Grundlage eines DGM (GITTA 2005)               Die Ableitung von Wassereinzugsgebieten aus digitalen Geländemodellen nutzt das Konzept der Falllinie. Vernetzt man alle Falllinien die einen gemeinsamen Unterlieger als Ausflusspunkt haben und grenzt diesen Raum ab so erzeugt man ein durch die Oberflächenmorphologie determiniertes Wassereinzugsgebiet. Solche Wassereinzugsgebiete sind eine wichtige Komponente in vielen hydrologischen, geomorphologischen und landschaftskundlichen GIS-Anwendungen.  Die zuvor angesprochenen Beipiele sollen einen Eindruck von der Vielfältigkeit der Informationsgewinnung durch Ableitungen vermitteln. In der nachfolgenden Tabelle wird ein Überblick über weitere Informationsprodukte, die aus Geländemodellen ableitbar sind gegeben. Dieser Überblick ist keineswegs vollständig. Vielmehr stellt er in willkürlicher Mischung unterschiedliche Stufen der Ableitung zusammen. Versuchen Sie herauszufinden welche Information eine Ableitung erster bzw. zweiter Ordnung ist.                 Information       Output-Typ       Beschreibung                 Neigung       Zahl       Neigung an einem Punkt                 Pauschalgefälle       Zahl       Gefälle zwischen zwei Punkten                 Exposition       Zahl       Ausrichtung des Hanges                 Kurvatur       Zahl       Krümmung in eine bestimmte Richtung (z. B. Plan- oder Profilkurvatur)                 Intervisibilität       Ja/ Nein       Gibt an, ob der Betrachter einen bestimmten Punkt sehen kann                 Sichtbares Gebiet       Polygone       Gebiet, welches von einem oder mehreren Punkten aus sichtbar ist                 Reliefschatten       Bild       Schattenwurf durch das Gelände bei einer bestimmten Sonnenposition                 Flussnetzwerk       Linien       /                 Einzugsgebiete       Polygone       /                 Profil       Linie       Höhenprofil entlang einer bestimmten Linie                 Volumen       Zahl       Füllungs- oder Abtragsvolumen für ein Gebiet und für eine bestimmte Höhe                 Perspektivische Abbildung       Bild       /                 Falllinie       Linie       Pfad entlang der steilsten Neigung           ">
+  <meta name="twitter:url" content="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-04_reader_rasteranalyse.html">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@https://twitter.com/creuden">
+  
+
+
+
+  <meta property="article:published_time" content="2020-11-12T11:04:15+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-04_reader_rasteranalyse.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Lab of Environmental Informatics",
+      "url": "http://localhost:4000/moer-bsc-geoinformatics-basic-one/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/moer-bsc-geoinformatics-basic-one/feed.xml" type="application/atom+xml" rel="alternate" title="Lab of Environmental Informatics Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/moer-bsc-geoinformatics-basic-one/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+    	<a class="site-title" href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/" style="padding:0px"><img src="http://localhost:4000/moer-bsc-geoinformatics-basic-one/assets/images/logo_umr.png" style="padding-right:15px">Lab of Environmental Informatics</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//units.html" >Course-Units</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//unit00/unit00-04_faq.html" >FAQ</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://ilias.uni-marburg.de/ilias.php?ref_id=1858892&cmdClass=ilrepositorygui&cmdNode=ts&baseClass=ilrepositorygui" >ILIAS</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://oer.uni-marburg.de/goto.php?target=cat_1651239&client_id=UNIMR" >OER</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//sitemap.html" >Overview</a>
+            </li>
+          
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+  
+    
+      
+      
+      
+    
+    
+	      
+            <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit00/unit00-01_overview.html" class="">Formales</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit01/unit01-01_reader_geo_raum.html" class="">Reader Geographische Raumkonzepte</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit02/unit02-01_reader_gi_raum.html" class="">Reader GI Raumkonzepte</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit03/unit03-01_reader_abfragen.html" class="">Reader Fragen & Antworten</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-01_reader_rasteranalyse.html" class="">Reader Räumliche Analysen</a>
+		  </span>
+          <ul>
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-01_reader_rasteranalyse.html" class="">Rasterbasierte räumliche Analysemethoden</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-02_reader_rasteranalyse.html" class="">Geometrische Analysen - Thiessen Polygone</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-03_reader_rasteranalyse.html" class="">Informationsloser Raum  – Distanz-basierte Interpolation</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-04_reader_rasteranalyse.html" class="active">Digitale Geländemodelle  – Von der Höhe zur komplexen Information</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-05_reader_rasteranalyse.html" class="">– Funktionale Ableitungen</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-06_reader_rasteranalyse.html" class="">– Sichtweite und Sichtfeld</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-07_reader_rasteranalyse.html" class="">– Prozessorientierte Ableitung von Informationen</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-08_reader_rasteranalyse.html" class="">Quellenverzeichnis</a></li>
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit05/unit05-01_reader_mce.html" class="">Reader Entscheidungsfindung</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit06/unit06-01_reader_PA.html" class="">Reader Projektarbeit</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit08/unit08-01_reader_QGIS_01.html" class="">Reader QGIS</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit09/unit09-02_worksheet.html" class="">Arbeitsblätter</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+  </ul>
+</nav>
+	      
+    
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Digitale Geländemodelle  – Von der Höhe zur komplexen Information">
+    <meta itemprop="description" content="Digitale Geländemodelle sind eine weithin genutzte Datenquelle für die räumliche Analyse. Im Original enthalten Sie in einem Rasterdatenmodell die Information der Höhe einer Rasterzelle. Aus dieser   Information können zahlreiche abgeleitete Informationen erzeugt werden. Diese Einheit ist exemplarisch   als leicht nachvollziehbares Beispiel für das Vorgehen bei Ableitung von Informationen aus raum kontinuierlichen Datensätzen gedacht. Neben der reinen Ableitung werden daher zudem mögliche funktionale Ableitungskonzepte wie potentielle Massentransporte, Feuchtigkeitsindizes angesprochen.Geomorphometrie oder wie aus einfachen Ableitungen wertvolle Informationen entstehenDie Geomorphometrie beschäftigt sich mit der quantitativen Beschreibung und Analyse der Erdoberfläche. Zu diesem Zweck werden aus digitalen Geländemodellen (DGM) verschiedene Geländeparameter abgeleitet. Neigung, Exposition und Kurvatur (Krümmung) des Geländes gehören zu den Informationen, die am häufigsten aus Geländemodellen extrahiert und in verschiedensten Anwendungen eingesetzt werden. Als Beispiele seien die Verwendung der Exposition in vegetationsgeographischen Fragestellungen, die Modellierung von potentiellem alpinem Permafrost (Höhe, Zürich, Schweiz Exposition und Neigung) oder die Modellierung von Lawinengefahren (Neigung, Exposition) genannt.Beispiele impliziter InformationEin digitales Geländemodell enthält neben der reinen Höhe der Raumkoordinaten (oder Raumflächen) eine Reihe weiterer, impliziter Information. “Implizite Information” heißt, dass zusätzliche Informationen aus der lagebezogenen Höheninformation eines Geländemodells abgeleitet werden können, ohne explizit gespeichert zu sein. Zur Ableitung solcher impliziter Information sind in der Regel geeignete mathematische Methoden notwendig. Dieser Zusammenhang von impliziter und expliziter Information lässt sich analog auf eine Vielzahl von Datensätzen und Geoobjekten übertragen. Die nachfolgenden Abbildungen zeigen ein Geländemodell des Türlersees (bei Zürich in der Schweiz) und durch Ableitung erzeugte Information aus diesen Daten.Primärdatensatz Höhe                    Digitales Geländemodell vom Gebiet Türlersee als geschummerte Höhenschichtdarstellung (Hugentobler 2000)        Ableitung Höhenprofil                    Höhenprofil aus DGM  Türlersee (GITTA 2005)        Auf Grundlage eines digitalen Geländemodells können durch Extraktion der Höhenwerte Profile zwischen zwei Punkten berechnet werden. Derartige Profile sind in vielen anwendungsorientierten Fragestellungen relevant, z. B. für die Planung im Straßenbau oder als Sichtlinien (Seilbahnen, Funkverbindungen). Erweitert man dieses Konzept können alle räumlich verteilten Informationen auf einer direkten also geometrisch kürzesten Verbindungen analysiert und dargestellt werdenAbleitung Profilllinie als Pauschalgefälle                    Pauschalgefälle aus DGM  Türlersee (GITTA 2005)        Das Pauschalgefälle ist eine weitere Ableitung aus der Profillinie. Es beschreibt die mittlere Neigung zwischen zwei Punkten im Gelände und ist folglich skalenabhängig. Ein wichtiges Anwendungsgebiet ist die einfache Abschätzung von Sturz-Prozessen (Steinschlag, Eisschlag).Falllinie                    Falllinie aus DGM  Türlersee (GITTA 2005)        In einem digitalen Geländemodell kennzeichnet die Falllinie, ausgehend von einem beliebigen Punkt, den Pfad (=verknüpfte Einzelstrecken) entlang dessen die Schwerkraft wirkt (=Vektor Oberlieger-Unterlieger). Oder konkret ausgedrückt den Weg des fließenden Wassers oder rollenden Steins. So können u. a. zur Modellierung von Eis- und Steinschlag, aber auch für die Berechnung von Einzugsgebieten verwendet werden. Erweitert man dieses Konzept indem z.B. statt Höhenwerte in Metern Kosten in Euro als “Kostengebirge” aufgefasst werden, Können so Pfade geringster Kosten (oder Widerstands) bestimmt werden.Wassereinzugsgebiete                    Wassereinzugsgebiet auf der Grundlage eines DGM (GITTA 2005)        Die Ableitung von Wassereinzugsgebieten aus digitalen Geländemodellen nutzt das Konzept der Falllinie. Vernetzt man alle Falllinien die einen gemeinsamen Unterlieger als Ausflusspunkt haben und grenzt diesen Raum ab so erzeugt man ein durch die Oberflächenmorphologie determiniertes Wassereinzugsgebiet. Solche Wassereinzugsgebiete sind eine wichtige Komponente in vielen hydrologischen, geomorphologischen und landschaftskundlichen GIS-Anwendungen.Die zuvor angesprochenen Beipiele sollen einen Eindruck von der Vielfältigkeit der Informationsgewinnung durch Ableitungen vermitteln. In der nachfolgenden Tabelle wird ein Überblick über weitere Informationsprodukte, die aus Geländemodellen ableitbar sind gegeben. Dieser Überblick ist keineswegs vollständig. Vielmehr stellt er in willkürlicher Mischung unterschiedliche Stufen der Ableitung zusammen. Versuchen Sie herauszufinden welche Information eine Ableitung erster bzw. zweiter Ordnung ist.            Information      Output-Typ      Beschreibung              Neigung      Zahl      Neigung an einem Punkt              Pauschalgefälle      Zahl      Gefälle zwischen zwei Punkten              Exposition      Zahl      Ausrichtung des Hanges              Kurvatur      Zahl      Krümmung in eine bestimmte Richtung (z. B. Plan- oder Profilkurvatur)              Intervisibilität      Ja/ Nein      Gibt an, ob der Betrachter einen bestimmten Punkt sehen kann              Sichtbares Gebiet      Polygone      Gebiet, welches von einem oder mehreren Punkten aus sichtbar ist              Reliefschatten      Bild      Schattenwurf durch das Gelände bei einer bestimmten Sonnenposition              Flussnetzwerk      Linien      /              Einzugsgebiete      Polygone      /              Profil      Linie      Höhenprofil entlang einer bestimmten Linie              Volumen      Zahl      Füllungs- oder Abtragsvolumen für ein Gebiet und für eine bestimmte Höhe              Perspektivische Abbildung      Bild      /              Falllinie      Linie      Pfad entlang der steilsten Neigung      ">
+    <meta itemprop="datePublished" content="2020-11-12T11:04:15+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Digitale Geländemodelle  – Von der Höhe zur komplexen Information
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Inhalt</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#geomorphometrie-oder-wie-aus-einfachen-ableitungen-wertvolle-informationen-entstehen">Geomorphometrie oder wie aus einfachen Ableitungen wertvolle Informationen entstehen</a>
+    <ul>
+      <li><a href="#beispiele-impliziter-information">Beispiele impliziter Information</a></li>
+      <li><a href="#primärdatensatz-höhe">Primärdatensatz Höhe</a></li>
+      <li><a href="#ableitung-höhenprofil">Ableitung Höhenprofil</a></li>
+      <li><a href="#ableitung-profilllinie-als-pauschalgefälle">Ableitung Profilllinie als Pauschalgefälle</a></li>
+      <li><a href="#falllinie">Falllinie</a></li>
+      <li><a href="#wassereinzugsgebiete">Wassereinzugsgebiete</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>Digitale Geländemodelle sind eine weithin genutzte Datenquelle für die räumliche Analyse. Im Original enthalten Sie in einem Rasterdatenmodell die Information der Höhe einer Rasterzelle. Aus dieser   Information können zahlreiche abgeleitete Informationen erzeugt werden. Diese Einheit ist exemplarisch   als leicht nachvollziehbares Beispiel für das Vorgehen bei Ableitung von Informationen aus raum kontinuierlichen Datensätzen gedacht. Neben der reinen Ableitung werden daher zudem mögliche funktionale Ableitungskonzepte wie potentielle Massentransporte, Feuchtigkeitsindizes angesprochen.</p>
+
+<h2 id="geomorphometrie-oder-wie-aus-einfachen-ableitungen-wertvolle-informationen-entstehen">Geomorphometrie oder wie aus einfachen Ableitungen wertvolle Informationen entstehen</h2>
+
+<p>Die Geomorphometrie beschäftigt sich mit der quantitativen Beschreibung und Analyse der Erdoberfläche. Zu diesem Zweck werden aus digitalen Geländemodellen (DGM) verschiedene Geländeparameter abgeleitet. Neigung, Exposition und Kurvatur (Krümmung) des Geländes gehören zu den Informationen, die am häufigsten aus Geländemodellen extrahiert und in verschiedensten Anwendungen eingesetzt werden. Als Beispiele seien die Verwendung der Exposition in vegetationsgeographischen Fragestellungen, die Modellierung von potentiellem alpinem Permafrost (Höhe, Zürich, Schweiz Exposition und Neigung) oder die Modellierung von Lawinengefahren (Neigung, Exposition) genannt.</p>
+
+<h3 id="beispiele-impliziter-information">Beispiele impliziter Information</h3>
+
+<p>Ein digitales Geländemodell enthält neben der reinen Höhe der Raumkoordinaten (oder Raumflächen) eine Reihe weiterer, impliziter Information. “Implizite Information” heißt, dass zusätzliche Informationen aus der lagebezogenen Höheninformation eines Geländemodells abgeleitet werden können, ohne explizit gespeichert zu sein. Zur Ableitung solcher impliziter Information sind in der Regel geeignete mathematische Methoden notwendig. Dieser Zusammenhang von impliziter und expliziter Information lässt sich analog auf eine Vielzahl von Datensätzen und Geoobjekten übertragen. Die nachfolgenden Abbildungen zeigen ein Geländemodell des Türlersees (bei Zürich in der Schweiz) und durch Ableitung erzeugte Information aus diesen Daten.</p>
+
+<h3 id="primärdatensatz-höhe">Primärdatensatz Höhe</h3>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/ExtracTopoOb-DGM.png" alt="Digitales Geländemodell vom Gebiet Türlersee als geschummerte Höhenschichtdarstellung (Hugentobler 2000)" />
+  
+
+  
+    <figcaption>
+      <em>Digitales Geländemodell vom Gebiet Türlersee als geschummerte Höhenschichtdarstellung (Hugentobler 2000)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<h3 id="ableitung-höhenprofil">Ableitung Höhenprofil</h3>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/ExtracTopoOb-Profil.png" alt="Höhenprofil aus DGM  Türlersee (GITTA 2005)" />
+  
+
+  
+    <figcaption>
+      <em>Höhenprofil aus DGM  Türlersee (GITTA 2005)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<p>Auf Grundlage eines digitalen Geländemodells können durch Extraktion der Höhenwerte <em>Profile</em> zwischen zwei Punkten berechnet werden. Derartige Profile sind in vielen anwendungsorientierten Fragestellungen relevant, z. B. für die Planung im Straßenbau oder als Sichtlinien (Seilbahnen, Funkverbindungen). Erweitert man dieses Konzept können alle räumlich verteilten Informationen auf einer direkten also geometrisch kürzesten Verbindungen analysiert und dargestellt werden</p>
+
+<h3 id="ableitung-profilllinie-als-pauschalgefälle">Ableitung Profilllinie als Pauschalgefälle</h3>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/ExtracTopoOb-PauschalG.png" alt="Pauschalgefälle aus DGM  Türlersee (GITTA 2005)" />
+  
+
+  
+    <figcaption>
+      <em>Pauschalgefälle aus DGM  Türlersee (GITTA 2005)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<p>Das <em>Pauschalgefälle</em> ist eine weitere Ableitung aus der Profillinie. Es beschreibt die mittlere Neigung zwischen zwei Punkten im Gelände und ist folglich skalenabhängig. Ein wichtiges Anwendungsgebiet ist die einfache Abschätzung von Sturz-Prozessen (Steinschlag, Eisschlag).</p>
+
+<h3 id="falllinie">Falllinie</h3>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/ExtracTopoOb-Falllinie.png" alt="Falllinie aus DGM  Türlersee (GITTA 2005)" />
+  
+
+  
+    <figcaption>
+      <em>Falllinie aus DGM  Türlersee (GITTA 2005)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<p>In einem digitalen Geländemodell kennzeichnet die <em>Falllinie</em>, ausgehend von einem beliebigen Punkt, den Pfad (=verknüpfte Einzelstrecken) entlang dessen die Schwerkraft wirkt (=Vektor Oberlieger-Unterlieger). Oder konkret ausgedrückt den Weg des fließenden Wassers oder rollenden Steins. So können u. a. zur Modellierung von Eis- und Steinschlag, aber auch für die Berechnung von Einzugsgebieten verwendet werden. Erweitert man dieses Konzept indem z.B. statt Höhenwerte in Metern Kosten in Euro als “Kostengebirge” aufgefasst werden, Können so Pfade geringster Kosten (oder Widerstands) bestimmt werden.</p>
+
+<h3 id="wassereinzugsgebiete">Wassereinzugsgebiete</h3>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/ExtracTopoOb-catchment.png" alt="Wassereinzugsgebiet aus DGM (GITTA 2005)" />
+  
+
+  
+    <figcaption>
+      <em>Wassereinzugsgebiet auf der Grundlage eines DGM (GITTA 2005)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<p>Die Ableitung von <em>Wassereinzugsgebieten</em> aus digitalen Geländemodellen nutzt das Konzept der Falllinie. Vernetzt man alle Falllinien die einen gemeinsamen Unterlieger als Ausflusspunkt haben und grenzt diesen Raum ab so erzeugt man ein durch die Oberflächenmorphologie determiniertes Wassereinzugsgebiet. Solche Wassereinzugsgebiete sind eine wichtige Komponente in vielen hydrologischen, geomorphologischen und landschaftskundlichen GIS-Anwendungen.</p>
+
+<p>Die zuvor angesprochenen Beipiele sollen einen Eindruck von der Vielfältigkeit der Informationsgewinnung durch <strong>Ableitungen</strong> vermitteln. In der nachfolgenden Tabelle wird ein Überblick über weitere Informationsprodukte, die aus Geländemodellen ableitbar sind gegeben. Dieser Überblick ist keineswegs vollständig. Vielmehr stellt er in willkürlicher Mischung unterschiedliche Stufen der Ableitung zusammen. Versuchen Sie herauszufinden welche Information eine Ableitung erster bzw. zweiter Ordnung ist.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Information</td>
+      <td>Output-Typ</td>
+      <td>Beschreibung</td>
+    </tr>
+    <tr>
+      <td>Neigung</td>
+      <td>Zahl</td>
+      <td>Neigung an einem Punkt</td>
+    </tr>
+    <tr>
+      <td>Pauschalgefälle</td>
+      <td>Zahl</td>
+      <td>Gefälle zwischen zwei Punkten</td>
+    </tr>
+    <tr>
+      <td>Exposition</td>
+      <td>Zahl</td>
+      <td>Ausrichtung des Hanges</td>
+    </tr>
+    <tr>
+      <td>Kurvatur</td>
+      <td>Zahl</td>
+      <td>Krümmung in eine bestimmte Richtung (z. B. Plan- oder Profilkurvatur)</td>
+    </tr>
+    <tr>
+      <td>Intervisibilität</td>
+      <td>Ja/ Nein</td>
+      <td>Gibt an, ob der Betrachter einen bestimmten Punkt sehen kann</td>
+    </tr>
+    <tr>
+      <td>Sichtbares Gebiet</td>
+      <td>Polygone</td>
+      <td>Gebiet, welches von einem oder mehreren Punkten aus sichtbar ist</td>
+    </tr>
+    <tr>
+      <td>Reliefschatten</td>
+      <td>Bild</td>
+      <td>Schattenwurf durch das Gelände bei einer bestimmten Sonnenposition</td>
+    </tr>
+    <tr>
+      <td>Flussnetzwerk</td>
+      <td>Linien</td>
+      <td>/</td>
+    </tr>
+    <tr>
+      <td>Einzugsgebiete</td>
+      <td>Polygone</td>
+      <td>/</td>
+    </tr>
+    <tr>
+      <td>Profil</td>
+      <td>Linie</td>
+      <td>Höhenprofil entlang einer bestimmten Linie</td>
+    </tr>
+    <tr>
+      <td>Volumen</td>
+      <td>Zahl</td>
+      <td>Füllungs- oder Abtragsvolumen für ein Gebiet und für eine bestimmte Höhe</td>
+    </tr>
+    <tr>
+      <td>Perspektivische Abbildung</td>
+      <td>Bild</td>
+      <td>/</td>
+    </tr>
+    <tr>
+      <td>Falllinie</td>
+      <td>Linie</td>
+      <td>Pfad entlang der steilsten Neigung</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-11-12T11:04:15+01:00">November 12, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/moer-bsc-geoinformatics-basic-one/unit04/unit04-03_reader_rasteranalyse.html" class="pagination--pager" title="Informationsloser Raum  – Distanz-basierte Interpolation
+">Previous</a>
+    
+    
+      <a href="/moer-bsc-geoinformatics-basic-one/unit04/unit04-05_reader_rasteranalyse.html" class="pagination--pager" title="– Funktionale Ableitungen
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+      <li><a href="https://twitter.com/creuden"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="https://github.com/GeoMOER"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright"> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> &copy; 2020 Lab of Environmental Informatics
+. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>, <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> &amp; <a href="https://www.uni-marburg.de/fb19" rel="nofollow">Geography@Marburg University</a>.</div>
+
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/moer-bsc-geoinformatics-basic-one/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

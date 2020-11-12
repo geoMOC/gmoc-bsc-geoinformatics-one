@@ -1,0 +1,755 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Informationsloser Raum  – Distanz-basierte Interpolation | Lab of Environmental Informatics</title>
+<meta name="description" content="Betrachten Sie als Einstieg die folgende Abbildung die Ihnen eine Niederschlagsoberfläche der Schweiz zeigt: Die blauen Punkte sind die Positionen von Messstationen, ihre Größe entspricht der Niederschlagsmenge. Die unterschiedlichen Höhen der Oberfläche sowie ihre Farbgebung stehen ebenfalls in Zusammenhang mit der Niederschlagsmenge.                              Niederschlagsoberfläche der Schweiz (oben), Karte der Messstationen (unten). (GITTA 2005)               Steht man vor der Aussage aus den einzelnen Punktbeobachtungen flächenhafte Daten zu erzeugen stehen die folgenden Fragen im Vordergrund:     Wie kann aus den ca. 100 Messpunkten solch eine kontinuierliche Oberfläche erstellt werden?   Welches Wissen ist nötig und welche Methoden existieren dazu?   Welche Werkzeuge helfen uns dabei?   In oben gezeigtem Beispiel ist die Variable der Niederschlag. Stellen Sie sich vor, Sie könnten den Niederschlag entlang einer Messstrecke auf jeder beliebigen Position messen. Sie hätten also eine räumlich-kontinuierliche Messung. Benachbarte Niederschlagswerte werden entweder identisch sein oder geringfügig variieren, je nach der gewählten Skala der „Nachbarschaft“. In der Praxis ist quasi jedes natürliche räumlich-kontinuierliche Phänomen von stochastischen Schwankungen bestimmt und lässt sich daher mathematisch nur annäherungsweise beschreiben.  Wie beginnen wir nun mit der Analyse kontinuierlicher Variablen?  Der erste Schritt besteht in der Erstellung einer räumlichen Stichprobe. In dem zu Beginn erwähnten Beispiel des Schweizer Niederschlags sind dies meteorologische Messstationen. Ihre Positionen sind in diesem Fall fest vorgegeben und nicht frei wählbar. Wenn Sie aber z.B. die Verteilung chemischer Schadstoffe im Boden analysieren wollen, müssen Sie zunächst die Messpunkte an denen Sie die Proben entnehmen festlegen. Dabei werden Sie auf folgende Eigenschaften der Stichprobe achten müssen:     Repräsentativität: Das Phänomen, das analysiert wird, sollte in allen Ausprägungen in der Stichprobe vertreten sein. Insbesondere Minima und Maxima sind von Bedeutung. Für das Niederschlagsbeispiel bedeutet dies: Stationen mit Spitzenwerten sollten vertreten sein. Wenn wir allerdings ein eigenes Probenschema planen, wissen wir in der Regel nicht, ob wir die Standorte mit Minima und Maxima erfasst haben.   Homogenität: Wie zu Beginn erwähnt, ist die räumliche Abhängigkeit der Daten untereinander eine sehr wichtige Grundvoraussetzung für eine weitere sinnvolle Analyse. Dieser Zusammenhang sollte aber über das gesamte Untersuchungsgebiet homogen sein! Um bei den Niederschlagswerten zu bleiben: jeweils zwei Stationen im Abstand von z.B. 2km sollten sowohl im Tessin ähnliche Messwerte aufweisen als auch im Jura, in Graubünden oder in Fribourg usw.. Diese Voraussetzung nennt man auch „Stationarität“.   Räumliche Verteilung der Messungen: Die räumliche Verteilung ist von großer Bedeutung. Sie kann völlig zufällig sein, regelmäßig oder geclustert. Die Verteilungen sehen Sie an Beispielen weiter unten im Abschnitt „Typologie“. Einen Hinweis auf die räumliche Verteilung einer Stichprobe können wir statistisch z.B. mittels der „Nearest Neighbor“-Statistik erhalten. Sie zählt zu den „Point Pattern Analysis“-Techniken – Methoden, mit deren Hilfe sich die räumliche Verteilung von Punkten statistisch charakterisieren und analysieren lassen.   Größe (= Anzahl der Messungen): Die Größe, also der Umfang einer Stichprobe, ist abhängig vom Phänomen und von der Arealfläche. In manchen Fällen unterliegt die Wahl der Stichprobengröße praktischen Einschränkungen. Denken Sie z.B. an Messungen in schwer zugänglichem Gelände, technisch aufwendigen und teuren Messungen usw.. Eine ideale Größe für jegliche Aufgabe anzugeben, ist schlicht unmöglich.   Repräsentativität, Homogenität, räumliche Verteilung und Größe hängen zusammen. So ist eine Größe von 5 Messstationen für die Schätzung des gesamtschweizerischen Niederschlags wohl kaum sinnvoll, daher auch nicht repräsentativ. Ebenso wenig repräsentativ wäre die Auswahl aller deutschschweizerischen Messstationen für die gesamtschweizerische Schätzung. Hier könnte wohl die Größe allein ausreichend sein, nicht aber die räumliche Verteilung. Wählen Sie nun alle Stationen unter 750 mNN aus, so könnte die Stichprobe zwar sowohl von der Größe her als auch von ihrer räumlichen Verteilung stimmen, das Phänomen ist jedoch nicht homogen in der Stichprobe repräsentiert. Eine nachfolgende Schätzung würde v. a. im Bereich von Gebieten über 750 mNN deutlich verzerrt ausfallen.  Räumliche Interpolation von Daten  Nachdem wir zuvor knapp den Zusammenhang räumlicher Abhängigkeiten dargestellt haben, kommen wir nun zu räumlichen Interpolationen. Was sind räumliche Interpolationen? Darunter versteht man die Berechnung unbekannter Werte auf der Basis benachbarter bekannter Werte. Die meisten dieser Techniken zählen zu den komplexeren Methoden räumlicher Analyse, darum beschränken wir uns hier bewusst auf einen prinzipiellen Überblick zu den Methoden.  Inverse Distanz-Gewichtung, Spline-Interpolationen, Kriging-Methoden,Polynomial-Regression-Methoden sind lediglich einige sehr gängige Interpolations-Methoden, die in GIS-Software zu finden sind.  Lokale vs. Globale Interpolation  Globale Methoden werden auf ALLE Daten im Untersuchungsgebiet angewandt, lokale dagegen nur auf räumlich definierte Subsets. Globale Interpolation eignet sich daher nicht zur Ermittlung möglichst exakter Werte, sondern zur Beurteilung globaler räumlicher Strukturen.  Als Beispiele sehen Sie nachfolgend eine lineare Trend-Oberfläche – sie wurde mittels Regression aus den schweizerischen Niederschlagsdaten ermittelt und zeigt einen Trend zum Anstieg der Niederschlagshöhen von SE nach NW. In der darunter befindlichen Abbildung wird auf den gleichen Daten eine lokale Interpolation mittels sogenannter Radial-Basis-Interpolation durchgeführt.                              Beispiel einer globalen Interpolation – Lineare Trendoberfläche für Schweizer Niederschlagsdaten (GITTA 2005)                                           Beispiel einer lokalen Interpolation – Radial Basis Interpolation für Schweizer Niederschlagsdaten (GITTA 2005)               Exakte vs. Nicht-exakte Interpolation  Exakte Interpolation heißt: die geschätzte Oberfläche passiert die bekannten Punkte, während bei nicht-exakten Methoden die Schätzwerte für bekannte Beobachtungen von den realen Werten abweichen können. Letztere Methoden werden sinnvollerweise dann eingesetzt, wenn die bekannten Daten bereits gewisse Unschärfen aufweisen.                              Exakter Interpolator: Schätzoberfläche passiert exakt die bekannten – schematisch als Säulen dargestellt – Punkte (Wyatt 2000)                                           Nicht-exakter Interpolator: Schätzoberfläche passiert die bekannten – schematisch als Säulen dargestellt – Punkte NICHT (Wyatt 2000)               Räumliche Anwendung in Form von Höhendaten                              Vergleich unterschiedlicher Interpolationsmethoden am Beipiel eines DGM (Mitas et al.1999)               Die dargestellten Beispiele visualisieren die Ergebnisse unterschiedlicher, etablierter Interpolationsverfahren. Aus diesen soll stellvertretend neben der bereits bekannten Voronoi-Tessellation die Inverse Distanz-Gewichtung Interpolation aufgrund ihrer Einfachheit und häufigen Anwendung gesondert betrachtet werden. Bei der Inversen Distanz-Gewichtung (Inverse Distance Weighting, IDW), wird das Gewicht jedes bekannten Punktes invers proportional zu seiner Entfernung zum nächsten Punkt gesetzt.  Je niedriger der Exponent gesetzt wird, desto gleichförmiger gehen alle Nachbarn (ungeachtet ihrer Distanz) in die Berechnung ein, und desto „glatter“ wird die Schätzoberfläche. Je höher der Exponent wird, desto akzentuierter und „unruhiger“ wird die Oberfläche, da nur mehr das Gewicht der nächstgelegenen Nachbarn in die Interpolation einfließt. Die Methode ist dieam häufigsten verwendete räumliche Interpolationsmethode mit folgenden Stärken:     Sie ermöglicht sehr schnelle Berechnungen   Unterschiedliche Distanzen fließen in die Schätzung unterschiedlich ein   Über den Distanzgewichtungs-Exponent kann der Einfluss der Distanzen fein gesteuert werden   und Schwächen:     Es ist keine richtungsabhängige Gewichtung möglich, d. h. räumlich gerichtete Zusammenhänge werden ignoriert (z.B. Höhenpunkte entlang eines Bergrückens).   Neigung zu Artefaktebildung -die sogenannten Bull-Eyes – dies sind kreisförmige Bereiche gleicher Werte um die bekannten Datenpunkte.   Zur Vollständigkeit:  Eine von (Shepard 1968) entwickelte Variante der IDW-Interpolation reduziert diese Bull-Eyes jedoch erheblich (siehe folgende Abbildungen):                                                                                         (links) IDW „Bull Eyes“-Effekt: Um die bekannten Punkte sind konzentrische Bereiche gleicher Werte zu erkennen – ein unerwünschtes Artefakt der IDW-Interpolation (GITTA 2005), (rechts) IDW modifiziert nach Shepard: die Bull-Eyes sind deutlich reduziert       ">
+
+
+  <meta name="author" content="Christoph Reudenbach">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Lab of Environmental Informatics">
+<meta property="og:title" content="Informationsloser Raum  – Distanz-basierte Interpolation">
+<meta property="og:url" content="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-03_reader_rasteranalyse.html">
+
+
+  <meta property="og:description" content="Betrachten Sie als Einstieg die folgende Abbildung die Ihnen eine Niederschlagsoberfläche der Schweiz zeigt: Die blauen Punkte sind die Positionen von Messstationen, ihre Größe entspricht der Niederschlagsmenge. Die unterschiedlichen Höhen der Oberfläche sowie ihre Farbgebung stehen ebenfalls in Zusammenhang mit der Niederschlagsmenge.                              Niederschlagsoberfläche der Schweiz (oben), Karte der Messstationen (unten). (GITTA 2005)               Steht man vor der Aussage aus den einzelnen Punktbeobachtungen flächenhafte Daten zu erzeugen stehen die folgenden Fragen im Vordergrund:     Wie kann aus den ca. 100 Messpunkten solch eine kontinuierliche Oberfläche erstellt werden?   Welches Wissen ist nötig und welche Methoden existieren dazu?   Welche Werkzeuge helfen uns dabei?   In oben gezeigtem Beispiel ist die Variable der Niederschlag. Stellen Sie sich vor, Sie könnten den Niederschlag entlang einer Messstrecke auf jeder beliebigen Position messen. Sie hätten also eine räumlich-kontinuierliche Messung. Benachbarte Niederschlagswerte werden entweder identisch sein oder geringfügig variieren, je nach der gewählten Skala der „Nachbarschaft“. In der Praxis ist quasi jedes natürliche räumlich-kontinuierliche Phänomen von stochastischen Schwankungen bestimmt und lässt sich daher mathematisch nur annäherungsweise beschreiben.  Wie beginnen wir nun mit der Analyse kontinuierlicher Variablen?  Der erste Schritt besteht in der Erstellung einer räumlichen Stichprobe. In dem zu Beginn erwähnten Beispiel des Schweizer Niederschlags sind dies meteorologische Messstationen. Ihre Positionen sind in diesem Fall fest vorgegeben und nicht frei wählbar. Wenn Sie aber z.B. die Verteilung chemischer Schadstoffe im Boden analysieren wollen, müssen Sie zunächst die Messpunkte an denen Sie die Proben entnehmen festlegen. Dabei werden Sie auf folgende Eigenschaften der Stichprobe achten müssen:     Repräsentativität: Das Phänomen, das analysiert wird, sollte in allen Ausprägungen in der Stichprobe vertreten sein. Insbesondere Minima und Maxima sind von Bedeutung. Für das Niederschlagsbeispiel bedeutet dies: Stationen mit Spitzenwerten sollten vertreten sein. Wenn wir allerdings ein eigenes Probenschema planen, wissen wir in der Regel nicht, ob wir die Standorte mit Minima und Maxima erfasst haben.   Homogenität: Wie zu Beginn erwähnt, ist die räumliche Abhängigkeit der Daten untereinander eine sehr wichtige Grundvoraussetzung für eine weitere sinnvolle Analyse. Dieser Zusammenhang sollte aber über das gesamte Untersuchungsgebiet homogen sein! Um bei den Niederschlagswerten zu bleiben: jeweils zwei Stationen im Abstand von z.B. 2km sollten sowohl im Tessin ähnliche Messwerte aufweisen als auch im Jura, in Graubünden oder in Fribourg usw.. Diese Voraussetzung nennt man auch „Stationarität“.   Räumliche Verteilung der Messungen: Die räumliche Verteilung ist von großer Bedeutung. Sie kann völlig zufällig sein, regelmäßig oder geclustert. Die Verteilungen sehen Sie an Beispielen weiter unten im Abschnitt „Typologie“. Einen Hinweis auf die räumliche Verteilung einer Stichprobe können wir statistisch z.B. mittels der „Nearest Neighbor“-Statistik erhalten. Sie zählt zu den „Point Pattern Analysis“-Techniken – Methoden, mit deren Hilfe sich die räumliche Verteilung von Punkten statistisch charakterisieren und analysieren lassen.   Größe (= Anzahl der Messungen): Die Größe, also der Umfang einer Stichprobe, ist abhängig vom Phänomen und von der Arealfläche. In manchen Fällen unterliegt die Wahl der Stichprobengröße praktischen Einschränkungen. Denken Sie z.B. an Messungen in schwer zugänglichem Gelände, technisch aufwendigen und teuren Messungen usw.. Eine ideale Größe für jegliche Aufgabe anzugeben, ist schlicht unmöglich.   Repräsentativität, Homogenität, räumliche Verteilung und Größe hängen zusammen. So ist eine Größe von 5 Messstationen für die Schätzung des gesamtschweizerischen Niederschlags wohl kaum sinnvoll, daher auch nicht repräsentativ. Ebenso wenig repräsentativ wäre die Auswahl aller deutschschweizerischen Messstationen für die gesamtschweizerische Schätzung. Hier könnte wohl die Größe allein ausreichend sein, nicht aber die räumliche Verteilung. Wählen Sie nun alle Stationen unter 750 mNN aus, so könnte die Stichprobe zwar sowohl von der Größe her als auch von ihrer räumlichen Verteilung stimmen, das Phänomen ist jedoch nicht homogen in der Stichprobe repräsentiert. Eine nachfolgende Schätzung würde v. a. im Bereich von Gebieten über 750 mNN deutlich verzerrt ausfallen.  Räumliche Interpolation von Daten  Nachdem wir zuvor knapp den Zusammenhang räumlicher Abhängigkeiten dargestellt haben, kommen wir nun zu räumlichen Interpolationen. Was sind räumliche Interpolationen? Darunter versteht man die Berechnung unbekannter Werte auf der Basis benachbarter bekannter Werte. Die meisten dieser Techniken zählen zu den komplexeren Methoden räumlicher Analyse, darum beschränken wir uns hier bewusst auf einen prinzipiellen Überblick zu den Methoden.  Inverse Distanz-Gewichtung, Spline-Interpolationen, Kriging-Methoden,Polynomial-Regression-Methoden sind lediglich einige sehr gängige Interpolations-Methoden, die in GIS-Software zu finden sind.  Lokale vs. Globale Interpolation  Globale Methoden werden auf ALLE Daten im Untersuchungsgebiet angewandt, lokale dagegen nur auf räumlich definierte Subsets. Globale Interpolation eignet sich daher nicht zur Ermittlung möglichst exakter Werte, sondern zur Beurteilung globaler räumlicher Strukturen.  Als Beispiele sehen Sie nachfolgend eine lineare Trend-Oberfläche – sie wurde mittels Regression aus den schweizerischen Niederschlagsdaten ermittelt und zeigt einen Trend zum Anstieg der Niederschlagshöhen von SE nach NW. In der darunter befindlichen Abbildung wird auf den gleichen Daten eine lokale Interpolation mittels sogenannter Radial-Basis-Interpolation durchgeführt.                              Beispiel einer globalen Interpolation – Lineare Trendoberfläche für Schweizer Niederschlagsdaten (GITTA 2005)                                           Beispiel einer lokalen Interpolation – Radial Basis Interpolation für Schweizer Niederschlagsdaten (GITTA 2005)               Exakte vs. Nicht-exakte Interpolation  Exakte Interpolation heißt: die geschätzte Oberfläche passiert die bekannten Punkte, während bei nicht-exakten Methoden die Schätzwerte für bekannte Beobachtungen von den realen Werten abweichen können. Letztere Methoden werden sinnvollerweise dann eingesetzt, wenn die bekannten Daten bereits gewisse Unschärfen aufweisen.                              Exakter Interpolator: Schätzoberfläche passiert exakt die bekannten – schematisch als Säulen dargestellt – Punkte (Wyatt 2000)                                           Nicht-exakter Interpolator: Schätzoberfläche passiert die bekannten – schematisch als Säulen dargestellt – Punkte NICHT (Wyatt 2000)               Räumliche Anwendung in Form von Höhendaten                              Vergleich unterschiedlicher Interpolationsmethoden am Beipiel eines DGM (Mitas et al.1999)               Die dargestellten Beispiele visualisieren die Ergebnisse unterschiedlicher, etablierter Interpolationsverfahren. Aus diesen soll stellvertretend neben der bereits bekannten Voronoi-Tessellation die Inverse Distanz-Gewichtung Interpolation aufgrund ihrer Einfachheit und häufigen Anwendung gesondert betrachtet werden. Bei der Inversen Distanz-Gewichtung (Inverse Distance Weighting, IDW), wird das Gewicht jedes bekannten Punktes invers proportional zu seiner Entfernung zum nächsten Punkt gesetzt.  Je niedriger der Exponent gesetzt wird, desto gleichförmiger gehen alle Nachbarn (ungeachtet ihrer Distanz) in die Berechnung ein, und desto „glatter“ wird die Schätzoberfläche. Je höher der Exponent wird, desto akzentuierter und „unruhiger“ wird die Oberfläche, da nur mehr das Gewicht der nächstgelegenen Nachbarn in die Interpolation einfließt. Die Methode ist dieam häufigsten verwendete räumliche Interpolationsmethode mit folgenden Stärken:     Sie ermöglicht sehr schnelle Berechnungen   Unterschiedliche Distanzen fließen in die Schätzung unterschiedlich ein   Über den Distanzgewichtungs-Exponent kann der Einfluss der Distanzen fein gesteuert werden   und Schwächen:     Es ist keine richtungsabhängige Gewichtung möglich, d. h. räumlich gerichtete Zusammenhänge werden ignoriert (z.B. Höhenpunkte entlang eines Bergrückens).   Neigung zu Artefaktebildung -die sogenannten Bull-Eyes – dies sind kreisförmige Bereiche gleicher Werte um die bekannten Datenpunkte.   Zur Vollständigkeit:  Eine von (Shepard 1968) entwickelte Variante der IDW-Interpolation reduziert diese Bull-Eyes jedoch erheblich (siehe folgende Abbildungen):                                                                                         (links) IDW „Bull Eyes“-Effekt: Um die bekannten Punkte sind konzentrische Bereiche gleicher Werte zu erkennen – ein unerwünschtes Artefakt der IDW-Interpolation (GITTA 2005), (rechts) IDW modifiziert nach Shepard: die Bull-Eyes sind deutlich reduziert       ">
+
+
+
+
+
+  <meta name="twitter:site" content="@creuden">
+  <meta name="twitter:title" content="Informationsloser Raum  – Distanz-basierte Interpolation">
+  <meta name="twitter:description" content="Betrachten Sie als Einstieg die folgende Abbildung die Ihnen eine Niederschlagsoberfläche der Schweiz zeigt: Die blauen Punkte sind die Positionen von Messstationen, ihre Größe entspricht der Niederschlagsmenge. Die unterschiedlichen Höhen der Oberfläche sowie ihre Farbgebung stehen ebenfalls in Zusammenhang mit der Niederschlagsmenge.                              Niederschlagsoberfläche der Schweiz (oben), Karte der Messstationen (unten). (GITTA 2005)               Steht man vor der Aussage aus den einzelnen Punktbeobachtungen flächenhafte Daten zu erzeugen stehen die folgenden Fragen im Vordergrund:     Wie kann aus den ca. 100 Messpunkten solch eine kontinuierliche Oberfläche erstellt werden?   Welches Wissen ist nötig und welche Methoden existieren dazu?   Welche Werkzeuge helfen uns dabei?   In oben gezeigtem Beispiel ist die Variable der Niederschlag. Stellen Sie sich vor, Sie könnten den Niederschlag entlang einer Messstrecke auf jeder beliebigen Position messen. Sie hätten also eine räumlich-kontinuierliche Messung. Benachbarte Niederschlagswerte werden entweder identisch sein oder geringfügig variieren, je nach der gewählten Skala der „Nachbarschaft“. In der Praxis ist quasi jedes natürliche räumlich-kontinuierliche Phänomen von stochastischen Schwankungen bestimmt und lässt sich daher mathematisch nur annäherungsweise beschreiben.  Wie beginnen wir nun mit der Analyse kontinuierlicher Variablen?  Der erste Schritt besteht in der Erstellung einer räumlichen Stichprobe. In dem zu Beginn erwähnten Beispiel des Schweizer Niederschlags sind dies meteorologische Messstationen. Ihre Positionen sind in diesem Fall fest vorgegeben und nicht frei wählbar. Wenn Sie aber z.B. die Verteilung chemischer Schadstoffe im Boden analysieren wollen, müssen Sie zunächst die Messpunkte an denen Sie die Proben entnehmen festlegen. Dabei werden Sie auf folgende Eigenschaften der Stichprobe achten müssen:     Repräsentativität: Das Phänomen, das analysiert wird, sollte in allen Ausprägungen in der Stichprobe vertreten sein. Insbesondere Minima und Maxima sind von Bedeutung. Für das Niederschlagsbeispiel bedeutet dies: Stationen mit Spitzenwerten sollten vertreten sein. Wenn wir allerdings ein eigenes Probenschema planen, wissen wir in der Regel nicht, ob wir die Standorte mit Minima und Maxima erfasst haben.   Homogenität: Wie zu Beginn erwähnt, ist die räumliche Abhängigkeit der Daten untereinander eine sehr wichtige Grundvoraussetzung für eine weitere sinnvolle Analyse. Dieser Zusammenhang sollte aber über das gesamte Untersuchungsgebiet homogen sein! Um bei den Niederschlagswerten zu bleiben: jeweils zwei Stationen im Abstand von z.B. 2km sollten sowohl im Tessin ähnliche Messwerte aufweisen als auch im Jura, in Graubünden oder in Fribourg usw.. Diese Voraussetzung nennt man auch „Stationarität“.   Räumliche Verteilung der Messungen: Die räumliche Verteilung ist von großer Bedeutung. Sie kann völlig zufällig sein, regelmäßig oder geclustert. Die Verteilungen sehen Sie an Beispielen weiter unten im Abschnitt „Typologie“. Einen Hinweis auf die räumliche Verteilung einer Stichprobe können wir statistisch z.B. mittels der „Nearest Neighbor“-Statistik erhalten. Sie zählt zu den „Point Pattern Analysis“-Techniken – Methoden, mit deren Hilfe sich die räumliche Verteilung von Punkten statistisch charakterisieren und analysieren lassen.   Größe (= Anzahl der Messungen): Die Größe, also der Umfang einer Stichprobe, ist abhängig vom Phänomen und von der Arealfläche. In manchen Fällen unterliegt die Wahl der Stichprobengröße praktischen Einschränkungen. Denken Sie z.B. an Messungen in schwer zugänglichem Gelände, technisch aufwendigen und teuren Messungen usw.. Eine ideale Größe für jegliche Aufgabe anzugeben, ist schlicht unmöglich.   Repräsentativität, Homogenität, räumliche Verteilung und Größe hängen zusammen. So ist eine Größe von 5 Messstationen für die Schätzung des gesamtschweizerischen Niederschlags wohl kaum sinnvoll, daher auch nicht repräsentativ. Ebenso wenig repräsentativ wäre die Auswahl aller deutschschweizerischen Messstationen für die gesamtschweizerische Schätzung. Hier könnte wohl die Größe allein ausreichend sein, nicht aber die räumliche Verteilung. Wählen Sie nun alle Stationen unter 750 mNN aus, so könnte die Stichprobe zwar sowohl von der Größe her als auch von ihrer räumlichen Verteilung stimmen, das Phänomen ist jedoch nicht homogen in der Stichprobe repräsentiert. Eine nachfolgende Schätzung würde v. a. im Bereich von Gebieten über 750 mNN deutlich verzerrt ausfallen.  Räumliche Interpolation von Daten  Nachdem wir zuvor knapp den Zusammenhang räumlicher Abhängigkeiten dargestellt haben, kommen wir nun zu räumlichen Interpolationen. Was sind räumliche Interpolationen? Darunter versteht man die Berechnung unbekannter Werte auf der Basis benachbarter bekannter Werte. Die meisten dieser Techniken zählen zu den komplexeren Methoden räumlicher Analyse, darum beschränken wir uns hier bewusst auf einen prinzipiellen Überblick zu den Methoden.  Inverse Distanz-Gewichtung, Spline-Interpolationen, Kriging-Methoden,Polynomial-Regression-Methoden sind lediglich einige sehr gängige Interpolations-Methoden, die in GIS-Software zu finden sind.  Lokale vs. Globale Interpolation  Globale Methoden werden auf ALLE Daten im Untersuchungsgebiet angewandt, lokale dagegen nur auf räumlich definierte Subsets. Globale Interpolation eignet sich daher nicht zur Ermittlung möglichst exakter Werte, sondern zur Beurteilung globaler räumlicher Strukturen.  Als Beispiele sehen Sie nachfolgend eine lineare Trend-Oberfläche – sie wurde mittels Regression aus den schweizerischen Niederschlagsdaten ermittelt und zeigt einen Trend zum Anstieg der Niederschlagshöhen von SE nach NW. In der darunter befindlichen Abbildung wird auf den gleichen Daten eine lokale Interpolation mittels sogenannter Radial-Basis-Interpolation durchgeführt.                              Beispiel einer globalen Interpolation – Lineare Trendoberfläche für Schweizer Niederschlagsdaten (GITTA 2005)                                           Beispiel einer lokalen Interpolation – Radial Basis Interpolation für Schweizer Niederschlagsdaten (GITTA 2005)               Exakte vs. Nicht-exakte Interpolation  Exakte Interpolation heißt: die geschätzte Oberfläche passiert die bekannten Punkte, während bei nicht-exakten Methoden die Schätzwerte für bekannte Beobachtungen von den realen Werten abweichen können. Letztere Methoden werden sinnvollerweise dann eingesetzt, wenn die bekannten Daten bereits gewisse Unschärfen aufweisen.                              Exakter Interpolator: Schätzoberfläche passiert exakt die bekannten – schematisch als Säulen dargestellt – Punkte (Wyatt 2000)                                           Nicht-exakter Interpolator: Schätzoberfläche passiert die bekannten – schematisch als Säulen dargestellt – Punkte NICHT (Wyatt 2000)               Räumliche Anwendung in Form von Höhendaten                              Vergleich unterschiedlicher Interpolationsmethoden am Beipiel eines DGM (Mitas et al.1999)               Die dargestellten Beispiele visualisieren die Ergebnisse unterschiedlicher, etablierter Interpolationsverfahren. Aus diesen soll stellvertretend neben der bereits bekannten Voronoi-Tessellation die Inverse Distanz-Gewichtung Interpolation aufgrund ihrer Einfachheit und häufigen Anwendung gesondert betrachtet werden. Bei der Inversen Distanz-Gewichtung (Inverse Distance Weighting, IDW), wird das Gewicht jedes bekannten Punktes invers proportional zu seiner Entfernung zum nächsten Punkt gesetzt.  Je niedriger der Exponent gesetzt wird, desto gleichförmiger gehen alle Nachbarn (ungeachtet ihrer Distanz) in die Berechnung ein, und desto „glatter“ wird die Schätzoberfläche. Je höher der Exponent wird, desto akzentuierter und „unruhiger“ wird die Oberfläche, da nur mehr das Gewicht der nächstgelegenen Nachbarn in die Interpolation einfließt. Die Methode ist dieam häufigsten verwendete räumliche Interpolationsmethode mit folgenden Stärken:     Sie ermöglicht sehr schnelle Berechnungen   Unterschiedliche Distanzen fließen in die Schätzung unterschiedlich ein   Über den Distanzgewichtungs-Exponent kann der Einfluss der Distanzen fein gesteuert werden   und Schwächen:     Es ist keine richtungsabhängige Gewichtung möglich, d. h. räumlich gerichtete Zusammenhänge werden ignoriert (z.B. Höhenpunkte entlang eines Bergrückens).   Neigung zu Artefaktebildung -die sogenannten Bull-Eyes – dies sind kreisförmige Bereiche gleicher Werte um die bekannten Datenpunkte.   Zur Vollständigkeit:  Eine von (Shepard 1968) entwickelte Variante der IDW-Interpolation reduziert diese Bull-Eyes jedoch erheblich (siehe folgende Abbildungen):                                                                                         (links) IDW „Bull Eyes“-Effekt: Um die bekannten Punkte sind konzentrische Bereiche gleicher Werte zu erkennen – ein unerwünschtes Artefakt der IDW-Interpolation (GITTA 2005), (rechts) IDW modifiziert nach Shepard: die Bull-Eyes sind deutlich reduziert       ">
+  <meta name="twitter:url" content="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-03_reader_rasteranalyse.html">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+    <meta name="twitter:creator" content="@https://twitter.com/creuden">
+  
+
+
+
+  <meta property="article:published_time" content="2020-11-12T11:04:15+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/unit04/unit04-03_reader_rasteranalyse.html">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Lab of Environmental Informatics",
+      "url": "http://localhost:4000/moer-bsc-geoinformatics-basic-one/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/moer-bsc-geoinformatics-basic-one/feed.xml" type="application/atom+xml" rel="alternate" title="Lab of Environmental Informatics Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/moer-bsc-geoinformatics-basic-one/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+    	<a class="site-title" href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/" style="padding:0px"><img src="http://localhost:4000/moer-bsc-geoinformatics-basic-one/assets/images/logo_umr.png" style="padding-right:15px">Lab of Environmental Informatics</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//units.html" >Course-Units</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//unit00/unit00-04_faq.html" >FAQ</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://ilias.uni-marburg.de/ilias.php?ref_id=1858892&cmdClass=ilrepositorygui&cmdNode=ts&baseClass=ilrepositorygui" >ILIAS</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://oer.uni-marburg.de/goto.php?target=cat_1651239&client_id=UNIMR" >OER</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one//sitemap.html" >Overview</a>
+            </li>
+          
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+  
+    
+      
+      
+      
+    
+    
+	      
+            <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+      
+      
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit00/unit00-01_overview.html" class="">Formales</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit01/unit01-01_reader_geo_raum.html" class="">Reader Geographische Raumkonzepte</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit02/unit02-01_reader_gi_raum.html" class="">Reader GI Raumkonzepte</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit03/unit03-01_reader_abfragen.html" class="">Reader Fragen & Antworten</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-01_reader_rasteranalyse.html" class="">Reader Räumliche Analysen</a>
+		  </span>
+          <ul>
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-01_reader_rasteranalyse.html" class="">Rasterbasierte räumliche Analysemethoden</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-02_reader_rasteranalyse.html" class="">Geometrische Analysen - Thiessen Polygone</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-03_reader_rasteranalyse.html" class="active">Informationsloser Raum  – Distanz-basierte Interpolation</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-04_reader_rasteranalyse.html" class="">Digitale Geländemodelle  – Von der Höhe zur komplexen Information</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-05_reader_rasteranalyse.html" class="">– Funktionale Ableitungen</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-06_reader_rasteranalyse.html" class="">– Sichtweite und Sichtfeld</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-07_reader_rasteranalyse.html" class="">– Prozessorientierte Ableitung von Informationen</a></li>
+			  
+            
+              
+			  
+			    <li><a href="/moer-bsc-geoinformatics-basic-one//unit04/unit04-08_reader_rasteranalyse.html" class="">Quellenverzeichnis</a></li>
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit05/unit05-01_reader_mce.html" class="">Reader Entscheidungsfindung</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit06/unit06-01_reader_PA.html" class="">Reader Projektarbeit</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit08/unit08-01_reader_QGIS_01.html" class="">Reader QGIS</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+      
+      
+        
+        <li>
+          <span class="nav__sub-title">
+		     <a href="/moer-bsc-geoinformatics-basic-one//unit09/unit09-02_worksheet.html" class="">Arbeitsblätter</a>
+		  </span>
+          <ul>
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+              
+			  
+            
+          </ul>
+        </li>
+	  
+    
+  </ul>
+</nav>
+	      
+    
+  
+  </div>
+
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Informationsloser Raum  – Distanz-basierte Interpolation">
+    <meta itemprop="description" content="Betrachten Sie als Einstieg die folgende Abbildung die Ihnen eine Niederschlagsoberfläche der Schweiz zeigt: Die blauen Punkte sind die Positionen von Messstationen, ihre Größe entspricht der Niederschlagsmenge. Die unterschiedlichen Höhen der Oberfläche sowie ihre Farbgebung stehen ebenfalls in Zusammenhang mit der Niederschlagsmenge.                    Niederschlagsoberfläche der Schweiz (oben), Karte der Messstationen (unten). (GITTA 2005)        Steht man vor der Aussage aus den einzelnen Punktbeobachtungen flächenhafte Daten zu erzeugen stehen die folgenden Fragen im Vordergrund:  Wie kann aus den ca. 100 Messpunkten solch eine kontinuierliche Oberfläche erstellt werden?  Welches Wissen ist nötig und welche Methoden existieren dazu?  Welche Werkzeuge helfen uns dabei?In oben gezeigtem Beispiel ist die Variable der Niederschlag. Stellen Sie sich vor, Sie könnten den Niederschlag entlang einer Messstrecke auf jeder beliebigen Position messen. Sie hätten also eine räumlich-kontinuierliche Messung. Benachbarte Niederschlagswerte werden entweder identisch sein oder geringfügig variieren, je nach der gewählten Skala der „Nachbarschaft“. In der Praxis ist quasi jedes natürliche räumlich-kontinuierliche Phänomen von stochastischen Schwankungen bestimmt und lässt sich daher mathematisch nur annäherungsweise beschreiben.Wie beginnen wir nun mit der Analyse kontinuierlicher Variablen?Der erste Schritt besteht in der Erstellung einer räumlichen Stichprobe. In dem zu Beginn erwähnten Beispiel des Schweizer Niederschlags sind dies meteorologische Messstationen. Ihre Positionen sind in diesem Fall fest vorgegeben und nicht frei wählbar. Wenn Sie aber z.B. die Verteilung chemischer Schadstoffe im Boden analysieren wollen, müssen Sie zunächst die Messpunkte an denen Sie die Proben entnehmen festlegen. Dabei werden Sie auf folgende Eigenschaften der Stichprobe achten müssen:  Repräsentativität: Das Phänomen, das analysiert wird, sollte in allen Ausprägungen in der Stichprobe vertreten sein. Insbesondere Minima und Maxima sind von Bedeutung. Für das Niederschlagsbeispiel bedeutet dies: Stationen mit Spitzenwerten sollten vertreten sein. Wenn wir allerdings ein eigenes Probenschema planen, wissen wir in der Regel nicht, ob wir die Standorte mit Minima und Maxima erfasst haben.  Homogenität: Wie zu Beginn erwähnt, ist die räumliche Abhängigkeit der Daten untereinander eine sehr wichtige Grundvoraussetzung für eine weitere sinnvolle Analyse. Dieser Zusammenhang sollte aber über das gesamte Untersuchungsgebiet homogen sein! Um bei den Niederschlagswerten zu bleiben: jeweils zwei Stationen im Abstand von z.B. 2km sollten sowohl im Tessin ähnliche Messwerte aufweisen als auch im Jura, in Graubünden oder in Fribourg usw.. Diese Voraussetzung nennt man auch „Stationarität“.  Räumliche Verteilung der Messungen: Die räumliche Verteilung ist von großer Bedeutung. Sie kann völlig zufällig sein, regelmäßig oder geclustert. Die Verteilungen sehen Sie an Beispielen weiter unten im Abschnitt „Typologie“. Einen Hinweis auf die räumliche Verteilung einer Stichprobe können wir statistisch z.B. mittels der „Nearest Neighbor“-Statistik erhalten. Sie zählt zu den „Point Pattern Analysis“-Techniken – Methoden, mit deren Hilfe sich die räumliche Verteilung von Punkten statistisch charakterisieren und analysieren lassen.  Größe (= Anzahl der Messungen): Die Größe, also der Umfang einer Stichprobe, ist abhängig vom Phänomen und von der Arealfläche. In manchen Fällen unterliegt die Wahl der Stichprobengröße praktischen Einschränkungen. Denken Sie z.B. an Messungen in schwer zugänglichem Gelände, technisch aufwendigen und teuren Messungen usw.. Eine ideale Größe für jegliche Aufgabe anzugeben, ist schlicht unmöglich.Repräsentativität, Homogenität, räumliche Verteilung und Größe hängen zusammen. So ist eine Größe von 5 Messstationen für die Schätzung des gesamtschweizerischen Niederschlags wohl kaum sinnvoll, daher auch nicht repräsentativ. Ebenso wenig repräsentativ wäre die Auswahl aller deutschschweizerischen Messstationen für die gesamtschweizerische Schätzung. Hier könnte wohl die Größe allein ausreichend sein, nicht aber die räumliche Verteilung. Wählen Sie nun alle Stationen unter 750 mNN aus, so könnte die Stichprobe zwar sowohl von der Größe her als auch von ihrer räumlichen Verteilung stimmen, das Phänomen ist jedoch nicht homogen in der Stichprobe repräsentiert. Eine nachfolgende Schätzung würde v. a. im Bereich von Gebieten über 750 mNN deutlich verzerrt ausfallen.Räumliche Interpolation von DatenNachdem wir zuvor knapp den Zusammenhang räumlicher Abhängigkeiten dargestellt haben, kommen wir nun zu räumlichen Interpolationen. Was sind räumliche Interpolationen? Darunter versteht man die Berechnung unbekannter Werte auf der Basis benachbarter bekannter Werte. Die meisten dieser Techniken zählen zu den komplexeren Methoden räumlicher Analyse, darum beschränken wir uns hier bewusst auf einen prinzipiellen Überblick zu den Methoden.Inverse Distanz-Gewichtung, Spline-Interpolationen, Kriging-Methoden,Polynomial-Regression-Methoden sind lediglich einige sehr gängige Interpolations-Methoden, die in GIS-Software zu finden sind.Lokale vs. Globale InterpolationGlobale Methoden werden auf ALLE Daten im Untersuchungsgebiet angewandt, lokale dagegen nur auf räumlich definierte Subsets. Globale Interpolation eignet sich daher nicht zur Ermittlung möglichst exakter Werte, sondern zur Beurteilung globaler räumlicher Strukturen.Als Beispiele sehen Sie nachfolgend eine lineare Trend-Oberfläche – sie wurde mittels Regression aus den schweizerischen Niederschlagsdaten ermittelt und zeigt einen Trend zum Anstieg der Niederschlagshöhen von SE nach NW. In der darunter befindlichen Abbildung wird auf den gleichen Daten eine lokale Interpolation mittels sogenannter Radial-Basis-Interpolation durchgeführt.                    Beispiel einer globalen Interpolation – Lineare Trendoberfläche für Schweizer Niederschlagsdaten (GITTA 2005)                            Beispiel einer lokalen Interpolation – Radial Basis Interpolation für Schweizer Niederschlagsdaten (GITTA 2005)        Exakte vs. Nicht-exakte InterpolationExakte Interpolation heißt: die geschätzte Oberfläche passiert die bekannten Punkte, während bei nicht-exakten Methoden die Schätzwerte für bekannte Beobachtungen von den realen Werten abweichen können. Letztere Methoden werden sinnvollerweise dann eingesetzt, wenn die bekannten Daten bereits gewisse Unschärfen aufweisen.                    Exakter Interpolator: Schätzoberfläche passiert exakt die bekannten – schematisch als Säulen dargestellt – Punkte (Wyatt 2000)                            Nicht-exakter Interpolator: Schätzoberfläche passiert die bekannten – schematisch als Säulen dargestellt – Punkte NICHT (Wyatt 2000)        Räumliche Anwendung in Form von Höhendaten                    Vergleich unterschiedlicher Interpolationsmethoden am Beipiel eines DGM (Mitas et al.1999)        Die dargestellten Beispiele visualisieren die Ergebnisse unterschiedlicher, etablierter Interpolationsverfahren. Aus diesen soll stellvertretend neben der bereits bekannten Voronoi-Tessellation die Inverse Distanz-Gewichtung Interpolation aufgrund ihrer Einfachheit und häufigen Anwendung gesondert betrachtet werden. Bei der Inversen Distanz-Gewichtung (Inverse Distance Weighting, IDW), wird das Gewicht jedes bekannten Punktes invers proportional zu seiner Entfernung zum nächsten Punkt gesetzt.Je niedriger der Exponent gesetzt wird, desto gleichförmiger gehen alle Nachbarn (ungeachtet ihrer Distanz) in die Berechnung ein, und desto „glatter“ wird die Schätzoberfläche. Je höher der Exponent wird, desto akzentuierter und „unruhiger“ wird die Oberfläche, da nur mehr das Gewicht der nächstgelegenen Nachbarn in die Interpolation einfließt. Die Methode ist dieam häufigsten verwendete räumliche Interpolationsmethode mit folgenden Stärken:  Sie ermöglicht sehr schnelle Berechnungen  Unterschiedliche Distanzen fließen in die Schätzung unterschiedlich ein  Über den Distanzgewichtungs-Exponent kann der Einfluss der Distanzen fein gesteuert werdenund Schwächen:  Es ist keine richtungsabhängige Gewichtung möglich, d. h. räumlich gerichtete Zusammenhänge werden ignoriert (z.B. Höhenpunkte entlang eines Bergrückens).  Neigung zu Artefaktebildung -die sogenannten Bull-Eyes – dies sind kreisförmige Bereiche gleicher Werte um die bekannten Datenpunkte.Zur Vollständigkeit:Eine von (Shepard 1968) entwickelte Variante der IDW-Interpolation reduziert diese Bull-Eyes jedoch erheblich (siehe folgende Abbildungen):                                                                        (links) IDW „Bull Eyes“-Effekt: Um die bekannten Punkte sind konzentrische Bereiche gleicher Werte zu erkennen – ein unerwünschtes Artefakt der IDW-Interpolation (GITTA 2005), (rechts) IDW modifiziert nach Shepard: die Bull-Eyes sind deutlich reduziert  ">
+    <meta itemprop="datePublished" content="2020-11-12T11:04:15+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Informationsloser Raum  – Distanz-basierte Interpolation
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Inhalt</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#wie-beginnen-wir-nun-mit-der-analyse-kontinuierlicher-variablen">Wie beginnen wir nun mit der Analyse kontinuierlicher Variablen?</a></li>
+  <li><a href="#räumliche-interpolation-von-daten">Räumliche Interpolation von Daten</a></li>
+  <li><a href="#lokale-vs-globale-interpolation">Lokale vs. Globale Interpolation</a></li>
+  <li><a href="#exakte-vs-nicht-exakte-interpolation">Exakte vs. Nicht-exakte Interpolation</a></li>
+  <li><a href="#räumliche-anwendung-in-form-von-höhendaten">Räumliche Anwendung in Form von Höhendaten</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>Betrachten Sie als Einstieg die folgende Abbildung die Ihnen eine Niederschlagsoberfläche der Schweiz zeigt: Die blauen Punkte sind die Positionen von Messstationen, ihre Größe entspricht der Niederschlagsmenge. Die unterschiedlichen Höhen der Oberfläche sowie ihre Farbgebung stehen ebenfalls in Zusammenhang mit der Niederschlagsmenge.</p>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/CH_Precip_Example_for_Intro.jpg" alt="Niederschlagsoberfläche der Schweiz (oben), Karte der Messstationen (unten). (GITTA 2005)" />
+  
+
+  
+    <figcaption>
+      <em>Niederschlagsoberfläche der Schweiz (oben), Karte der Messstationen (unten). (GITTA 2005)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<p>Steht man vor der Aussage aus den einzelnen Punktbeobachtungen flächenhafte Daten zu erzeugen stehen die folgenden Fragen im Vordergrund:</p>
+
+<ul>
+  <li>Wie kann aus den ca. 100 Messpunkten solch eine kontinuierliche Oberfläche erstellt werden?</li>
+  <li>Welches Wissen ist nötig und welche Methoden existieren dazu?</li>
+  <li>Welche Werkzeuge helfen uns dabei?</li>
+</ul>
+
+<p>In oben gezeigtem Beispiel ist die Variable der Niederschlag. Stellen Sie sich vor, Sie könnten den Niederschlag entlang einer Messstrecke auf jeder beliebigen Position messen. Sie hätten also eine räumlich-kontinuierliche Messung. Benachbarte Niederschlagswerte werden entweder identisch sein oder geringfügig variieren, je nach der gewählten Skala der „Nachbarschaft“. In der Praxis ist quasi jedes natürliche räumlich-kontinuierliche Phänomen von stochastischen Schwankungen bestimmt und lässt sich daher mathematisch nur annäherungsweise beschreiben.</p>
+
+<h3 id="wie-beginnen-wir-nun-mit-der-analyse-kontinuierlicher-variablen">Wie beginnen wir nun mit der Analyse kontinuierlicher Variablen?</h3>
+
+<p>Der erste Schritt besteht in der Erstellung einer räumlichen Stichprobe. In dem zu Beginn erwähnten Beispiel des Schweizer Niederschlags sind dies meteorologische Messstationen. Ihre Positionen sind in diesem Fall fest vorgegeben und nicht frei wählbar. Wenn Sie aber z.B. die Verteilung chemischer Schadstoffe im Boden analysieren wollen, müssen Sie zunächst die Messpunkte an denen Sie die Proben entnehmen festlegen. Dabei werden Sie auf folgende Eigenschaften der Stichprobe achten müssen:</p>
+
+<ul>
+  <li><strong>Repräsentativität:</strong> Das Phänomen, das analysiert wird, sollte in allen Ausprägungen in der Stichprobe vertreten sein. Insbesondere Minima und Maxima sind von Bedeutung. Für das Niederschlagsbeispiel bedeutet dies: Stationen mit Spitzenwerten sollten vertreten sein. Wenn wir allerdings ein eigenes Probenschema planen, wissen wir in der Regel nicht, ob wir die Standorte mit Minima und Maxima erfasst haben.</li>
+  <li><strong>Homogenität:</strong> Wie zu Beginn erwähnt, ist die räumliche Abhängigkeit der Daten untereinander eine sehr wichtige Grundvoraussetzung für eine weitere sinnvolle Analyse. Dieser Zusammenhang sollte aber über das gesamte Untersuchungsgebiet homogen sein! Um bei den Niederschlagswerten zu bleiben: jeweils zwei Stationen im Abstand von z.B. 2km sollten sowohl im Tessin ähnliche Messwerte aufweisen als auch im Jura, in Graubünden oder in Fribourg usw.. Diese Voraussetzung nennt man auch „Stationarität“.</li>
+  <li><strong>Räumliche Verteilung der Messungen:</strong> Die räumliche Verteilung ist von großer Bedeutung. Sie kann völlig zufällig sein, regelmäßig oder geclustert. Die Verteilungen sehen Sie an Beispielen weiter unten im Abschnitt „Typologie“. Einen Hinweis auf die räumliche Verteilung einer Stichprobe können wir statistisch z.B. mittels der „Nearest Neighbor“-Statistik erhalten. Sie zählt zu den „Point Pattern Analysis“-Techniken – Methoden, mit deren Hilfe sich die räumliche Verteilung von Punkten statistisch charakterisieren und analysieren lassen.</li>
+  <li><strong>Größe (= Anzahl der Messungen):</strong> Die Größe, also der Umfang einer Stichprobe, ist abhängig vom Phänomen und von der Arealfläche. In manchen Fällen unterliegt die Wahl der Stichprobengröße praktischen Einschränkungen. Denken Sie z.B. an Messungen in schwer zugänglichem Gelände, technisch aufwendigen und teuren Messungen usw.. Eine ideale Größe für jegliche Aufgabe anzugeben, ist schlicht unmöglich.</li>
+</ul>
+
+<p>Repräsentativität, Homogenität, räumliche Verteilung und Größe hängen zusammen. So ist eine Größe von 5 Messstationen für die Schätzung des gesamtschweizerischen Niederschlags wohl kaum sinnvoll, daher auch nicht repräsentativ. Ebenso wenig repräsentativ wäre die Auswahl aller deutschschweizerischen Messstationen für die gesamtschweizerische Schätzung. Hier könnte wohl die Größe allein ausreichend sein, nicht aber die räumliche Verteilung. Wählen Sie nun alle Stationen unter 750 mNN aus, so könnte die Stichprobe zwar sowohl von der Größe her als auch von ihrer räumlichen Verteilung stimmen, das Phänomen ist jedoch nicht homogen in der Stichprobe repräsentiert. Eine nachfolgende Schätzung würde v. a. im Bereich von Gebieten über 750 mNN deutlich verzerrt ausfallen.</p>
+
+<h3 id="räumliche-interpolation-von-daten">Räumliche Interpolation von Daten</h3>
+
+<p>Nachdem wir zuvor knapp den Zusammenhang räumlicher Abhängigkeiten dargestellt haben, kommen wir nun zu räumlichen Interpolationen. Was sind räumliche <em>Interpolationen</em>? Darunter versteht man die Berechnung unbekannter Werte auf der Basis benachbarter bekannter Werte. Die meisten dieser Techniken zählen zu den komplexeren Methoden räumlicher Analyse, darum beschränken wir uns hier bewusst auf einen prinzipiellen Überblick zu den Methoden.</p>
+
+<p><em>Inverse Distanz-Gewichtung</em>, <em>Spline-Interpolationen</em>, <em>Kriging-Methoden</em>,<em>Polynomial-Regression-Methoden</em> sind lediglich einige sehr gängige Interpolations-Methoden, die in GIS-Software zu finden sind.</p>
+
+<h3 id="lokale-vs-globale-interpolation">Lokale vs. Globale Interpolation</h3>
+
+<p>Globale Methoden werden auf ALLE Daten im Untersuchungsgebiet angewandt, lokale dagegen nur auf räumlich definierte Subsets. Globale Interpolation eignet sich daher nicht zur Ermittlung möglichst exakter Werte, sondern zur Beurteilung globaler räumlicher Strukturen.</p>
+
+<p>Als Beispiele sehen Sie nachfolgend eine lineare Trend-Oberfläche – sie wurde mittels Regression aus den schweizerischen Niederschlagsdaten ermittelt und zeigt einen Trend zum Anstieg der Niederschlagshöhen von SE nach NW. In der darunter befindlichen Abbildung wird auf den gleichen Daten eine lokale Interpolation mittels sogenannter Radial-Basis-Interpolation durchgeführt.</p>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/globale_interpolation.gif" alt="Beispiel einer globalen Interpolation – Lineare Trendoberfläche für Schweizer Niederschlagsdaten (GITTA 2005)" />
+  
+
+  
+    <figcaption>
+      <em>Beispiel einer globalen Interpolation – Lineare Trendoberfläche für Schweizer Niederschlagsdaten (GITTA 2005)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/lokale_interpolation.gif" alt="Beispiel einer lokalen Interpolation – Radial Basis Interpolation für Schweizer Niederschlagsdaten (GITTA 2005)" />
+  
+
+  
+    <figcaption>
+      <em>Beispiel einer lokalen Interpolation – Radial Basis Interpolation für Schweizer Niederschlagsdaten (GITTA 2005)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<h3 id="exakte-vs-nicht-exakte-interpolation">Exakte vs. Nicht-exakte Interpolation</h3>
+
+<p>Exakte Interpolation heißt: die geschätzte Oberfläche passiert die bekannten Punkte, während bei nicht-exakten Methoden die Schätzwerte für bekannte Beobachtungen von den realen Werten abweichen können. Letztere Methoden werden sinnvollerweise dann eingesetzt, wenn die bekannten Daten bereits gewisse Unschärfen aufweisen.</p>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/exakte_interpolation.jpg" alt="Exakter Interpolator: Schätzoberfläche passiert exakt die bekannten – schematisch als Säulen dargestellt – Punkte (Wyatt 2000)" />
+  
+
+  
+    <figcaption>
+      <em>Exakter Interpolator: Schätzoberfläche passiert exakt die bekannten – schematisch als Säulen dargestellt – Punkte (Wyatt 2000)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/nicht_exakte_interpolation.jpg" alt="Nicht-exakter Interpolator: Schätzoberfläche passiert die bekannten – schematisch als Säulen dargestellt – Punkte NICHT (Wyatt 2000)" />
+  
+
+  
+    <figcaption>
+      <em>Nicht-exakter Interpolator: Schätzoberfläche passiert die bekannten – schematisch als Säulen dargestellt – Punkte NICHT (Wyatt 2000)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<h3 id="räumliche-anwendung-in-form-von-höhendaten">Räumliche Anwendung in Form von Höhendaten</h3>
+
+<figure class="">
+
+  
+    <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/interpolation_examples.gif" alt="Vergleich unterschiedlicher Interpolationsmethoden am Beipiel eines DGM (Mitas et al.1999)" />
+  
+
+  
+    <figcaption>
+      <em>Vergleich unterschiedlicher Interpolationsmethoden am Beipiel eines DGM (Mitas et al.1999)</em>
+
+    </figcaption>
+  
+  
+</figure>
+
+<p>Die dargestellten Beispiele visualisieren die Ergebnisse unterschiedlicher, etablierter Interpolationsverfahren. Aus diesen soll stellvertretend neben der bereits bekannten Voronoi-Tessellation die Inverse Distanz-Gewichtung Interpolation aufgrund ihrer Einfachheit und häufigen Anwendung gesondert betrachtet werden. Bei der Inversen Distanz-Gewichtung (Inverse Distance Weighting, IDW), wird das Gewicht jedes bekannten Punktes invers proportional zu seiner Entfernung zum nächsten Punkt gesetzt.</p>
+
+<p>Je niedriger der Exponent gesetzt wird, desto gleichförmiger gehen alle Nachbarn (ungeachtet ihrer Distanz) in die Berechnung ein, und desto „glatter“ wird die Schätzoberfläche. Je höher der Exponent wird, desto akzentuierter und „unruhiger“ wird die Oberfläche, da nur mehr das Gewicht der nächstgelegenen Nachbarn in die Interpolation einfließt. Die Methode ist dieam häufigsten verwendete räumliche Interpolationsmethode mit folgenden Stärken:</p>
+
+<ul>
+  <li>Sie ermöglicht sehr schnelle Berechnungen</li>
+  <li>Unterschiedliche Distanzen fließen in die Schätzung unterschiedlich ein</li>
+  <li>Über den Distanzgewichtungs-Exponent kann der Einfluss der Distanzen fein gesteuert werden</li>
+</ul>
+
+<p>und Schwächen:</p>
+
+<ul>
+  <li>Es ist keine richtungsabhängige Gewichtung möglich, d. h. räumlich gerichtete Zusammenhänge werden ignoriert (z.B. Höhenpunkte entlang eines Bergrückens).</li>
+  <li>Neigung zu Artefaktebildung -die sogenannten <em>Bull-Eyes</em> – dies sind kreisförmige Bereiche gleicher Werte um die bekannten Datenpunkte.</li>
+</ul>
+
+<p>Zur Vollständigkeit:</p>
+
+<p>Eine von (Shepard 1968) entwickelte Variante der IDW-Interpolation reduziert diese Bull-Eyes jedoch erheblich (siehe folgende Abbildungen):</p>
+
+<figure class="half ">
+  
+    
+      <a href="https://minibsc.gis-ma.org/GISBScL3/de/image/IDW_BullEyes.gif" title=" IDW „Bull Eyes“-Effekt: Um die bekannten Punkte sind konzentrische Bereiche gleicher Werte zu erkennen – ein unerwünschtes Artefakt der IDW-Interpolation (GITTA 2005)">
+          <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/IDW_BullEyes.gif" alt="IDW „Bull Eyes“-Effekt: Um die bekannten Punkte sind konzentrische Bereiche gleicher Werte zu erkennen – ein unerwünschtes Artefakt der IDW-Interpolation (GITTA 2005)" />
+      </a>
+    
+  
+    
+      <a href="https://minibsc.gis-ma.org/GISBScL3/de/image/IDW_Shepard.gif" title="IDW modifiziert nach SHEPARD: die Bull-Eyes sind deutlich reduziert">
+          <img src="https://minibsc.gis-ma.org/GISBScL3/de/image/IDW_Shepard.gif" alt="IDW modifiziert nach SHEPARD: die Bull-Eyes sind deutlich reduziert" />
+      </a>
+    
+  
+  
+    <figcaption>(links) IDW „Bull Eyes“-Effekt: Um die bekannten Punkte sind konzentrische Bereiche gleicher Werte zu erkennen – ein unerwünschtes Artefakt der IDW-Interpolation (GITTA 2005), (rechts) IDW modifiziert nach Shepard: die Bull-Eyes sind deutlich reduziert
+</figcaption>
+  
+</figure>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-11-12T11:04:15+01:00">November 12, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/moer-bsc-geoinformatics-basic-one/unit04/unit04-02_reader_rasteranalyse.html" class="pagination--pager" title="Geometrische Analysen - Thiessen Polygone
+">Previous</a>
+    
+    
+      <a href="/moer-bsc-geoinformatics-basic-one/unit04/unit04-04_reader_rasteranalyse.html" class="pagination--pager" title="Digitale Geländemodelle  – Von der Höhe zur komplexen Information
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+      <li><a href="https://twitter.com/creuden"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="https://github.com/GeoMOER"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="http://localhost:4000/moer-bsc-geoinformatics-basic-one/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright"> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a> &copy; 2020 Lab of Environmental Informatics
+. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>, <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> &amp; <a href="https://www.uni-marburg.de/fb19" rel="nofollow">Geography@Marburg University</a>.</div>
+
+
+
+      </footer>
+    </div>
+
+    
+  <script src="/moer-bsc-geoinformatics-basic-one/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
