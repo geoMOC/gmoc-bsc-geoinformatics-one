@@ -27,9 +27,9 @@ Nach dieser Übung können Sie:
 ## Benötigte Materialien
 
 * Daten:
-  * [POI Marburg](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_points.zip)
-  * [Open Streetmap Daten](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_nat.zip)
-  * [Open Streetmap Daten](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_roads.zip)
+  * Das [Points of Interest (POI) Marburg](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_points.zip). sie können diese Referenzdatei herunterladen oder die von Ihnen in Aufgabe 1 erzeugte Datei benutzen. 
+  * Auf das Luftbild bezogener Ausschnitt der [Wald Flächen](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_nat.zip) aus dem aktuellen Open Streetmap Datensatz
+  * Auf das Luftbild bezogener Ausschnitt der [Straßen Daten](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_roads.zip) aus dem aktuellen Open Streetmap Datensatz
 
 
 
@@ -39,10 +39,10 @@ Nach dieser Übung können Sie:
 In der Aufgabe 03-01 werden Attributwerte abgefragt.
 
 * Wieviel Ampeln ("traffic_signals") gibt es in Marburg?
-* Wieviele Objekte sind dem Typ "cafe" und "bar" in Marburg zugeordnet.
-* Wieviele Objekte sind nicht vom Typ "university" ?
-* Wieviele Objekte beinhalten das Wort Café in ihrem Namen? 
-* Welche Objekte beinhalten zwar das Wort Café in ihrem Namen, sind aber nicht vom Typ "cafe" ?
+* Wieviele Objekte weisen das Merkmal (fclass) "cafe" und "bar" auf.
+* Wieviele Objekte sind weisen das Merkmal "university" **nicht** auf?
+* Wieviele Objekte beinhalten das Wort Café in ihrem Namen (name) ? 
+* Welche Objekte beinhalten zwar das Wort Café in ihrem Namen, sind aber nicht der flcass "cafe" zugehörig?
 * Suchen Sie alle Objekte die den exakten Namen "REWE" haben UND vom Typ "supermarket" sind.
 * Suchen Sie alle Objekte die den exakten Namen "REWE" haben ODER vom Typ "supermarket" sind.
 {: .notice--success}
@@ -59,12 +59,12 @@ In der Aufgabe 03-02 beschäftigen wir uns mit topologischen und geometrischen A
 
 
 
-  - Wieviele Punkte befinden sich in Naturgebieten?
-  - Wieviele Punkte sind maximal 150m von Naturgebieten entfernt?
-  - Wieviele restaurants oder bars sind max 150m von Naturgebieten entfernt?
-  - Wieviele Straßen führen durch Naturgebiete?
-  - Wie viele Punkte liegen im Umkreis von 500 m um den Marburger Bahnhof?
-  - Wie viele bars liegen maximal 500 Meter von der nächsten Bushaltestelle?
+  - Wieviele Punkte befinden sich in Waldflächen (mr_nat)?
+  - Wieviele Punkte sind maximal 150m von Waldflächen entfernt?
+  - Wieviele restaurants oder bars sind max 150m von Waldflächen entfernt?
+  - Wieviele Straßen führen durch Waldflächen?
+  - Wie viele Punkte (POIs) liegen im Umkreis von 500 m um den Marburger Bahnhof?
+  - Wie viele Bars sind maximal 500 Meter von der nächsten Bushaltestelle entfernt?
   - Wie viele Punkte liegen im Umkreis von maximal 250 Metern um Parkplätze?
   - Von wievielen Punkte aus kann ein Arzt/Krankenhaus in weniger als 500 Meter Entfernung gefunden werden?
   - Wie viele Punkte der Kategorie Gastronomie liegen weiter als 1 km vom Bahnhof und gleichzeitig weniger als 1 km vom nächsten Briefkasten entfernt?

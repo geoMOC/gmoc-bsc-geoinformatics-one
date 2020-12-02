@@ -25,13 +25,13 @@ Nach dieser Übung können Sie:
 
 ## Benötigte Materialien
 
-* Daten:
+### Daten
   * Ein [Luftbild](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/marburg_RE.tif) von Marburg und Umgebung als Rasterdatensatz
   * Auf das Luftbild bezogener Ausschnitt der [Wald Flächen](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_nat.zip) aus dem aktuellen Open Streetmap Datensatz
   * Auf das Luftbild bezogener Ausschnitt der [Straßen Daten](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_roads.zip) aus dem aktuellen Open Streetmap Datensatz
   * Eine [Excel Tabelle](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_objects.xls) die verschiedne räumliche Objekte enthält.
 
-* Weblinks:
+### Weblinks
   * [QGIS Installation](https://www.qgis.org/de/site/forusers/alldownloads.html) *Windows-Nutzer*: Ungeachtet der Warnung verfolgen sie bitte den Weg fortgeschrittene Installation der mit dem Herunterladen des OSGeo4W-Installers beginnt.
   * [Eine sanfte Einführung in GIS](https://docs.qgis.org/3.10/de/docs/gentle_gis_introduction/index.html)
   * [QGIS Benutzerhandbuch 3.10 DE](https://docs.qgis.org/3.10/de/docs/user_manual/index.html) Die erste zentrale Referenz für Nutzer. Hier die aktuelle deutschsprachige Version. 

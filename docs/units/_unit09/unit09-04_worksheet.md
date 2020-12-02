@@ -32,22 +32,21 @@ Nach dieser Übung können Sie:
 
 ## Benötigte Materialien
 
-* Daten:
+### Daten
   * [SRTM Geländemodell](http://srtm.csi.cgiar.org/SELECTION/inputCoord.asp)
-
 
 
 ## Aufgabe 04-01
 
 
-*   Laden Sie sich unter der obigen Adresse die passende Kachel (Ausschnitt) des SRTM Geländemodell von Marburg herunter. 
+*   Laden Sie sich unter der obigen Adresse die passende Kachel (Ausschnitt) des SRTM Geländemodells von Marburg herunter. 
 *   Was zeigt Ihnen der Datensatz?
 *   Projizieren Sie das Geländemodell in ETRS89 UTM32 und schneiden es auf den Marburg Ausschnitt zu.
 *   Berechnen Sie auf der Grundlage des Geländemodells von wo aus die E-Kirche sichtbar ist.
 *   Berechnen Sie die Hangneigung, Exposition und Abflussrichtung. 
-*   Extrahieren Sie für den Marktplatz (Brunnen) diese Werte.
-*   Wenden Sie einen 5*5 Mittelwertsfilter auf die Geländehöhe an. Beschreiben Sie das Resultat in ein bis zwei Sätzen. 
-*   Berechnen Sie, die minimale, maximale und mittlere Hangneigung in städtischem Gebiet (Verwaltungsgrenze). 
+*   Extrahieren Sie für den Marktplatz (Exakte Position Brunnen) obige Werte.
+*   Wenden Sie einen 5*5 Mittelwertsfilter auf die Geländehöhe an. Beschreiben Sie das Resultat in jeweils einem Satz. 
+*   Berechnen Sie, die minimale, maximale und mittlere Hangneigung in städtischem Gebiet (Ausdehnung Luftbild). 
 {: .notice--success}
 
 ## Hilfestellung 
