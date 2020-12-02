@@ -26,10 +26,10 @@ Nach dieser Übung können Sie:
 ## Benötigte Materialien
 
 * Daten:
-  * [Marburg Luftbild](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/marburg_RE.tif)
-  * [Open Streetmap Daten](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_nat.zip)
-  * [Open Streetmap Daten](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_roads.zip)
-  * [Attributtabelle](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_objects.xls)
+  * Ein [Luftbild](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/marburg_RE.tif) von Marburg und Umgebung als Rasterdatensatz
+  * Auf das Luftbild bezogener Ausschnitt der [Wald Flächen](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_nat.zip) aus dem aktuellen Open Streetmap Datensatz
+  * Auf das Luftbild bezogener Ausschnitt der [Straßen Daten](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_roads.zip) aus dem aktuellen Open Streetmap Datensatz
+  * Eine [Excel Tabelle](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_objects.xls) die verschiedne räumliche Objekte enthält.
 
 * Weblinks:
   * [QGIS Installation](https://www.qgis.org/de/site/forusers/alldownloads.html) *Windows-Nutzer*: Ungeachtet der Warnung verfolgen sie bitte den Weg fortgeschrittene Installation der mit dem Herunterladen des OSGeo4W-Installers beginnt.
@@ -47,11 +47,12 @@ Dieses Arbeitsblatt dient der Einführung in die verschiedenen Datenmodelle im G
 
   * Laden Sie die Datei `marburg_RE.tif` in ein zuvor neu angelegtes `QGIS` Projekt. 
      * Informieren Sie sich über die Eigenschaften des Datensatzes. (Projektion, Datenmodell, Werte).
-  *  Laden Sie sich von http://download.geofabrik.de/ den Datensatz von Hessen herunter und laden Sie das *Shapefile* `points` in Ihr QGIS Projekt.
+  *  Laden Sie sich von http://download.geofabrik.de/ den Datensatz von Hessen herunter und laden Sie nach dem Entpacken des Archivs die Datei `gis_osm_pois_free_1.shp` in Ihr QGIS Projekt.
     * Informieren Sie sich auch bei diesem Datensatz über die Eigenschaften. (Projektion, Datenmodell, Werte).
-    * Beschneiden Sie den `points` Datensatz auf den Ausschnitt von Marburg. 
+    * Beschneiden Sie den `gis_osm_pois_free_1` Datensatz auf die Ausdehnung des Luftbildes `marburg_RE.tif`. 
+    * Exportieren Sie diese Punktdaten als *geopackage* unter dem Namen `mr_points`.
   * Importieren Sie die Tabelle `mr_objects.xls` in QGIS. Erstellen Sie einen räumlichen Layer aus der Tabelle.
-  * Erstellen Sie auf Grundlage der Rasterdatei: Drei beliebige Flächen (Polygone), drei beliebige Straßen (Linienzüge) und ergänzen Sie schließlich den Layer `points` um 3 Positionen (Punkte) Ihrer Wahl. Geben Sie bei den neu erstellten Datensätzen als Koordinatensystem WGS 84 an. Tipp: Sie können zur besseren Orientierung auch eine Webkarte in Ihr Projekt laden.
+  * Erstellen Sie auf Grundlage der Rasterdatei: Drei beliebige Flächen (Polygone), drei beliebige Straßen (Linienzüge) und ergänzen Sie schließlich den Layer `mr_points` um 3 Positionen (Punkte) Ihrer Wahl. Geben Sie bei den neu erstellten Datensätzen als Koordinatensystem **WGS84** an. Tipp: Sie können zur besseren Orientierung auch eine Webkarte in Ihr Projekt laden.
 {: .notice--success}
 
 
