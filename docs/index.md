@@ -60,16 +60,19 @@ Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie 
 
 | Sitzung | Datum | Thema | Inhalt |
 |:-------:|:--------:|:---------|:---------|
-| **Block 1** ||||
-| 1 | 04.06.  | Einführung | Abfrage Status Quo, Einführung in geographische und GI Raumkonzepte |
-| 1* | 08.06.  | Tutorium |  TechSupport - Einführung/Installation QGis etc.
-| 2 | 18.06.  | Open Source Wekzeuge |  Einführung in `QGis Portable`, Einstiegsbeispiel Datenaquise  |
-| 3 | 25.06.  |  |  |
-| 4 | 02.06.  |  |  |
-| 5 | 09.07.  |  |  |
-| 6 | 16.07.  |  |  |
-
-
+| 1 | 12.11.  | Einführung | Abfrage Status Quo, Orga, Einführung in geographische und GI Raumkonzepte |
+| 2 | 19.11.  | QGIS Warmup |  Einführung in `QGIS`, Einstiegsbeispiel Datenaquise  |
+| 3 | 26.11.  | Fragen & Antworten |  |
+| 4 | 03.12.  | Fragen und Antworten Wrap Up |  |
+| 5 | 10.07.  | Analysen |  |
+| 6 | 17.07.  | Kosten und Kriterien |  |
+| 7 | 14.01.  | Einführung Projektarbeit |   |
+| 8 | 21.07.  | Projektarbeit-Tutorium |  |
+| 9 | 28.07.  | Projektarbeit-Tutorium |  |
+| 10 | 04.02. | Projektarbeit-Tutorium |  |
+| 11 | 11.02. | Projektarbeit-Tutorium |  |
+| 12 | 18.02. | Projektarbeit-Tutorium |  |
+| 13 | 25.02. | Projektarbeit-Tutorium |  |
 
 ## Kursleitung
 
