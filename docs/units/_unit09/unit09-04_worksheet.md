@@ -43,7 +43,7 @@ Nach dieser Übung können Sie:
 *  MOF-Geländemodell 1 Meter Auflösung
 *  Corine Landnutzung MOF
 
-Die Daten finden Sie in der Archiv-Datei [praxis_L05.zip]((https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/praxis_L05.zip))
+Die Daten finden Sie in der Archiv-Datei [praxis_L05.zip](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/praxis_L05.zip)
 
 Bitte entpacken Sie diese in einen geeigneten Ordner. 
 
