@@ -38,6 +38,3 @@ Nachfolgend ist die Konzeption einer GIS gestützten einfachen Steinschalgsgefä
 
 
 
-{% include figure image_path="https://minibsc.gis-ma.org/GISBScL3/de/image/steinschlagresult.jpg" alt="Steinschlaggefährdung (GITTA 2005)" caption="Steinschlaggefährungsanalyse der Gemeinde Saas Baalen (GITTA 2005)" %}
-
-{% include gallery id="panel1"  layout = "forth"  %}

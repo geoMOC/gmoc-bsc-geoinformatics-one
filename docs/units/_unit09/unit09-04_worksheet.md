@@ -52,10 +52,10 @@ Sie sollen exemplarisch die Entscheidungsfindung  – Mehrere Ziele, mehrere Kri
 
 *  Laden Sie die Daten herunter und prüfen Sie diese in gewohnter Weise
 *  Berechnen Sie die Hangneigung 
-*  Reklassifizieren Sie die [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) (Sie finden die bereits vorbereitete Datei im Archiv unter `clc2018_1m_MOF_25832.tif`) in *Wald*, *Kein Wald*
+*  Reklassifizieren Sie die [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) (Sie finden die bereits vorbereitete Datei im heruntergeladenen Archiv unter dem Dateinamen `clc2018_1m_MOF_25832.tif`) in *Wald*, *Kein Wald*
 *  Zur Vorbereitung der Multikriterien-Evaluation müssen die Raster in ganzzahlige Klassen reklassifiziert werden. Also z.B. die Hangneigung in drei Klassen 0-15, 15-30 >30 Grad.
 * Legen Sie für jedes Layer eine Gewichtung fest. 
-* Legen Sie für jede Klasse in diesem Layer eine Bewertung von 0-10 fest. Bedenken Sie bitte dass die Festlegung der Bewertung in Bezug auf die Fragestellung gewählt werden muss. 
+* Legen Sie für jede Klasse in diesem Layer eine Bewertung von 0-10 fest. (Bedenken Sie bitte dass die Festlegung der Bewertung in Bezug auf die Fragestellung gewählt werden muss.) 
 *  Diskutieren Sie die Ergebnisse (2 Sätze)
 {: .notice--success}
 

@@ -23,7 +23,7 @@ So mag, wer ein neues Mobiltelefon kauft, Marke und Funktion bedeutsamer finden 
 
 In vielen Raumanalysen sind bestimmte Kriterien bezogen auf die Zielsetzung um ein n-faches wichtiger als andere. Oft ist es gerade ein Anspruch an eine Standortsuche, mehrere geeignete Orte darauf hin zu vergleichen, ob und wie stark sie einer Reihe von unterschiedlich wichtigen Kriterien entsprechen. Durch das Ebenenprinzip der GI-Systeme lässt sich die Verschneidung sehr einfach um die Idee unterschiedlich wichtiger Kriterien erweitern. Jeder Themenebene wird entsprechend ihrer relativen Bedeutung gegenüber den anderen ein numerischer Gewichtsfaktor zugeordnet. Anschließend werden die derart gewichteten Informationsebenen verschnitten wie bisher. Wie die Boolesche Verschneidung ist auch die gewichtete Verschneidung grundsätzlich sowohl im Raster- als auch im Vektormodell möglich. So könnten z.B. Tourismusexperten einer Urlaubsinsel die negative Wirkung von Hotels und Bars für ein Alternativtourismuskonzept mit dem Faktor 0.1 und  Quad-Trek-Routen durchs Binnenland mit dem Faktor 1 gewichten. In der Regel sollten die Wertebereiche der Eingangs-Informationsebenen normalisiert sein (also zwischen z.B. 0 und 1 skaliert). In der entstehenden Eignungsebene werden die geeigneten Räume oder Standorte durch besonders hohe Werte identifizierbar.
 
-### Katzen im LAhntal
+### Katzen im Lahntal
 
 Betrachten Sie das folgende Beispiel. Hier wird die gewichtete Verschneidung am Beispiel des Wildkatzenlebensraums im Marburger Uniwald eingeführt. Im Hinblick auf eine realistischere Modellierung der geeigneten Lebensräume verwendet das folgende Beispiel nicht mehr ausschließlich binäre Eingangsdaten wie die Boolesche Verschneidung, sondern sogenannte Ratiodaten:
 
@@ -39,10 +39,10 @@ Der wohl einfachste Ansatz für eine gewichtete Verschneidung bildet die gewicht
 * *Anwendung des Algorithmus:* Beim Algorithmus der gewichteten linearen Summierung werden alle Rasterzellen einer Informationsebene mit ihrem Gewicht multipliziert und die Ebenen anschließend addiert. In der resultierenden Eignungsebene weisen die geeigneten Rasterzellen hohe, die ungeeigneten hingegen tiefe Werte auf.
 
 
-{% include figure image_path="https://minibsc.gis-ma.org/GISBScL3/de/image/Raster.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Rasterdatenmodell (GITTA 2005)" %}
+{% include figure image_path="https://minibsc.gis-ma.org/GISBScL4/de/image/Raster.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Rasterdatenmodell (GITTA 2005)" %}
 
 
-{% include figure image_path="https://minibsc.gis-ma.org/GISBScL3/de/image/Vector.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Vektordatenmodell (GITTA 2005)" %}
+{% include figure image_path="https://minibsc.gis-ma.org/GISBScL4/de/image/Vector.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Vektordatenmodell (GITTA 2005)" %}
 
 
 In dieser Darstellung erhielten die beiden Eignungskriterien für den Katzenlebensraum im Lahntal Gewichte entsprechend ihrer relativen Bedeutung. Die Infomationsebene „bewaldet“ wird mit dem Faktor 3 gewichtet, diejenige mit dem Kriterium „steiles Gelände“ mit dem Faktor 2. Nach der Zuweisung der Gewichte werden die beiden Ebenen addiert. Die Eignungswerte der resultierenden Informationsebene reichen von 0 (ungeeignet) bis 5 (sehr geeignet).
