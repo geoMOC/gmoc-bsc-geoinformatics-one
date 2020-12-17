@@ -42,7 +42,7 @@ Der wohl einfachste Ansatz für eine gewichtete Verschneidung bildet die gewicht
 {% include figure image_path="/assets/images/unit05/Raster_thumb.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Rasterdatenmodell (GITTA 2005)" %}
 
 
-{% include figure image_path="/assets/images/unit05/Vector_thumb.gif"" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Vektordatenmodell (GITTA 2005)" %}
+{% include figure image_path="/assets/images/unit05/Vector_thumb.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Vektordatenmodell (GITTA 2005)" %}
 
 
 In dieser Darstellung erhielten die beiden Eignungskriterien für den Katzenlebensraum im Lahntal Gewichte entsprechend ihrer relativen Bedeutung. Die Infomationsebene „bewaldet“ wird mit dem Faktor 3 gewichtet, diejenige mit dem Kriterium „steiles Gelände“ mit dem Faktor 2. Nach der Zuweisung der Gewichte werden die beiden Ebenen addiert. Die Eignungswerte der resultierenden Informationsebene reichen von 0 (ungeeignet) bis 5 (sehr geeignet).
