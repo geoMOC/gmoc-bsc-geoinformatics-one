@@ -51,7 +51,7 @@ Sie sollen eine Entscheidungsfindung auf der Grundlage mehrere Kriterien durchf�
 * Wildkatzen bevorzugen mittelsteile und steile Hanglagen
 * Wald ist wichtiger als Hang
 
-
+### Vorgehensweise Aufgabe 05-01
 *  Laden Sie die Daten herunter (prüfen Sie diese in gewohnter Weise)
 *  Berechnen Sie die Hangneigung 
 *  Extrahieren Sie die aus den  [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) alle Waldflächen so daß Sie ein Raster mit den Werten 1 für *Waldflächen* und 0 für *Keine Waldflächen*. (Sie finden bereits zugeschnittene Corine-Daten im heruntergeladenen Archiv unter dem Dateinamen `clc2018_1m_MOF_25832.tif`) 
@@ -61,7 +61,7 @@ Sie sollen eine Entscheidungsfindung auf der Grundlage mehrere Kriterien durchf�
 * Fassen Sie die Ergebnisse  in max. 2 Sätzen zusammen.
 {: .notice--success}
 
-## Hilfestellung 
+### Hilfestellung 
 
 *  Sie können für die rasterbasierte Umrechnung (Klassifikation/Reklassifikation) der Werte  als generelles Werkzeug den *Raster-Rechner*  oder auch spezielle Werkzeuge wie z.B. das Plugin `WMCA Weighted Multicriteria Analysis` nutzen. Dieses Plugin wird nach der Installation unter dem Haupt-Menü `Raster` angezeigt. Sie müssen evtl. *"Auch experimentelle Erweiterungen anzeigen"* unter den Einstellungen aktivieren.
 * Weitere und deutlich tiefergehende Hilfe für den gesamten Arbeitsablauf finden Sie QGIS-spezifisch unter [Multi Criteria Overlay Analysis (QGIS3)](https://www.qgistutorials.com/en/docs/3/multi_criteria_overlay.html). 
@@ -86,6 +86,7 @@ Sie sollen einen Cross-Crountry Fitness-Trail durch den Uniwald (Marburg Open Fo
 * die Strecke soll möglichst weit von Wegen entfernt sein. 
 * die Strecke soll maximale Steigungen bevorzugen (hoher Trainingseffekt).
 
+### Vorgehensweise
 Machen Sie sich zunächst mit dem Konzept der Kostenanalyse vertraut (siehe Hilfestellungen und Reader)
 
 *  Download und Überprüfung der zur Verfügung gestellten Daten
@@ -99,7 +100,7 @@ Machen Sie sich zunächst mit dem Konzept der Kostenanalyse vertraut (siehe Hilf
 * Beischreiben Sie das Ergebnis (2 Sätze)
 {: .notice--success}
 
-## Hilfestellung 
+### Hilfestellung Aufgabe 05-02
 
 * Reklassifizieren Sie die Raster Daten der Landnutzung z.B. mit dem [Raster-Rechner](https://docs.qgis.org/2.14/de/docs/user_manual/working_with_raster/raster_analysis.html#raster-calculator) oder mit dem QGIS- Werkzeug `Nach Tabelle neuklassifizieren`. Sie können sehr unterschiedliche Werkzeuge zu diesem häufig benötigten Funktion nutzen. für einen Überblick geben Sie `klassifizieren` in der Werkzeugleiste ein. sie finden zahlreiche Anleitungen zum Thema Reklassifizieren z.B.in folgendem Blogbeitrag [How to reclassify a raster layer in QGIS](https://fivequestionz.home.blog/2020/02/08/how-to-reclassify-a-raster-layer-in-qgis/) oder auf YouTube [Slope Analysis/Reclassify from a DEM in QGIS 3](https://www.youtube.com/watch?v=7eIFvZ4fU6k). Auch die Hilfeseiten von [GRASS GIS][https://grass.osgeo.org/grass76/manuals/r.reclass.html] und [SAGA GIS](http://www.saga-gis.org/saga_tool_doc/2.2.5/grid_tools_15.html) beschreiben den technischen Vorgang.  
 * Die *Normalisierung* von Raster Datenwerten kann sehr einfach mit dem SAGA Modul `Grid Normalisation` durchgeführt werden. Alternativ können Sie diese mit dem [Raster-Rechner](https://docs.qgis.org/3.10/de/docs/user_manual/working_with_raster/raster_analysis.html#raster-calculator) nach der Formel `xnorm = (x-min(x))/(max(x)-min(x))` berechnen. Wobei x das Raster, min(x) und max(x) jeweils das Minimum und das Maximum aller Werte darstellen. Der `Raster-Rechner` ist als Raster Taschenrechner für zahlreiche Operationen ein extrem wichtiges und mächtiges Werkzeug. 
