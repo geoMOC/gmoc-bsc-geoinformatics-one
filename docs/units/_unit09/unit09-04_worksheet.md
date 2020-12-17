@@ -51,16 +51,16 @@ Sie sollen eine Entscheidungsfindung auf der Grundlage mehrere Kriterien vorbere
 *  Extrahieren Sie die aus den  [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) alle Waldflächen so daß Sie ein Raster mit den Werten 1 für *Waldflächen* und 0 für *Keine Waldflächen*. (Sie finden bereits zugeschnittene Corine-Daten im heruntergeladenen Archiv unter dem Dateinamen `clc2018_1m_MOF_25832.tif`) 
 *  Zur Vorbereitung der Multikriterien-Evaluation müssen die Rasterwerte in *ganzzahlige* Werte überführt (reklassifiziert) werden. Also z.B. die Hangneigung in drei Klassen 0-15 Grad = Klasse mit dem Wert 1, 15-30 Grad = Klasse mit Wert 2 und  > 30 Grad = Klasse mit Wert 3.
 * Legen Sie für jede Datenebene eine Gewichtung gemäß der von Ihnen festgelegten Bedeutung in Relation zu ihrer Eignung fest (z.B. Wald/Nichtwald = Faktor 5, Hangneigung = Faktor 3 etc..)
-* Legen Sie für jede Klasse in diesem Layer eine Bewertung von 0-10 fest (z.B. Wald = 10, Nichtwald = 1, Hangneigung Klasse 1 = 5 etc., bedenken Sie bitte dass die Festlegung der Bewertung zwingend die hinsichtlich Fragestellung fachlich zu bewertenende Bedeutung der Kriterien für die Fragestellung berücksichtigen muß.) 
+* Legen Sie für jede Klasse in diesem Layer eine Bewertung von 0-10 fest (z.B. Wald = 10, Nichtwald = 1, Hangneigung Klasse 1 = 5 etc., bedenken Sie bitte dass die Festlegung der Bewertung zwingend die hinsichtlich Fragestellung fachlich zu bewertende Bedeutung der Kriterien für die Fragestellung berücksichtigen muss.) 
 * Fassen Sie die Ergebnisse  in max. 2 Sätzen zusammen.
 {: .notice--success}
 
 ## Hilfestellung 
 
-*  Sie können für die rasterbasierte Umrechnung (Klassifikation/Reklassifikation) der Werte  als generrelles Werkzeug den *Rasterrechner*  oder auch spezielle Werkezeuge wie z.B. das Plugin `WMCA Weighted Multicriteria Analysis` nutzen. Dieses Plugin wird nach der Installation unter dem Haupt-Menü `Raster` angezeigt. Sie müssen evtl. *"Auch experimentelle Erweiterungen anzeigen"* unter den Einstellungen aktivieren.
+*  Sie können für die rasterbasierte Umrechnung (Klassifikation/Reklassifikation) der Werte  als generelles Werkzeug den *Raster-Rechner*  oder auch spezielle Werkzeuge wie z.B. das Plugin `WMCA Weighted Multicriteria Analysis` nutzen. Dieses Plugin wird nach der Installation unter dem Haupt-Menü `Raster` angezeigt. Sie müssen evtl. *"Auch experimentelle Erweiterungen anzeigen"* unter den Einstellungen aktivieren.
 * Weitere und deutlich tiefergehende Hilfe für den gesamten Arbeitsablauf finden Sie QGIS-spezifisch unter [Multi Criteria Overlay Analysis (QGIS3)](https://www.qgistutorials.com/en/docs/3/multi_criteria_overlay.html). 
 
-Da es sich um eine zentrale Raster-GIS-Funktionalität handelt werden Sie unter allen GI Softwarepaketen ähnliche Werkzeug-Konzepte finden. Die verfügbaren Tutorials und Anleitungen können Si über die Verarbeitungswerkezuge entweder direkt nutzen oder analog auf QGIS übertragen [z.B. das MCE Tutorial für SAGA GIS](https://svwh.dl.sourceforge.net/project/saga-gis/SAGA%20-%20Documentation/Tutorials/Multi_Criteria_Evaluation_Tutorial/MultiTutorial2.pdf).
+Da es sich um eine zentrale Raster-GIS-Funktionalität handelt werden Sie unter allen GI Softwarepaketen ähnliche Werkzeug-Konzepte finden. Die verfügbaren Tutorials und Anleitungen können Si über die Verarbeitungswerkzeuge entweder direkt nutzen oder analog auf QGIS übertragen [z.B. das MCE Tutorial für SAGA GIS](https://svwh.dl.sourceforge.net/project/saga-gis/SAGA%20-%20Documentation/Tutorials/Multi_Criteria_Evaluation_Tutorial/MultiTutorial2.pdf).
 
 
 
@@ -85,12 +85,12 @@ Sie sollen einen Cross-Crountry Fitness-Trail durch den Uniwald (Marburg Open Fo
 *  Herunterladen und überprüfen der Daten
 *  Berechnen Sie die Hangneigung 
 *  Nutzen Sie reklassifizierten Corine Daten (*Wald*, *Kein Wald*).
-*  Berechnen Sie ein Entfernungsraster das den Abstsnd zu den Wegen (`OSM_roads_MOF_25832.gpkg`) beinhaltet (räumliche Auflösung wie das Hangneigungsraster).
+*  Berechnen Sie ein Entfernungsraster das den Abstand zu den Wegen (`OSM_roads_MOF_25832.gpkg`) beinhaltet (räumliche Auflösung wie das Hangneigungsraster).
 *  Legen Sie für jede Rasterklasse (z.B. Wald Nicht-Wald) Werte fest, die die *Kosten* bzw den *Reibungswert* zur Überwindung/Nutzung der Zelle abbildet. Sinnvoll ist es also unattraktive Zellen mit hohen Werten und attraktive Zellen mit niedrigen Werten zu belegen. Die Werte für die Hangneigung und für die Entfernung von der Straße sollten kontinuierlich bleiben und nicht in Klassen eingeteilt werden. 
 * Normalisieren (Skalieren) Sie die Rasterwerte
 * Verrechnen Sie die einzelnen Raster nun zu einem Gesamtkostenraster. Überlegen Sie sich dabei ob allen drei Kriterien gleichgewichtet eingehen sollen, oder ob Sie z.B. der Hangneigung eine höhere Bedeutung zuweisen wollen.
 * Berechnen Sie auf dieser Grundlage den attraktivsten (="kostengünstigsten") Weg zwischen dem Start und Zielpunkt.
-* Bewschreiben Sie das Ergebnis (2 Sätze)
+* Beischreiben Sie das Ergebnis (2 Sätze)
 {: .notice--success}
 
 ## Hilfestellung 
@@ -99,4 +99,4 @@ Sie sollen einen Cross-Crountry Fitness-Trail durch den Uniwald (Marburg Open Fo
 * Die *Normalisierung* von Raster Datenwerten kann sehr einfach mit dem SAGA Modul `Grid Normalisation` durchgeführt werden. Alternativ können Sie diese mit dem [Raster-Rechner](https://docs.qgis.org/3.10/de/docs/user_manual/working_with_raster/raster_analysis.html#raster-calculator) nach der Formel `xnorm = (x-min(x))/(max(x)-min(x))` berechnen. Wobei x das Raster, min(x) und max(x) jeweils das Minimum und das Maximum aller Werte darstellen. Der `Raster-Rechner` ist als Raster Taschenrechner für zahlreiche Operationen ein extrem wichtiges und mächtiges Werkzeug. 
 * Die Gewichtung kann dann durch eine einfache Multiplikation (`Raster-Rechner`) des jeweiligen Raster mit dem Gewichtungswert erreicht werden. Z.B. Gleichgewichtung `Raster1*Raster2*Raster3/3` Gewichtung Raster1 Faktor 0.5 Raster2 und Raster3 Faktor 0.25 `0.5*Raster1 + 0.25* Raster2 + 0.25*Raster3`. Falls Sie mit anteiligen Werten von 1 gewichten (Prozent) achten Sie darauf dass die Summe der Gewichtungsfaktoren 1 ergibt.
 * Zur Kostenanalyse können sie das Plugin `Least Cost Path` installieren. Es
-wird nach der Installation unter den Verarbeitungswerkzeugen angezeigt.Auch hierfür gibt es sowohl für QGIS als auch für GRASS und SAGA Werkzeuge zahlreiche Videos und Tutorials z.B [Least Cost Path](https://www.youtube.com/watch?v=6dodHcHm7ws).  Wichtig ist bei der Google Suche dass Sie sich nur aktuelle Anleitungen also für QGIS 3.x anschauen. Interessieren Sie Konzepte und Anwendungsbezug insbesondere für die Fragestellung auf der Lanschaftsskala lohnt ein Blick in   [Least-Cost Modelling and Landscape Ecology: Concepts, Applications, and Opportunities](https://link.springer.com/article/10.1007/s40823-016-0006-9). 
+wird nach der Installation unter den Verarbeitungswerkzeugen angezeigt.Auch hierfür gibt es sowohl für QGIS als auch für GRASS und SAGA Werkzeuge zahlreiche Videos und Tutorials z.B. [Least Cost Path](https://www.youtube.com/watch?v=6dodHcHm7ws).  Wichtig ist bei der Google Suche dass Sie sich nur aktuelle Anleitungen also für QGIS 3.x anschauen. Interessieren Sie Konzepte und Anwendungsbezug insbesondere für die Fragestellung auf der Lanschaftsskala lohnt ein Blick in   [Least-Cost Modelling and Landscape Ecology: Concepts, Applications, and Opportunities](https://link.springer.com/article/10.1007/s40823-016-0006-9). 
