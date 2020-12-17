@@ -39,10 +39,10 @@ Der wohl einfachste Ansatz für eine gewichtete Verschneidung bildet die gewicht
 * *Anwendung des Algorithmus:* Beim Algorithmus der gewichteten linearen Summierung werden alle Rasterzellen einer Informationsebene mit ihrem Gewicht multipliziert und die Ebenen anschließend addiert. In der resultierenden Eignungsebene weisen die geeigneten Rasterzellen hohe, die ungeeigneten hingegen tiefe Werte auf.
 
 
-{% include figure image_path="https://minibsc.gis-ma.org/GISBScL4/de/image/Raster.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Rasterdatenmodell (GITTA 2005)" %}
+{% include figure image_path="/assets/images/unit05/Raster_thumb.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Rasterdatenmodell (GITTA 2005)" %}
 
 
-{% include figure image_path="https://minibsc.gis-ma.org/GISBScL4/de/image/Vector.gif" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Vektordatenmodell (GITTA 2005)" %}
+{% include figure image_path="/assets/images/unit05/Vector_thumb.gif"" alt="Weighted Overlay im Rastermodell (GITTA 2005)" caption="Weighted Overlay im Vektordatenmodell (GITTA 2005)" %}
 
 
 In dieser Darstellung erhielten die beiden Eignungskriterien für den Katzenlebensraum im Lahntal Gewichte entsprechend ihrer relativen Bedeutung. Die Infomationsebene „bewaldet“ wird mit dem Faktor 3 gewichtet, diejenige mit dem Kriterium „steiles Gelände“ mit dem Faktor 2. Nach der Zuweisung der Gewichte werden die beiden Ebenen addiert. Die Eignungswerte der resultierenden Informationsebene reichen von 0 (ungeeignet) bis 5 (sehr geeignet).

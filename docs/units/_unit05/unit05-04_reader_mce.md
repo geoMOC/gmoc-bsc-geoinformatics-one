@@ -43,7 +43,7 @@ Will die Gemeinde Lahntal den Dorffrieden von Caldern wahren, muss sie bestrebt 
 Im Gegensatz zur MCE liegen hier also mehrere Ziele vor, man spricht deshalb von einer Entscheidungsunterstützung mit mehreren Zielen (Multi Objective Evaluation, MOE).
 
 
-{% include figure image_path="https://minibsc.gis-ma.org/GISBScL4/de/image/MOE_thumb.gif" alt="MOE (GITTA 2005)" caption="Eignungsanalyse bei zwei sich ausschliessenden Nutzungsansprüchen für den Marburg Open Forest (MOF) bei Caldern" %}
+{% include figure image_path="/assets/images/unit05/image/MOE_thumb.gif" alt="MOE (GITTA 2005)" caption="Eignungsanalyse bei zwei sich ausschliessenden Nutzungsansprüchen für den Marburg Open Forest (MOF) bei Caldern" %}
 
 
 Die Abbildung zeigt das Resultat einer Eignungsanalyse bei zwei sich ausschliessenden Nutzungsansprüchen für den Marburg Open Forest (MOF) bei Caldern: Die beiden Ziele heissen „geeignet als Wildkatzenhabitat“ (Ziel A) und „geeignet für Freizeitnutzung“ (Ziel B). Ganz links sehen Sie eine Reihe von Eingangslayern der Eignungsanalyse, u.a. die Layer „Landnutzung” (oben) und „Hangneigung“ (Mitte). Die Karte daneben zeigt die räumliche Zuordnung des Waldgebietes auf die beiden Nutzungen. Weiss eignet sich weder für (A) noch für (B). Dunkelgrau wurde (A) und hellgrau wurde (B) zugeordnet. Dort wo sich Hellgrau und Dunkelgrau überlagern, besteht ein Nutzungskonflikt (Rot).
