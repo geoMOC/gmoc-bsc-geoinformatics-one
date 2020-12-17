@@ -64,8 +64,8 @@ Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie 
 | 2 | 19.11.  | QGIS Warmup |  Einführung in `QGIS`, Einstiegsbeispiel Datenaquise  |
 | 3 | 26.11.  | Fragen & Antworten |  Thematische und räumliche Abfragen auf Attributtabellen |
 | 4 | 03.12.  | Wrap Up | Projektionen, Fragen und Antworten  |
-| 5 | 10.07.  | Analysen | Rasterbasierte Analysen, DGM-Ableitungen  |
-| 6 | 17.07.  | Kosten und Kriterien | Multkriterien Analysen, Kostenraster  |
+| 5 | 10.12.  | Analysen | Rasterbasierte Analysen, DGM-Ableitungen  |
+| 6 | 17.12.  | Kosten und Kriterien | Multkriterien Analysen, Kostenraster  |
 | 7 | 14.01.  | Einführung Projektarbeit |   |
 | 8 | 21.07.  | Projektarbeit-Tutorium |  |
 | 9 | 28.07.  | Projektarbeit-Tutorium |  |
