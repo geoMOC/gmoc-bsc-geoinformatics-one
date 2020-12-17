@@ -74,6 +74,7 @@ Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie 
 | 12 | 18.02. | Projektarbeit-Tutorium |  |
 | 13 | 25.02. | Projektarbeit-Tutorium |  |
 
+
 ## Kursleitung
 
 
