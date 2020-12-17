@@ -44,7 +44,13 @@ Nach dieser Übung können Sie:
 *  Corine Landnutzung MOF
 * Die Daten finden Sie im  Zip-Archiv  [praxis_L05.zip](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/praxis_L05.zip)
 
-Sie sollen eine Entscheidungsfindung auf der Grundlage mehrere Kriterien vorbereiten. Sie sollen die Eignung des Uniwalds als Wildkatzenhabitat untersuchen. 
+### Aufgabe
+Sie sollen eine Entscheidungsfindung auf der Grundlage mehrere Kriterien durchführen. Sie sollen die Eignung des Uniwalds als Wildkatzenhabitat untersuchen. Hierfür gibt es folgende Vorgaben:
+
+* Wildkatzen mögen bevorzugt Waldgebiete
+* Wildkatzen bevorzugen mittelsteile und steile Hanglagen
+* Wald ist wichtiger als Hang
+
 
 *  Laden Sie die Daten herunter (prüfen Sie diese in gewohnter Weise)
 *  Berechnen Sie die Hangneigung 
@@ -74,17 +80,17 @@ Da es sich um eine zentrale Raster-GIS-Funktionalität handelt werden Sie unter 
 *  Koordinaten (ETRS89, UTM32 EPSG:32632) Position *Kreisel*  (478188,5632178), Position Grillhütte (476170,5631657)
 *  [Daten-Archiv]((https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/praxis_L05.zip))
 
-## Aufgabenstellung 
+### Aufgabe
 Sie sollen einen Cross-Crountry Fitness-Trail durch den Uniwald (Marburg Open Forest, MOF) bei Caldern planen. Der Trail beginnt am Parkplatz in der Nähe des Kreisverkehrs am südöstlichen Rand und endet am Grillplatz am nordwestlichen Ende verlaufen. Die Vorgaben sind: 
 * die Strecke soll bevorzugt durch Wald führen
 * die Strecke soll möglichst weit von Wegen entfernt sein. 
 * die Strecke soll maximale Steigungen bevorzugen (hoher Trainingseffekt).
 
-## Vorgehensweise 
-*  Machen Sie sich mit dem Konzept der Kostenanalyse vertraut
-*  Herunterladen und überprüfen der Daten
+Machen Sie sich zunächst mit dem Konzept der Kostenanalyse vertraut (siehe Hilfestellungen und Reader)
+
+*  Download und Überprüfung der zur Verfügung gestellten Daten
 *  Berechnen Sie die Hangneigung 
-*  Nutzen Sie reklassifizierten Corine Daten (*Wald*, *Kein Wald*).
+*  Nutzen Sie reklassifizierten Corine Daten aus Aufgabe 05-01 (*Wald*, *Kein Wald*).
 *  Berechnen Sie ein Entfernungsraster das den Abstand zu den Wegen (`OSM_roads_MOF_25832.gpkg`) beinhaltet (räumliche Auflösung wie das Hangneigungsraster).
 *  Legen Sie für jede Rasterklasse (z.B. Wald Nicht-Wald) Werte fest, die die *Kosten* bzw den *Reibungswert* zur Überwindung/Nutzung der Zelle abbildet. Sinnvoll ist es also unattraktive Zellen mit hohen Werten und attraktive Zellen mit niedrigen Werten zu belegen. Die Werte für die Hangneigung und für die Entfernung von der Straße sollten kontinuierlich bleiben und nicht in Klassen eingeteilt werden. 
 * Normalisieren (Skalieren) Sie die Rasterwerte
