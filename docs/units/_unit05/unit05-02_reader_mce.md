@@ -24,17 +24,7 @@ Eine ganze Reihe mathematischer Methoden erlaubt es, verschiedene Alternativen e
 
 Handelt es sich um ein räumliches Entscheidungsproblem, so ist die Integration von Entscheidungsunterstützungsmethoden in ein GIS zielführend. Ein GIS übernimmt das Datenmanagement, erweitert die DSS-Logik um räumliche Analysefunktionen und ermöglicht den Zugang zu den Eingangsdaten und den Resultaten durch kartographische Darstellungen. Die Kombination von DSS und GIS erleichtert es den Entscheidungsträgern, Alternativen gegeneinander abzuwägen, und sie kann zu transparenten und damit objektiveren Entscheidungen führen.
 
-## Gefährdungsanalyse
 
-Mit Hilfe von Geländemodellen (Werteoberflächen) können in einem GIS relativ komplexe Sachverhalte modelliert werden. Nachfolgend wird gezeigt, wie man mit Hilfe eines GI-S potenziell von Steinschlag betroffene Gebiete identifizieren kann. Als Ausgangsdaten sind folgende kontinuierliche Rauminformationen verfügbar:
-
-  * Felsflächen
-  * Waldflächen
-  * Digitales Geländemodell
-
-### Beispiel Steinschlagmodellierung
-
-Nachfolgend ist die Konzeption einer GIS gestützten einfachen Steinschalgsgefärdungskarte dargestellt. Konzeptionell wird anstehender Fels (Felsflächen) als potenzielles Anrissgebiet betrachtet. Unter der schlichten Annahme, dass nach Newtons Gravitationsgesetz fallende Steine sich exakt entlang der *Falllinie* talwärts bewegen, wird zur Identifikation der gravitativ betroffenen Unterlieger von jeder Felsfläche (Pixel, Polygon) die Falllinie berechnet. Die gravitative Steinbewegung kommt, so die Annahme, zum Stillstand, wenn das *Pauschalgefälle* das erste Mal geringer als 31 Grad wird (empirischer Schwellwert). Weiterhin wird die Annahme getroffen, dass in Waldgebieten ein Stein schneller zum Stillstand kommt (Bäume wirken als Hindernisse). Daher wird dort den Schwellenwert des Pauschalgefälles höher gesetzt (z.B. auf 33 Grad). Die untenstehende Abbildung zeigt das Resultat einer solchen Analyse in der Umgebung der Gemeinde Saas Baalen. Rot eingefärbt sind die steinschlaggefährdeten Gebiete, wobei der Farbton das resultierende Pauschalgefälle in Grad repräsentiert.
 
 
 
