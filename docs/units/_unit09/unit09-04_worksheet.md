@@ -22,17 +22,17 @@ Betrachtet man dies auf eine Bewegung im Raum so sind können die Werte in einem
 
 ## Was wir in dieser Einheit vor haben
 
-Im Rahmen der Übung werden Sie eine typische Eignungsanalyse und im Anschluss eine Kostenpfadanalyse durchführen. Dazu gehört die Datenvorberetiung insbesondere die Vorbereitung des Kostenrasters und die Durchführungen und Interpretation der Analyse.
+Im Rahmen der Übung werden Sie eine Eignungsanalyse und im Anschluss eine Kostenpfadanalyse durchführen. Dazu gehört natürlich Datenvorbereitung was gerade bei einem Kostenraster sehr aufwendig sein kann aber auch die Interpretation der Analysen ist in der Regel aufwendig.
 
 
 ## Lernziele 
 
 Nach dieser Übung können Sie:
 
-  *  Vektordaten rastern
-  *  Rasterdaten verrechnen
-  *  Eine Multikritereien-Evaluation durchführen und diese Grundlagen 
-  *  für eine Kostenpfadanalyse nutzen
+  *  unterschiedlichste Datenebenen zielorientiert zu bearbeiten und kombinieren
+  *  die Bedeutung verschiedener Kriterien identfizieren und einschätzen
+  *  durch Verrechnen geeigneter Datenebenen eine Eignungsanalyse durchführen
+  *  eine Kostenanalyse planen und durchführen
 
 
 
@@ -42,30 +42,27 @@ Nach dieser Übung können Sie:
 
 *  MOF-Geländemodell 1 Meter Auflösung
 *  Corine Landnutzung MOF
+* Die Daten finden Sie im  Zip-Archiv  [praxis_L05.zip](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/praxis_L05.zip)
 
-Die Daten finden Sie in der Archiv-Datei [praxis_L05.zip](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/praxis_L05.zip)
+Sie sollen eine Entscheidungsfindung auf der Grundlage mehrere Kriterien vorbereiten. Sie sollen die Eignung des Uniwalds als Wildkatzenhabitat untersuchen. 
 
-Bitte entpacken Sie diese in einen geeigneten Ordner. 
-
-
-Sie sollen exemplarisch die Entscheidungsfindung  – Mehrere Ziele, mehrere Kriterien vorbereiten. Wie Sie sich erinnern geht es um die konkurrierende Nutzung des Uniwalds als Wildkatzenhabitat bzw. als Freizeitgelände. 
-
-*  Laden Sie die Daten herunter und prüfen Sie diese in gewohnter Weise
+*  Laden Sie die Daten herunter (prüfen Sie diese in gewohnter Weise)
 *  Berechnen Sie die Hangneigung 
-*  Reklassifizieren Sie die [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) in *Wald*, *Kein Wald* . (Sie finden bereits vorbereitete Daten im heruntergeladenen Archiv unter dem Dateinamen `clc2018_1m_MOF_25832.tif`) 
-*  Zur Vorbereitung der Multikriterien-Evaluation müssen die Raster in *ganzzahlige* Klassen reklassifiziert werden. Also z.B. die Hangneigung in drei Klassen 0-15, 15-30 >30 Grad.
-* Legen Sie für jedes Layer eine Gewichtung fest. 
-* Legen Sie für jede Klasse in diesem Layer eine Bewertung von 0-10 fest. (Bedenken Sie bitte dass die Festlegung der Bewertung in Bezug auf die Fragestellung gewählt werden muss.) 
-*  Diskutieren Sie die Ergebnisse (2 Sätze)
+*  Extrahieren Sie die aus den  [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) alle Waldflächen so daß Sie ein Raster mit den Werten 1 für *Waldflächen* und 0 für *Keine Waldflächen*. (Sie finden bereits zugeschnittene Corine-Daten im heruntergeladenen Archiv unter dem Dateinamen `clc2018_1m_MOF_25832.tif`) 
+*  Zur Vorbereitung der Multikriterien-Evaluation müssen die Rasterwerte in *ganzzahlige* Werte überführt (reklassifiziert) werden. Also z.B. die Hangneigung in drei Klassen 0-15 Grad = Klasse mit dem Wert 1, 15-30 Grad = Klasse mit Wert 2 und  > 30 Grad = Klasse mit Wert 3.
+* Legen Sie für jede Datenebene eine Gewichtung gemäß der von Ihnen festgelegten Bedeutung in Relation zu ihrer Eignung fest (z.B. Wald/Nichtwald = Faktor 5, Hangneigung = Faktor 3 etc..)
+* Legen Sie für jede Klasse in diesem Layer eine Bewertung von 0-10 fest (z.B. Wald = 10, Nichtwald = 1, Hangneigung Klasse 1 = 5 etc., bedenken Sie bitte dass die Festlegung der Bewertung zwingend die hinsichtlich Fragestellung fachlich zu bewertenende Bedeutung der Kriterien für die Fragestellung berücksichtigen muß.) 
+* Fassen Sie die Ergebnisse  in max. 2 Sätzen zusammen.
 {: .notice--success}
 
 ## Hilfestellung 
 
-*  Sie können für die MCE entweder den *Rasterrechner*  oder auch z.B. das Plugin `WMCA Weighted Multicriteria Analysis` nutzen. Dieses Plugin wird nach der Installation unter dem Haupt-Menü `Raster` angezeigt. Sie müssen evtl. *"Auch experimentelle Erweiterungen anzeigen"* unter den Einstellungen aktivieren.
-* Weitere und deutlich tiefergehende Hilfe finden Sie unter [Multi Criteria Overlay Analysis (QGIS3)](https://www.qgistutorials.com/en/docs/3/multi_criteria_overlay.html). Da es sich um eine zentrale Raster-GIS-Funktionalität handelt werden Sie unter allen GI Softwarepaketen ähnliche Werkzeug-Konzepte finden. Die verfügbaren Tutorials und Anleitungen können Si über die Verarbeitungswerkezuge entweder direkt nutzen oder analog auf QGIS übertragen [z.B. das MCE Tutorial für SAGA GIS](https://svwh.dl.sourceforge.net/project/saga-gis/SAGA%20-%20Documentation/Tutorials/Multi_Criteria_Evaluation_Tutorial/MultiTutorial2.pdf).
+*  Sie können für die rasterbasierte Umrechnung (Klassifikation/Reklassifikation) der Werte  als generrelles Werkzeug den *Rasterrechner*  oder auch spezielle Werkezeuge wie z.B. das Plugin `WMCA Weighted Multicriteria Analysis` nutzen. Dieses Plugin wird nach der Installation unter dem Haupt-Menü `Raster` angezeigt. Sie müssen evtl. *"Auch experimentelle Erweiterungen anzeigen"* unter den Einstellungen aktivieren.
+* Weitere und deutlich tiefergehende Hilfe für den gesamten Arbeitsablauf finden Sie QGIS-spezifisch unter [Multi Criteria Overlay Analysis (QGIS3)](https://www.qgistutorials.com/en/docs/3/multi_criteria_overlay.html). 
+
+Da es sich um eine zentrale Raster-GIS-Funktionalität handelt werden Sie unter allen GI Softwarepaketen ähnliche Werkzeug-Konzepte finden. Die verfügbaren Tutorials und Anleitungen können Si über die Verarbeitungswerkezuge entweder direkt nutzen oder analog auf QGIS übertragen [z.B. das MCE Tutorial für SAGA GIS](https://svwh.dl.sourceforge.net/project/saga-gis/SAGA%20-%20Documentation/Tutorials/Multi_Criteria_Evaluation_Tutorial/MultiTutorial2.pdf).
 
 
- 
 
 ## Aufgabe 05-02
 
@@ -74,23 +71,26 @@ Sie sollen exemplarisch die Entscheidungsfindung  – Mehrere Ziele, mehrere Kri
 *  MOF-Geländemodell 1 Meter Auflösung
 *  OSM Wege MOF
 *  Corine Landnutzung MOF
-*  Koordinaten Strecken-Anfang (478188,5632178), Strecken-Ende(476170,5631657) beide [EPSG:32632]
+*  Koordinaten (ETRS89, UTM32 EPSG:32632) Position *Kreisel*  (478188,5632178), Position Grillhütte (476170,5631657)
+*  [Daten-Archiv]((https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/praxis_L05.zip))
 
-Die Daten finden Sie in der Archiv-Datei [praxis_L05.zip]((https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/praxis_L05.zip))
+## Aufgabenstellung 
+Sie sollen einen Cross-Crountry Fitness-Trail durch den Uniwald (Marburg Open Forest, MOF) bei Caldern planen. Der Trail beginnt am Parkplatz in der Nähe des Kreisverkehrs am südöstlichen Rand und endet am Grillplatz am nordwestlichen Ende verlaufen. Die Vorgaben sind: 
+* die Strecke soll bevorzugt durch Wald führen
+* die Strecke soll möglichst weit von Wegen entfernt sein. 
+* die Strecke soll maximale Steigungen bevorzugen (hoher Trainingseffekt).
 
-Bitte entpacken Sie diese in einen geeigneten Ordner.
-Sie sollen einen Fitness-Trail durch den Uniwald (Marburg Open Forest, MOF) bei Caldern planen. Diese soll vom Parkplatz in der Nähe des Kreisverkehrs am südöstlichen Rand bis zum Grillplatz am nordwestlichen Ende verlaufen. Sie haben die Vorstellung, dass die Strecke bevorzugt durch Wald und möglichst weit weg von Wegen entlang führen soll. Außerdem soll Ihre Strecke (um möglichst anspruchsvoll zu sein) maximale Steigungen aufweisen.
-
-*  Laden Sie die Daten herunter und prüfen Sie diese in gewohnter Weise
+## Vorgehensweise 
 *  Machen Sie sich mit dem Konzept der Kostenanalyse vertraut
+*  Herunterladen und überprüfen der Daten
 *  Berechnen Sie die Hangneigung 
-* Nutzen Sie die bereits reklassifizierten Corine Daten *Wald*, *Kein Wald*.
-*  Berechnen Sie die Entfernung von den Wegen (`OSM_roads_MOF_25832.gpkg`) als Raster
-*  Legen Sie für jeden Rasterwert einen Wertebereich fest, der die *Kosten* zur Überwindung der Zelle beinhaltet. Sinnvollerweise sind eher unattraktive Räume mit hohen Werten und attraktive Räume mit niedrigen Werten belegt werden. Die Werte für die Hangneigung und für die Entfernung von der Straße sollten kontinuierlich bleiben und nicht in Klassen eingeteilt werden. 
-*  Normalisieren (Skalieren) Sie die Rasterwerte, indem Sie das Raster durch den jeweiligen maximalen Wert teilen.
-* Verrechnen Sie die Raster nun zu einem Gesamtkostenraster. Überlegen Sie sich dabei ob allen drei Kriterien gleichgewichtet behandeln wollen, oder ob Sie z.B. der Hangneigung eine höhere Bedeutung zuweisen wollen.
-*  Berechnen Sie auf dieser Grundlage den attraktivsten (="kostengünstigsten") Weg zwischen dem Start und Zielpunkt.
-*  Diskutieren Sie die Ergebnisse (2 Sätze)
+*  Nutzen Sie reklassifizierten Corine Daten (*Wald*, *Kein Wald*).
+*  Berechnen Sie ein Entfernungsraster das den Abstsnd zu den Wegen (`OSM_roads_MOF_25832.gpkg`) beinhaltet (räumliche Auflösung wie das Hangneigungsraster).
+*  Legen Sie für jede Rasterklasse (z.B. Wald Nicht-Wald) Werte fest, die die *Kosten* bzw den *Reibungswert* zur Überwindung/Nutzung der Zelle abbildet. Sinnvoll ist es also unattraktive Zellen mit hohen Werten und attraktive Zellen mit niedrigen Werten zu belegen. Die Werte für die Hangneigung und für die Entfernung von der Straße sollten kontinuierlich bleiben und nicht in Klassen eingeteilt werden. 
+* Normalisieren (Skalieren) Sie die Rasterwerte
+* Verrechnen Sie die einzelnen Raster nun zu einem Gesamtkostenraster. Überlegen Sie sich dabei ob allen drei Kriterien gleichgewichtet eingehen sollen, oder ob Sie z.B. der Hangneigung eine höhere Bedeutung zuweisen wollen.
+* Berechnen Sie auf dieser Grundlage den attraktivsten (="kostengünstigsten") Weg zwischen dem Start und Zielpunkt.
+* Bewschreiben Sie das Ergebnis (2 Sätze)
 {: .notice--success}
 
 ## Hilfestellung 
