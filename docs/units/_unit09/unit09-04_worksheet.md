@@ -9,12 +9,12 @@ header:
 ---
 
 
-In dieser Aufgabe sollen Sie unterschiedliche Analysen auf der Grundlage vorgegebener Kriterien  durchführen. Letztendlich suchen Sie nach *Eignung* oder *Nichteignung* oder auch nach *Widerständen* oder *Kosten*, welche die Eignung oder Nutzung eines Pixels (Rasterelements) determinieren.
+In dieser Aufgabe sollen Sie unterschiedliche Analysen auf der Grundlage vorgegebener Kriterien  durchführen. Letztendlich suchen Sie nach der  *Eignung* oder *Nichteignung* oder berechnen räumliche  *Widerstände* oder *Kosten*, welche einen Schätzwert für die Eignung oder Nutzung eines Pixels (Rasterelements) bestimmen.
 
 
 <!--more-->
 
-Betrachtet man dies auf eine Bewegung im Raum so sind es diese Kosten die das Überwinden einer Distanz, leicht oder beschwerlich, billig oder teuer, attraktiv oder unattraktiv usw. machen. Vor diesem Hintergrund müssen die einfließenden Kriterien für die Planung Ihrer Strecke in Bezug auf die Zielsetzung bewertend gewichtet werden. 
+Betrachtet man dies auf eine Bewegung im Raum so sind können die Werte in einem Pixel als Kosten die das Überwinden einer Distanz, leicht oder beschwerlich, billig oder teuer, attraktiv oder unattraktiv usw. machen gelten. Vor diesem Hintergrund müssen die einfließenden Kriterien für die Planung einer z.B. "kostengünstigen Strecke" in Bezug auf die Zielsetzung bewertet und evtl. gewichtet werden. 
 
 
   
@@ -22,7 +22,7 @@ Betrachtet man dies auf eine Bewegung im Raum so sind es diese Kosten die das Ü
 
 ## Was wir in dieser Einheit vor haben
 
-Im Rahmen der Übung werden Sie eine typische Eignungsanalyse und im Anschluss eine Kostenpfadanalyse durchführen. Dazu gehört die Vorbereitung des Kostenrasters und die Durchführungen und Interpretation der Analyse.
+Im Rahmen der Übung werden Sie eine typische Eignungsanalyse und im Anschluss eine Kostenpfadanalyse durchführen. Dazu gehört die Datenvorberetiung insbesondere die Vorbereitung des Kostenrasters und die Durchführungen und Interpretation der Analyse.
 
 
 ## Lernziele 
@@ -52,8 +52,8 @@ Sie sollen exemplarisch die Entscheidungsfindung  – Mehrere Ziele, mehrere Kri
 
 *  Laden Sie die Daten herunter und prüfen Sie diese in gewohnter Weise
 *  Berechnen Sie die Hangneigung 
-*  Reklassifizieren Sie die [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) (Sie finden die bereits vorbereitete Datei im heruntergeladenen Archiv unter dem Dateinamen `clc2018_1m_MOF_25832.tif`) in *Wald*, *Kein Wald*
-*  Zur Vorbereitung der Multikriterien-Evaluation müssen die Raster in ganzzahlige Klassen reklassifiziert werden. Also z.B. die Hangneigung in drei Klassen 0-15, 15-30 >30 Grad.
+*  Reklassifizieren Sie die [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) in *Wald*, *Kein Wald* . (Sie finden bereits vorbereitete Daten im heruntergeladenen Archiv unter dem Dateinamen `clc2018_1m_MOF_25832.tif`) 
+*  Zur Vorbereitung der Multikriterien-Evaluation müssen die Raster in *ganzzahlige* Klassen reklassifiziert werden. Also z.B. die Hangneigung in drei Klassen 0-15, 15-30 >30 Grad.
 * Legen Sie für jedes Layer eine Gewichtung fest. 
 * Legen Sie für jede Klasse in diesem Layer eine Bewertung von 0-10 fest. (Bedenken Sie bitte dass die Festlegung der Bewertung in Bezug auf die Fragestellung gewählt werden muss.) 
 *  Diskutieren Sie die Ergebnisse (2 Sätze)
@@ -61,8 +61,8 @@ Sie sollen exemplarisch die Entscheidungsfindung  – Mehrere Ziele, mehrere Kri
 
 ## Hilfestellung 
 
-*  Sie können für die MCE z.B. das Plugin `WMCA Weighted Multicriteria Analysis`nutzen. Es wird nach der Installation unter dem Menü `Raster` angezeigt.
-* Weitere und deutlich tiefergehende Hilfe finden Sie unter [Multi Criteria Overlay Analysis (QGIS3)](https://www.qgistutorials.com/en/docs/3/multi_criteria_overlay.html). Da es sich um eine zentrale GIS-Funktionalität handelt werden Sie unter allen GRIS Systemen ähnliche Konzepte finden die sie entweder direkt nutzen oder analog auf QGIS übertragen können z.B. das [MCE Tutorial für SAGA GIS](https://svwh.dl.sourceforge.net/project/saga-gis/SAGA%20-%20Documentation/Tutorials/Multi_Criteria_Evaluation_Tutorial/MultiTutorial2.pdf).
+*  Sie können für die MCE entweder den *Rasterrechner*  oder auch z.B. das Plugin `WMCA Weighted Multicriteria Analysis` nutzen. Dieses Plugin wird nach der Installation unter dem Haupt-Menü `Raster` angezeigt. Sie müssen evtl. *"Auch experimentelle Erweiterungen anzeigen"* unter den Einstellungen aktivieren.
+* Weitere und deutlich tiefergehende Hilfe finden Sie unter [Multi Criteria Overlay Analysis (QGIS3)](https://www.qgistutorials.com/en/docs/3/multi_criteria_overlay.html). Da es sich um eine zentrale Raster-GIS-Funktionalität handelt werden Sie unter allen GI Softwarepaketen ähnliche Werkzeug-Konzepte finden. Die verfügbaren Tutorials und Anleitungen können Si über die Verarbeitungswerkezuge entweder direkt nutzen oder analog auf QGIS übertragen [z.B. das MCE Tutorial für SAGA GIS](https://svwh.dl.sourceforge.net/project/saga-gis/SAGA%20-%20Documentation/Tutorials/Multi_Criteria_Evaluation_Tutorial/MultiTutorial2.pdf).
 
 
  
@@ -84,7 +84,7 @@ Sie sollen einen Fitness-Trail durch den Uniwald (Marburg Open Forest, MOF) bei 
 *  Laden Sie die Daten herunter und prüfen Sie diese in gewohnter Weise
 *  Machen Sie sich mit dem Konzept der Kostenanalyse vertraut
 *  Berechnen Sie die Hangneigung 
-*  Reklassifizieren Sie die [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) (Sie finden die bereits vorbereitete Datei im Archiv unter `clc2018_1m_MOF_25832.tif`) in *Wald*, *Kein Wald*
+* Nutzen Sie die bereits reklassifizierten Corine Daten *Wald*, *Kein Wald*.
 *  Berechnen Sie die Entfernung von den Wegen (`OSM_roads_MOF_25832.gpkg`) als Raster
 *  Legen Sie für jeden Rasterwert einen Wertebereich fest, der die *Kosten* zur Überwindung der Zelle beinhaltet. Sinnvollerweise sind eher unattraktive Räume mit hohen Werten und attraktive Räume mit niedrigen Werten belegt werden. Die Werte für die Hangneigung und für die Entfernung von der Straße sollten kontinuierlich bleiben und nicht in Klassen eingeteilt werden. 
 *  Normalisieren (Skalieren) Sie die Rasterwerte, indem Sie das Raster durch den jeweiligen maximalen Wert teilen.
