@@ -39,7 +39,7 @@ Nach dieser Übung können Sie:
 ## Aufgabe 04-01
 
 
-*   Laden Sie sich unter einer obigen Adresse die Daten (Ausschnitt) des SRTM Geländemodells von Marburg herunter. Falls die CGIAR Webseite nicht erreichbar ist gibt es die [SRTM Kachel](https://ilias.uni-marburg.de/ilias.php?ref_id=2225588&cmd=return&cmdClass=ilrepositorygui&cmdNode=wi&baseClass=ilRepositoryGUI&redirectSource=ilobjfilegui&cmdMode=) auch in Ilias.
+*   Laden Sie sich die Datenkachel für das SRTM Geländemodell von Marburg  und das Stadgebiet herunter. Falls die CGIAR Webseite nicht erreichbar ist gibt es die [SRTM Kachel](https://ilias.uni-marburg.de/ilias.php?ref_id=2225588&cmd=return&cmdClass=ilrepositorygui&cmdNode=wi&baseClass=ilRepositoryGUI&redirectSource=ilobjfilegui&cmdMode=) auch in Ilias.
 *   Was repräsentiert der Datensatz?
 *   Projizieren Sie das Geländemodell in ETRS89 UTM32 und schneiden es auf den Ausschnitt des Marburger Luftbildes zu.
 *   Berechnen Sie die Hangneigung, Exposition/Aspect. 
