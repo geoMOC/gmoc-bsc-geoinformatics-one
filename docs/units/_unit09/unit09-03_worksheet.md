@@ -34,7 +34,7 @@ Nach dieser Übung können Sie:
 
 ### Daten
   * [SRTM Geländemodell CGIAR](https://bigdata.cgiar.org/srtm-90m-digital-elevation-database/)
-  * [Stadtgebiet Marburg](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/marburg_stadtgebiet.gpkg)
+  * [Stadtgebiet Marburg]({{ site.baseurl }}/assets/data/marburg_stadtgebiet.gpkg)
 
 ## Aufgabe 04-01
 
