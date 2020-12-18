@@ -34,19 +34,22 @@ Nach dieser Übung können Sie:
 
 ### Daten
   * [SRTM Geländemodell CGIAR](https://bigdata.cgiar.org/srtm-90m-digital-elevation-database/)
-  * [SRTM Kachel in Ilias](https://ilias.uni-marburg.de/ilias.php?ref_id=2225588&cmd=return&cmdClass=ilrepositorygui&cmdNode=wi&baseClass=ilRepositoryGUI&redirectSource=ilobjfilegui&cmdMode=)
-
+  * [Stadtgebiet Marburg](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/marburg_stadtgebiet.gpkg)
 
 ## Aufgabe 04-01
 
 
-*   Laden Sie sich unter der obigen Adresse die passende Kachel (Ausschnitt) des SRTM Geländemodells von Marburg herunter. 
-*   Was zeigt Ihnen der Datensatz?
+*   Laden Sie sich unter einer obigen Adresse die Daten (Ausschnitt) des SRTM Geländemodells von Marburg herunter. Falls die CGIAR Webseite nicht erreichbar ist gibt es die [SRTM Kachel](https://ilias.uni-marburg.de/ilias.php?ref_id=2225588&cmd=return&cmdClass=ilrepositorygui&cmdNode=wi&baseClass=ilRepositoryGUI&redirectSource=ilobjfilegui&cmdMode=) auch in Ilias.
+*   Was repräsentiert der Datensatz?
 *   Projizieren Sie das Geländemodell in ETRS89 UTM32 und schneiden es auf den Marburg Ausschnitt zu.
-*   Berechnen Sie die Hangneigung, Exposition und Abflussrichtung. 
+*   Berechnen Sie die Hangneigung, Exposition/Aspect. 
 *   Extrahieren Sie für den Marktplatz (Position Brunnen) obige Werte.
-*   Wenden Sie einen 5*5 Mittelwertsfilter auf die Geländehöhe an. Beschreiben Sie das Resultat in jeweils einem Satz. 
-*   Berechnen Sie, die minimale, maximale und mittlere Hangneigung in städtischem Gebiet (Ausdehnung Luftbild). 
+*   Wenden Sie einen 5*5 Mittelwertsfilter auf die Geländehöhe an.
+*   Extrahieren Sie erneut für den Marktplatz (Position Brunnen) obige
+Werte.
+* Berechnen Sie, die minimale, maximale und mittlere Hangneigung in städtischem Gebiet ([Ausdehnung Luftbild]()). 
+
+* Zeigen sie die Werte in einer Tabelle und  erläutern Sie das Resultat in einem Satz. 
 {: .notice--success}
 
 ## Hilfestellung 
