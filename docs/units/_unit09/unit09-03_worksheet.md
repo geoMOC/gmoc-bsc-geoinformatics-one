@@ -47,7 +47,7 @@ Nach dieser Übung können Sie:
 *   Wenden Sie einen 5*5 Mittelwertsfilter auf die Geländehöhe an.
 *   Extrahieren Sie erneut für den Marktplatz (Position Brunnen) obige
 Werte.
-* Berechnen Sie, die minimale, maximale und mittlere Hangneigung in städtischem Gebiet ([Ausdehnung Luftbild]({{ site.baseurl }}/assets/data/marburg_stadtgebiet.gpkg)). 
+* Berechnen Sie unter Benutzung des Datensatzes ([Marburg Stadtgebiet]({{ site.baseurl}}/assets/data/marburg_stadtgebiet.gpkg)), die minimale, maximale und mittlere Hangneigung für die ausgewiesene Fläche. 
 
 * Zeigen sie die Werte in einer Tabelle und  erläutern Sie das Resultat in einem Satz. 
 {: .notice--success}
