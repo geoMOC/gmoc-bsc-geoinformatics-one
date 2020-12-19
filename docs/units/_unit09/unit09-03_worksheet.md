@@ -34,9 +34,9 @@ Nach dieser Übung können Sie:
 
 ### Daten
   * [SRTM Geländemodell CGIAR](https://bigdata.cgiar.org/srtm-90m-digital-elevation-database/)
-  * [Stadtgebiet Marburg]({{ site.baseurl }}/assets/data/marburg_stadtgebiet.gpkg)
+  * [Marburg Stadtgebiet]({{ site.baseurl}}/assets/data/marburg_stadtgebiet.gpkg))
 
-## Aufgabe 04-01
+## Aufgabe 03-01
 
 
 *   Laden Sie sich die Datenkachel für das SRTM Geländemodell von Marburg  und das Stadgebiet herunter. Falls die CGIAR Webseite nicht erreichbar ist gibt es die [SRTM Kachel](https://ilias.uni-marburg.de/ilias.php?ref_id=2225588&cmd=return&cmdClass=ilrepositorygui&cmdNode=wi&baseClass=ilRepositoryGUI&redirectSource=ilobjfilegui&cmdMode=) auch in Ilias.
@@ -54,8 +54,9 @@ Werte.
 
 ## Hilfestellung 
 
-*  Verwenden Sie zum Ausschneiden des Rasters einen der Marburg-Layer aus den vorherigen Sitzungen als Vorlage.
-*  Das Stichwort für die QGIS Hilfe zum Mittelwertsfilter ist "neighbors"  oder auch (filter) in der Verarbeitungsbox. Als Resultat wird z.B. r.neighbors aus der GRASS GIS Funktionssammlung angezeigt. bei "filter" gibt es eine Reihe von Treffern. Hier ist ein guter Einstieg "Simple Filter" aus der Funktionssammlung von SAGA GIS.
-*  Verwenden Sie zonale Statistiken um sich die min/max/mittel Werte eines definierten Gebiets als Tabelle auszugeben. Für Marburg können Sie entweder ein Stadtgebiet nach ihrere Einschätzung als Polygon abdigitalisieren oder z.B. auf die Suche nach Verwaltungsgrenzen gehen. Hier wäre z.b. die [Bundesamt für Kartographie und Geodäsie Open Data Server](https://gdz.bkg.bund.de/index.php/default/open-data.html) eine gute Startmöglichkeit.
+Verwenden Sie zum Ausschneiden des Rasters einen der Marburg-Layer aus den vorherigen Sitzungen als Vorlage.
 
-x
+Das Stichwort für die QGIS Hilfe zum Mittelwertsfilter ist *"neighbors"*  oder auch *"filter"* in der Werkzeugleiste. Als Resultat wird z.B. r.neighbors aus der GRASS GIS Funktionssammlung angezeigt. bei *"filter"* gibt es eine Reihe von Treffern. Hier ist *"Simple Filter"* aus der Funktionssammlung von SAGA GIS ein guter Einstieg.
+
+Verwenden Sie zonale Statistiken um sich die Minimum-/Maximum-/Mittel-Werte eines definierten Gebiets als Tabelle auszugeben. Für Marburg können Sie entweder ein Stadtgebiet nach ihrer Einschätzung als Polygon digitalisieren oder z.B. auf die Suche nach Verwaltungsgrenzen gehen. Hier wäre z.b. die [Bundesamt für Kartographie und Geodäsie Open Data Server](https://gdz.bkg.bund.de/index.php/default/open-data.html)  eine gute Startmöglichkeit.
+ Sollte Ihnen das zu mühsam sein können  Sie auch die Datei [Marburg Stadtgebiet]({{ site.baseurl}}/assets/data/marburg_stadtgebiet.gpkg)) aus dem Download nutzen.
