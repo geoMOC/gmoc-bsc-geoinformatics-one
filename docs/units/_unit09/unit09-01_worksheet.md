@@ -9,11 +9,11 @@ header:
 Der Einstieg in eine komplexe Software ist mühsam und verelangt einiges an Frusttoleranz. Es ist sinnvoll *Analog-Wissen* aufzubauen und sich den Zugang zu den Arbeitsabläufen *logisch-strukturiert* und **nicht** durch *auswendig lernen* der einzelnen Arbeitsschritte zu erarbeiten. Das ist nicht geschenkt zumal GIS Softwarepakete wie ArcGIS oder QGIS zu den eher komplexen Softwarearchitekturen gehören.
 <!--more-->
 ## Was wir in dieser Einheit vor haben
-Zur Mühsal des Erlernes sowohl neuer konzeptueller als auch Informationstechnik bezogener Problemfelder kommt auch noch die Auseinandersetzung mit einer neuen Software, die mit einer ungewohnten Graphical-User-Interface (GUI) aufwartet, hinzu. Um die Herrausforderungen etwas zu verteilen fangen sie Schritt für Schritt an und beginnen in dieser ersten Einheit mit einigen grundlegenden und typischen Aufgaben.  
+Zur Mühsal des Erlernes sowohl neuer konzeptueller als auch Informationstechnik bezogener Problemfelder kommt auch noch die Auseinandersetzung mit einer neuen Software, die mit einer ungewohnten Graphical-User-Interface (GUI) aufwartet, hinzu. Um die Herrausforderungen etwas zu verteilen fangen Sie Schritt für Schritt an und beginnen in dieser ersten Einheit mit einigen grundlegenden und typischen Aufgaben.  
 
 ## Lernziele 
 
-Nach dieser Übung können sie:
+Nach dieser Übung können Sie:
   *  QGIS installieren
   *  eine QGIS Projektdatei anlegen
   *  Datenformate und Datenmodelle unterscheiden
@@ -31,7 +31,7 @@ Nach dieser Übung können sie:
   * [Räumliche Objekte](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_objects.xls) Excel Tabelle.
 
 ### Software
-  * [QGIS Installation](https://www.qgis.org/de/site/forusers/alldownloads.html). **Windows Nutzer** Installieren QGIS mit Hilfe des [osgeo4W](http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe) Installers. **Linux** Nutzer folgen den Anweisungen der [QGIS Installationsseite](https://www.qgis.org/de/site/forusers/alldownloads.html#linux). Weitere Informationen zur finden sie unter  [hier](https://r-spatial.github.io/link2GI/articles/link2GI6.html).
+  * [QGIS Installation](https://www.qgis.org/de/site/forusers/alldownloads.html). **Windows Nutzer** Installieren QGIS mit Hilfe des [osgeo4W](http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe) Installers. **Linux** Nutzer folgen den Anweisungen der [QGIS Installationsseite](https://www.qgis.org/de/site/forusers/alldownloads.html#linux). Weitere Informationen zur finden Sie unter  [hier](https://r-spatial.github.io/link2GI/articles/link2GI6.html).
 
 ### Einführende Materialien
   * [Eine sanfte Einführung in GIS](https://docs.qgis.org/3.10/de/docs/gentle_gis_introduction/index.html)
@@ -42,55 +42,55 @@ Nach dieser Übung können sie:
 
 ## Aufgabe 01-01
 
-Dieses Arbeitsblatt dient der Einführung in die verschiedenen Datenmodelle im GIS. Zudem lernen sie, wie sie eigene Raumdaten ins GIS importieren oder auch selbst im GIS erstellen können.
+Dieses Arbeitsblatt dient der Einführung in die verschiedenen Datenmodelle im GIS. Zudem lernen Sie, wie Sie eigene Raumdaten ins GIS importieren oder auch selbst im GIS erstellen können.
 
-  * Erstellen sie bitte ein Verzeichnis das **ohne** Sonderzeichen und Leerzeichen (im gesamten Pfad/Verzeichnisbaum) benannt ist
-  * Legen sie ein QGIS-Projekt an
-  * Laden sie die Datei `marburg_RE.tif` 
-  * Informieren sie sich über die Eigenschaften des Datensatzes. (Projektion, Datenmodell, Werte-Spektrum)
-  * Laden sie von der [geofabrik](http://download.geofabrik.de/) den Datensatz von Hessen herunter und entpacken das Archiv in einen Unterordner Ihres Projektverzeichnis das sie `Daten` nennen.
-  * Öffnen sie nach dem Entpacken des Archivs die Datei `gis_osm_pois_free_1.shp` in Ihrem QGIS Projekt
-  * Informieren sie sich auch bei diesem Datensatz über die Eigenschaften. (Projektion, Datenmodell, Werte-Spektrum)
-  * Schneiden sie den Datensatz `gis_osm_pois_free_1` auf die Ausdehnung des Luftbildes `marburg_RE.tif` zu 
-  * Exportieren sie diese Punktdaten im *geopackage* Datenformat unter dem Namen `mr_points`
-  * Importieren sie die Tabelle `mr_objects.xls` (Datensatz [Räumliche Objekte](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_objects.xls)) als einen räumlichen Layer in ihr QGIS-Projekt
-  * Erstellen sie auf Grundlage des Luftbildes `marburg_RE.tif`:
+  * Erstellen Sie bitte ein Verzeichnis das **ohne** Sonderzeichen und Leerzeichen (im gesamten Pfad/Verzeichnisbaum) benannt ist
+  * Legen Sie ein QGIS-Projekt an
+  * Laden Sie die Datei `marburg_RE.tif` 
+  * Informieren Sie sich über die Eigenschaften des Datensatzes. (Projektion, Datenmodell, Werte-Spektrum)
+  * Laden Sie von der [geofabrik](http://download.geofabrik.de/) den Datensatz von Hessen herunter und entpacken das Archiv in einen Unterordner Ihres Projektverzeichnis das Sie `Daten` nennen.
+  * Öffnen Sie nach dem Entpacken des Archivs die Datei `gis_osm_pois_free_1.shp` in Ihrem QGIS Projekt
+  * Informieren Sie sich auch bei diesem Datensatz über die Eigenschaften. (Projektion, Datenmodell, Werte-Spektrum)
+  * Schneiden Sie den Datensatz `gis_osm_pois_free_1` auf die Ausdehnung des Luftbildes `marburg_RE.tif` zu 
+  * Exportieren Sie diese Punktdaten im *geopackage* Datenformat unter dem Namen `mr_points`
+  * Importieren Sie die Tabelle `mr_objects.xls` (Datensatz [Räumliche Objekte](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/mr_objects.xls)) als einen räumlichen Layer in ihr QGIS-Projekt
+  * Erstellen Sie auf Grundlage des Luftbildes `marburg_RE.tif`:
       * Drei beliebige Flächen (Polygone), 
       * drei beliebige Straßen (Linienzüge) 
-      * ergänzen sie schließlich den Layer `mr_points` um 3 beliebige Positionen (Punkte) Ihrer Wahl
-  * Geben sie bei den neu erstellten Datensätzen als Koordinatensystem **WGS84** an. Tipp: sie können zur besseren Orientierung auch eine Webkarte in Ihr Projekt laden (Weitere Informationen unter Hilfestellungen.
+      * ergänzen Sie schließlich den Layer `mr_points` um 3 beliebige Positionen (Punkte) Ihrer Wahl
+  * Geben Sie bei den neu erstellten Datensätzen als Koordinatensystem **WGS84** an. Tipp: Sie können zur besseren Orientierung auch eine Webkarte in Ihr Projekt laden (Weitere Informationen unter Hilfestellungen.
 {: .notice--success}
 
 
 
 ## Aufgabe 01-02 
 
-Leider können wir sie nicht vollständig an dem Thema der korrekten Verortung von Geodatensätzen - also der adäquaten Projektion- vorbei manövrieren. Im Rahmen der Aufgabe 02-01 haben sie Raster- und Vektordaten in QGIS importiert sowie eigene Vektordaten erstellt. Die räumliche Information der Daten lag jeweils in geographischen Koordinaten vor. Die von Ihnen benutzte Software QGIS führt immer eine Echtzeitprojektion durch mit dem Ziel diese Kugelkoordinaten auf den *flachen* Monitor zu projizieren. Dies hat jedoch nichts mit einer kartographischen Projektion zu tun. Nahezu alle räumlichen Analysen und geometrische Berechnungen funktionieren nur auf korrekt projizierten Daten.
+Leider können wir Sie nicht vollständig an dem Thema der korrekten Verortung von Geodatensätzen - also der adäquaten Projektion- vorbei manövrieren. Im Rahmen der Aufgabe 02-01 haben Sie Raster- und Vektordaten in QGIS importiert sowie eigene Vektordaten erstellt. Die räumliche Information der Daten lag jeweils in geographischen Koordinaten vor. Die von Ihnen benutzte Software QGIS führt immer eine Echtzeitprojektion durch mit dem Ziel diese Kugelkoordinaten auf den *flachen* Monitor zu projizieren. Dies hat jedoch nichts mit einer kartographischen Projektion zu tun. Nahezu alle räumlichen Analysen und geometrische Berechnungen funktionieren nur auf korrekt projizierten Daten.
 
-Für den Beginn können wir sie nur sehr nachdrücklich ermuntern das CRS (Coordinate Reference System) bzw KBS (Koordinatenbezugssystem) ihres *Projekts* und jeder Datenebene identisch zu halten. Für Deutschland ist das amtliche System [ETRS89 UTM 32 ](https://epsg.io/25832). Durch diese Sorgfalt kann eine Fehlpositionierung und so einer der häufigsten Alltagsfehler in der GIS Welt vermieden werden.
+Für den Beginn können wir Sie nur sehr nachdrücklich ermuntern das CRS (Coordinate Reference System) bzw KBS (Koordinatenbezugssystem) ihres *Projekts* und jeder Datenebene identisch zu halten. Für Deutschland ist das amtliche System [ETRS89 UTM 32 ](https://epsg.io/25832). Durch diese Sorgfalt kann eine Fehlpositionierung und so einer der häufigsten Alltagsfehler in der GIS Welt vermieden werden.
 {: .notice--danger}
 
 ### Aufgabenstellung
-* Erstellen sie ein neues QGIS Projekt. Laden sie als erstes die Rasterdatei `marburg_RE.tif` und dann im Anschluss die Vektordatensätze `mr_roads` und `mr_nat` ein.
+* Erstellen Sie ein neues QGIS Projekt. Laden Sie als erstes die Rasterdatei `marburg_RE.tif` und dann im Anschluss die Vektordatensätze `mr_roads` und `mr_nat` ein.
    * Welche Projektionen besitzen die einzelnen Datensätze?
    * In welcher Projektion werden die Daten angezeigt? 
-   * Wo können sie die Projektion definieren, die zur Darstellung der Daten verwendet werden soll?
+   * Wo können Sie die Projektion definieren, die zur Darstellung der Daten verwendet werden soll?
    * Was versteht man unter einer *on the fly* bzw. *Echtzeit* Projizierung?
-* Weisen sie dem Layer `mr_nat` das geographische Referenzsystem `WGS 84` zu. 
-* Projizieren sie anschließend alle Datensätze in *ETRS89 UTM 32* 
-   * Warum konnten sie dem Layer `mr_nat` die Projektion *ETRS89 UTM 32* nicht direkt zuweisen
+* Weisen Sie dem Layer `mr_nat` das geographische Referenzsystem `WGS 84` zu. 
+* Projizieren Sie anschließend alle Datensätze in *ETRS89 UTM 32* 
+   * Warum konnten Sie dem Layer `mr_nat` die Projektion *ETRS89 UTM 32* nicht direkt zuweisen
 {: .notice--success}
 
 ## Hilfestellungen
 
 Als konkreten Einstieg für die Bearbeitung von Aufgabe 1 möchten wir Ihnen noch einige Einstiegshilfen für QGIS anbieten. QGIS ist ein komplexes Softwareprodukt, das nicht nur in  unterschiedlichen Versionen auf allen gängigen OS-Plattformen verfügbar ist, sondern zusätzlich vollständig individuell anpassbar ist. Daher kursieren im Netz aus den vergangenen 15 Jahren eine Vielzahl von Hilfen, Handbüchern und Tutorials - nicht jeder Treffer ist geeignet und erst recht nicht jedes Tutorial passt auf Ihre Version.
 
-Einen ersten Anlaufpunkt für konkrete Informationen stellt die integrierte Hilfe des Softwarepakets dar. Darüber hinaus ist eine umfangreiche Dokumentation verfügbar. Die jeweils aktuelle [QGIS Landing Page](https://www.qgis.org/de/site/forusers/index.html) ist der zentrale Zugang zu allen offiziell vom Projekt verfügbar gemachten Dokumentationen. Bei allen Seiten gilt achten sie darauf die Hilfe zu Ihrer passenden QGIS Version anzuschauen. Falls diese (noch) nicht verfügbar ist versuchenen sie es mit der jeweils nächsten Vorgängerversion. **Achtung** der Übergang von QGIS2.x auf QGIS3.x markiert erhebliche Veränderungen. In der Regel sind Anleitungen für QGIS  2.x unbrauchbar. 
+Einen ersten Anlaufpunkt für konkrete Informationen stellt die integrierte Hilfe des Softwarepakets dar. Darüber hinaus ist eine umfangreiche Dokumentation verfügbar. Die jeweils aktuelle [QGIS Landing Page](https://www.qgis.org/de/site/forusers/index.html) ist der zentrale Zugang zu allen offiziell vom Projekt verfügbar gemachten Dokumentationen. Bei allen Seiten gilt achten Sie darauf die Hilfe zu Ihrer passenden QGIS Version anzuschauen. Falls diese (noch) nicht verfügbar ist versuchenen Sie es mit der jeweils nächsten Vorgängerversion. **Achtung** der Übergang von QGIS2.x auf QGIS3.x markiert erhebliche Veränderungen. In der Regel sind Anleitungen für QGIS  2.x unbrauchbar. 
 
 
 ### Einrichtung eines QGIS-Projekts 
 
-Wir raten Ihnen **dringend** bei Rechnern mit einem Heimatverzeichnis in der Cloud/im Netz (z.B. in der Uni-Pools) die Daten auf einer lokalen Festplatte abzuspeichern.  Hierfür müssen sie zunächst eine Ordnerstruktur für Ihr Projekt anlegen. Bitte achten sie darauf **keine** Sonderzeichen, Umlaute oder Leerzeichen zu verwenden. Hilfe zur Projektdatei finden sie unter [Arbeiten mit Projektdateien](https://docs.qgis.org/3.10/de/docs/user_manual/introduction/project_files.html).
+Wir raten Ihnen **dringend** bei Rechnern mit einem Heimatverzeichnis in der Cloud/im Netz (z.B. in der Uni-Pools) die Daten auf einer lokalen Festplatte abzuspeichern.  Hierfür müssen Sie zunächst eine Ordnerstruktur für Ihr Projekt anlegen. Bitte achten Sie darauf **keine** Sonderzeichen, Umlaute oder Leerzeichen zu verwenden. Hilfe zur Projektdatei finden Sie unter [Arbeiten mit Projektdateien](https://docs.qgis.org/3.10/de/docs/user_manual/introduction/project_files.html).
 
 ### Digitalisieren von Geometriedaten
 
