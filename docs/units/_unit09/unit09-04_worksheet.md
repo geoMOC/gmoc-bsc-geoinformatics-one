@@ -33,14 +33,14 @@ Nach dieser Übung können Sie:
   *  eine Kostenanalyse planen und durchführen
 
 
-## Aufgabe 05-01
+## Aufgabe 04-01
 
 ## Benötigte Materialien
 
 * Geländemodell des Marburg Open Forest (MOF) in 1 Meter Auflösung
 * Corine Landnutzung Daten für den MOF
 
-Die Daten finden Sie im  Zip-Archiv  [praxis_L05](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/praxis_L05.zip)
+Die Daten finden Sie im  Zip-Archiv  [Daten-Aufgabe-L04](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/Daten-Aufgabe-L04.zip)
 
 ### Aufgabe
 Sie sollen eine Entscheidungsfindung auf der Grundlage mehrerer Kriterien durchführen. Konkret sollen Sie die Eignung des Uniwalds als Wildkatzenhabitat untersuchen. Hierfür sollen folgende Aussagen gelten:
@@ -49,7 +49,7 @@ Sie sollen eine Entscheidungsfindung auf der Grundlage mehrerer Kriterien durchf
 * Wildkatzen bevorzugen mittelsteile und steile Hanglagen
 * Waldgebiete werden gegenüber Hangebieten bevorzugt
 
-### Vorgehensweise Aufgabe 05-01
+### Vorgehensweise Aufgabe 04-01
 *  Laden Sie die Daten herunter (prüfen Sie diese in gewohnter Weise)
 *  Berechnen Sie die Hangneigung 
 *  Extrahieren Sie die aus den [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) alle Waldflächen so daß Sie ein Raster mit den Werten 1 für *Waldflächen* und 0 für *Keine Waldflächen*. (Sie finden bereits zugeschnittene Corine-Daten im heruntergeladenen Archiv unter dem Dateinamen `clc2018_1m_MOF_25832.tif`) 
@@ -67,7 +67,7 @@ Sie sollen eine Entscheidungsfindung auf der Grundlage mehrerer Kriterien durchf
 Da es sich bei dieser Vorgehensweise um ein häufig angewandtes Raster-GIS-Konzept handelt, werden Sie unter allen GI Softwarepaketen ähnliche Werkzeuge finden. So ist auch etwas das  [MCE Tutorial für SAGA GIS](https://svwh.dl.sourceforge.net/project/saga-gis/SAGA%20-%20Documentation/Tutorials/Multi_Criteria_Evaluation_Tutorial/MultiTutorial2.pdf) ein hilfreiche Ressource um den Vorgang zu verstehen.
 
 
-## Aufgabe 05-02
+## Aufgabe 04-02
 
 ## Benötigte Materialien
 
@@ -76,7 +76,7 @@ Da es sich bei dieser Vorgehensweise um ein häufig angewandtes Raster-GIS-Konze
 * Corine Landnutzung Daten für den MOF
 *  Koordinaten (ETRS89, UTM32 EPSG:32632) Position *Kreisel*  (478188,5632178), Position Grillhütte (476170,5631657)
 
-Die Daten finden Sie im  Zip-Archiv  [praxis_L05](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/praxis_L05.zip)
+Die Daten finden Sie im  Zip-Archiv  [Daten-Aufgabe-L04](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/Daten-Aufgabe-L04.zip)
 
 ### Aufgabe
 Sie sollen einen Cross-Crountry Fitness-Trail durch den Uniwald (Marburg Open Forest, MOF) bei Caldern planen. Der Trail beginnt am Parkplatz in der Nähe des Kreisverkehrs am südöstlichen Rand und endet am Grillplatz am nordwestlichen Ende. 
@@ -92,7 +92,7 @@ Machen Sie sich zunächst mit dem Konzept der Kostenanalyse vertraut (siehe Hilf
 
 *  Download und Überprüfung der zur Verfügung gestellten Daten
 *  Berechnen Sie die Hangneigung 
-*  Nutzen Sie reklassifizierten Corine Daten aus Aufgabe 05-01 (*Wald*, *Kein Wald*).
+*  Nutzen Sie reklassifizierten Corine Daten aus Aufgabe 04-01 (*Wald*, *Kein Wald*).
 *  Berechnen Sie ein Entfernungsraster das den Abstand zu den Wegen (`OSM_roads_MOF_25832.gpkg`) beinhaltet (räumliche Auflösung wie das Hangneigungsraster).
 *  Legen Sie für jede Rasterklasse (z.B. Wald Nicht-Wald) Werte fest, die die *Kosten* bzw den *Reibungswert* zur Überwindung/Nutzung der Zelle abbildet. Sinnvoll ist es also (im Sinne der Vorgaben) unattraktive Zellen mit hohen Werten und attraktive Zellen mit niedrigen Werten zu belegen. In diesem Fall sollen die Werte für die Hangneigung und für die Entfernung von der Straße in Ihrer kontinuierlichen Ausprägung genutzt werden. Da das WMCA Werkzeug jedoch maximal 100 Klassen verarbeiten  kann müssen bei Verwendung dieses Werkzeugs die kontinuierlichen Werte auch reklassifiziert werden (z.B 10 Meter Entfernungsklassen und 2 Grad Neigungsklassen) Sollten Sie den *Raster-Calculator* benutzen ist dies nicht notwendig. 
 * Normalisieren (Skalieren) Sie die Rasterwerte
@@ -102,7 +102,7 @@ Machen Sie sich zunächst mit dem Konzept der Kostenanalyse vertraut (siehe Hilf
 Beschreiben Sie das Ergebnis und begründen sie die einzelnen Arbeitsschritte.
 {: .notice--success}
 
-### Hilfestellung Aufgabe 05-02
+### Hilfestellung Aufgabe 04-02
 
 * Raster Daten können z.B. mit dem [Raster-Rechner](https://docs.qgis.org/2.14/de/docs/user_manual/working_with_raster/raster_analysis.html#raster-calculator) durchgeführt werden. Der `Raster-Rechner` ist als Raster Taschenrechner für zahlreiche Operationen ein extrem wichtiges und mächtiges Werkzeug.  Alternativ und für eine einfache Reklassifikation einfacher ist das QGIS- Werkzeug `Nach Tabelle neuklassifizieren`. Für einen Überblick der verfügbaren Werkzeuge der Daten-(Re)klassifikation geben Sie `klassifizieren` in der Werkzeugleiste ein. Weiterhin finden Sie im Netz zahlreiche Anleitungen zum Thema Reklassifizieren z.B.in folgendem Blogbeitrag [How to reclassify a raster layer in QGIS](https://fivequestionz.home.blog/2020/02/08/how-to-reclassify-a-raster-layer-in-qgis/) oder auf YouTube [Slope Analysis/Reclassify from a DEM in QGIS 3](https://www.youtube.com/watch?v=7eIFvZ4fU6k). Auch die Hilfeseiten von [GRASS GIS][https://grass.osgeo.org/grass76/manuals/r.reclass.html] und [SAGA GIS](http://www.saga-gis.org/saga_tool_doc/2.2.5/grid_tools_15.html) beschreiben den technischen Vorgang.  
 * Die *Normalisierung* von Raster Datenwerten kann sehr einfach mit dem SAGA Modul `Grid Normalisation` durchgeführt werden. Alternativ können Sie diese auch mit dem [Raster-Rechner](https://docs.qgis.org/3.10/de/docs/user_manual/working_with_raster/raster_analysis.html#raster-calculator) nach der Formel `xnorm = (x-min(x))/(max(x)-min(x))` berechnen (wobei x das Raster, min(x) und max(x) jeweils das Minimum bzw. Maximum aller Werte des Rasters sind). 

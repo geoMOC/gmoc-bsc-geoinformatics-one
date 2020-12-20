@@ -33,13 +33,13 @@ Nach dieser Übung können Sie:
 ## Benötigte Materialien
 
 ### Daten
-  * [SRTM Geländemodell CGIAR](https://bigdata.cgiar.org/srtm-90m-digital-elevation-database/)
+  * [SRTM Geländemodell CGIAR](https://srtm.csi.cgiar.org/srtmdata/)
   * [Marburg Stadtgebiet]({{ site.baseurl}}/assets/data/marburg_stadtgebiet.gpkg))
 
 ## Aufgabe 03-01
 
 
-*   Laden Sie sich die Datenkachel für das SRTM Geländemodell von Marburg  und das Stadgebiet herunter. Falls die CGIAR Webseite nicht erreichbar ist gibt es die [SRTM Kachel](https://ilias.uni-marburg.de/ilias.php?ref_id=2225588&cmd=return&cmdClass=ilrepositorygui&cmdNode=wi&baseClass=ilRepositoryGUI&redirectSource=ilobjfilegui&cmdMode=) auch in Ilias.
+* Laden Sie sich die Datenkachel für das SRTM Geländemodell von Marburg herunter.
 *   Was repräsentiert der Datensatz?
 *   Projizieren Sie das Geländemodell in ETRS89 UTM32 und schneiden es auf den Ausschnitt des Marburger Luftbildes zu.
 *   Berechnen Sie die Hangneigung, Exposition/Aspect. 
@@ -53,6 +53,8 @@ Werte.
 {: .notice--success}
 
 ## Hilfestellung 
+
+Alle notwendigen Informationen zu den SRTM Daten finden Sie auf der [CGIAR FAQ Seite](https://srtm.csi.cgiar.org/faq/).
 
 Verwenden Sie zum Ausschneiden des Rasters einen der Marburg-Layer aus den vorherigen Sitzungen als Vorlage.
 
