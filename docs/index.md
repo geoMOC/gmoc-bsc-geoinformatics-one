@@ -56,7 +56,7 @@ Es ist ein individuelles Projekt durchzuführen und ein entsprechender Projektbe
 
 ## Ablauf
 
-Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie im [Kursbereich der Ilias-Lernplattform](https://ilias.uni-marburg.de/ilias.php?ref_id=1899952&cmd=frameset&cmdClass=ilrepositorygui&cmdNode=ts&baseClass=ilrepositorygui). Die Online-Materialien sind die Grundlage für den Kurs Geoinformatik. 
+Am 05.11.2020 findet die Online-Auftaktveranstaltung in Big Blue Button (BBB) statt. Den Link finden Sie im [Kursbereich der Ilias-Lernplattform](https://ilias.uni-marburg.de/ilias.php?ref_id=1899952&cmd=frameset&cmdClass=ilrepositorygui&cmdNode=ts&baseClass=ilrepositorygui). Die Online-Materialien sind die Grundlage für den Kurs Geoinformatik. 
 
 * Der Link wird je nach technischer Möglichkeit über Ilias bekanntgegeben. Zur Vorbereitung  der Präsenzzeiten wird in Ilias ein Forum eingerichtet in dem die Fragen, die Berücksichtigung finden sollen, bis jeweils Montag Abend 18:00 Uhr eingestellt werden sollten. 
 * Die Präsenzzeit dient der Beantwortung der Fragen, die zu den Vorlesungsinput den Readern und  den gestellten Übungsaufgaben im Forum gestellt wurden. Sollte die Präsenzveranstaltung technisch nicht stattfinden können wird ein Screencast mit der Beantwortung der Fragen und neuem Input online gestellt
@@ -73,12 +73,12 @@ Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie 
 | 5 | 10.12.  | Analysen | Rasterbasierte Analysen, DGM-Ableitungen  |
 | 6 | 17.12.  | Kosten und Kriterien | Multkriterien Analysen, Kostenraster  |
 | 7 | 14.01.  | Einführung Projektarbeit |   |
-| 8 | 21.07.  | Projektarbeit-Tutorium |  |
-| 9 | 28.07.  | Projektarbeit-Tutorium |  |
-| 10 | 04.02. | Projektarbeit-Tutorium |  |
-| 11 | 11.02. | Projektarbeit-Tutorium |  |
-| 12 | 18.02. | Projektarbeit-Tutorium |  |
-| 13 | 25.02. | Projektarbeit-Tutorium |  |
+| 8 | 21.01.  | Projektarbeit-Online-Tutorium |  |
+| 9 | 28.01.  | Projektarbeit-Online-Tutorium |  |
+| 10 | 04.02. | Projektarbeit-Online-Tutorium |  |
+| 11 | 11.02. | Projektarbeit-Online-Tutorium |  |
+| 12 | 18.02. | Projektarbeit-Online-Tutorium |  |
+| 13 | 25.02. | Projektarbeit-Online-Tutorium |  |
 
 
 ## Exemplarischer Kurs-Stundenplan
