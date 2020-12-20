@@ -40,7 +40,7 @@ Nach dieser Übung können Sie:
 *  Weitere Daten Ihrer Wahl
 *  Literatur Ihrer Wahl
 
-Die Daten finden Sie in der Archiv-Datei [Daten-Aufgabe-L04.zip]((https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/Daten-Aufgabe-L04.zip))
+Die Daten finden Sie in der Archiv-Datei [Daten-Aufgabe-L04.zip](({{ site.baseurl }}/assets/data/Daten-Aufgabe-L04.zip))
 
 
 

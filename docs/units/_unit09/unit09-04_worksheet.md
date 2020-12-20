@@ -40,7 +40,7 @@ Nach dieser Übung können Sie:
 * Geländemodell des Marburg Open Forest (MOF) in 1 Meter Auflösung
 * Corine Landnutzung Daten für den MOF
 
-Die Daten finden Sie im  Zip-Archiv  [Daten-Aufgabe-L04](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/Daten-Aufgabe-L04.zip)
+Die Daten finden Sie im  Zip-Archiv  [Daten-Aufgabe-L04]({{ site.baseurl }}/assets/data/Daten-Aufgabe-L04.zip)
 
 ### Aufgabe
 Sie sollen eine Entscheidungsfindung auf der Grundlage mehrerer Kriterien durchführen. Konkret sollen Sie die Eignung des Uniwalds als Wildkatzenhabitat untersuchen. Hierfür sollen folgende Aussagen gelten:
@@ -76,7 +76,7 @@ Da es sich bei dieser Vorgehensweise um ein häufig angewandtes Raster-GIS-Konze
 * Corine Landnutzung Daten für den MOF
 *  Koordinaten (ETRS89, UTM32 EPSG:32632) Position *Kreisel*  (478188,5632178), Position Grillhütte (476170,5631657)
 
-Die Daten finden Sie im  Zip-Archiv  [Daten-Aufgabe-L04](https://raw.githubusercontent.com/GeoMOER/moer-bsc-geoinfo-basic/master/docs/assets/data/Daten-Aufgabe-L04.zip)
+Die Daten finden Sie im  Zip-Archiv  [Daten-Aufgabe-L04]({{ site.baseurl }}/assets/data/Daten-Aufgabe-L04.zip)
 
 ### Aufgabe
 Sie sollen einen Cross-Crountry Fitness-Trail durch den Uniwald (Marburg Open Forest, MOF) bei Caldern planen. Der Trail beginnt am Parkplatz in der Nähe des Kreisverkehrs am südöstlichen Rand und endet am Grillplatz am nordwestlichen Ende. 
