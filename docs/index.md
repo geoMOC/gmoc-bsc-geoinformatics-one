@@ -35,7 +35,7 @@ Am Ende dieses Teilmoduls können Sie:
 
 
 ## Kursmerkmale
-Der Kurs ist primär für Studierende in Präsenzveranstaltung gedacht, eignet sich in gewissem Maße aber auch zum Selbststudium.
+Der Online-Kurs ist grundsätzlich als Begleitmaterial für (Online-)Präsenzveranstaltung gedacht, eignet sich in aber auch zum Selbststudium.
 
 Information aufgrund der **Coronavirus-Pandemie**: Aus Gründen des Infektionsschutzes sind Präsenzveranstaltung derzeit nicht möglich. Der Kurs findet deshalb digital statt. 
 
@@ -53,8 +53,7 @@ Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie 
 
 * Der Link wird je nach technischer Möglichkeit über Ilias bekanntgegeben. Zur Vorbereitung  der Präsenzzeiten wird in Ilias ein Forum eingerichtet in dem die Fragen, die Berücksichtigung finden sollen, bis jeweils Montag Abend 18:00 Uhr eingestellt werden sollten. 
 * Die Präsenzzeit dient der Beantwortung der Fragen, die zu den Vorlesungsinput den Readern und  den gestellten Übungsaufgaben im Forum gestellt wurden. Sollte die Präsenzveranstaltung technisch nicht stattfinden können wird ein Screencast mit der Beantwortung der Fragen und neuem Input online gestellt
-* Die Rahmenbdingungen für die Projektaufgabe wird bis zum 19.06.2020 eingestellt
-* Abgabe des Projektes: 15.08.2020 (8.00 Uhr)
+* Abgabe des Projektes: 15.03.2021 (8.00 Uhr)
 
 ## Kurszeiten und Inhalte
 
@@ -73,6 +72,15 @@ Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie 
 | 11 | 11.02. | Projektarbeit-Tutorium |  |
 | 12 | 18.02. | Projektarbeit-Tutorium |  |
 | 13 | 25.02. | Projektarbeit-Tutorium |  |
+
+
+## Exemplarischer Kurs-Stundenplan
+
+Der Kurs ist im Wintersemester auf 2 x 3 ECTS (Übungsaufgaben 3ECTS, Projektarbeit 3 ECTS) angelegt, die jeweils einzeln und unabhägig bearbeitet werden können. Rechnet man dies auf den Zeitaufwand um so sind dies jeweils 90 Stunden. Werden acht Wochen für das Bearbeiten der Aufgaben gerechnet (bereits abzüglich einer Woche Weihnachtsferien), so ergibt dies ca 11 Stunden Zeitaufwand in der Woche um als durchschnittlicher Studierender zu einem befriedigenden Ergebnis zu gelangen (Bologna-Kriterien). Die nachfolgende Abbildung gibt Ihnen eine beipielhafte Aufteilung dieser Zeit, die nach unserer Vorstellung sinnvoll über die Woche verteilt sein sollte und Lerngruppen sowie Eigenstudium beinhaltet.
+
+{% include figure image_path="/assets/images/unit02/example_kursplan_geoinformatik" alt="example_kursplan_geoinformatik" caption="Beispielhafter Kursplan Geoinformatik. Photo: CC0 AG-UI" %}
+
+*Beispielhafter Stundenplan für die Veranstaltung Geoinformatik. Der Gesamtaufwand ist inkl. der Präsenz auf 11 Stunden in der Woche berechnet. Die Termin, Blockung und Aufteilung in Eigenstudium und Lerngruppeist wunschenswert muß aber den eigenen Bedüfrnissen angepasst werden.*
 
 
 ## Kursleitung
