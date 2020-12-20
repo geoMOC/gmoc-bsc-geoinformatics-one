@@ -21,7 +21,6 @@ feature_row_ilos:
 panel1:  
   - url: "/assets/images/example_kursplan_geoinformatik.png"
     image_path: "/assets/images/example_kursplan_geoinformatik.png"
-    caption: "Beispielhafter Stundenplan für die Veranstaltung Geoinformatik. Der Gesamtaufwand ist inkl. der Präsenz auf 11 Stunden in der Woche berechnet. Die Termin, Blockung und Aufteilung in Eigenstudium und Lerngruppeist wünschenswert muss aber den eigenen Bedüfrnissen angepasst werden. Photo: CC0 AG-UI" 
     alt: "Beispielhafter Stundenplan für die Veranstaltung Geoinformatik. Der Gesamtaufwand ist inkl. der Präsenz auf 11 Stunden in der Woche berechnet. Die Termin, Blockung und Aufteilung in Eigenstudium und Lerngruppeist wünschenswert muss aber den eigenen Bedüfrnissen angepasst werden."  
 
 
@@ -87,7 +86,8 @@ Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie 
 Der Kurs ist im Wintersemester auf 2 x 3 Leistungspunkte (LP) (Übungsaufgaben 3 LP, Projektarbeit 3 LP) angelegt, die jeweils einzeln und unabhägig bearbeitet werden können. Rechnet man dies auf den Zeitaufwand um so sind dies jeweils 90 Stunden. Werden acht Wochen für das Bearbeiten der Aufgaben gerechnet (bereits abzüglich einer Woche Weihnachtsferien), so ergibt dies ca 11 Stunden Zeitaufwand in der Woche um als durchschnittlicher Studierender zu einem befriedigenden Ergebnis zu gelangen (Bologna-Kriterien). Die nachfolgende Abbildung gibt Ihnen eine beipielhafte Aufteilung dieser Zeit, die nach unserer Vorstellung sinnvoll über die Woche verteilt sein sollte und Lerngruppen sowie Eigenstudium beinhaltet.
 
 
-{% include gallery id="panel1"   layout = "half"  %}
+{% include gallery id="panel1"   layout = "half"      caption: "Beispielhafter Stundenplan für die Veranstaltung Geoinformatik. Der Gesamtaufwand ist inkl. der Präsenz auf 11 Stunden in der Woche berechnet. Die Termin, Blockung und Aufteilung in Eigenstudium und Lerngruppe ist wünschenswert muss aber den eigenen Bedüfrnissen angepasst werden. Photo: CC0 AG-UI" 
+%}
 
 
 
