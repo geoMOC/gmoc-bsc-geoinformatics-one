@@ -9,12 +9,11 @@ header:
 ---
 
 
-In dieser Aufgabe sollen Sie unterschiedliche Analysen auf der Grundlage vorgegebener Kriterien oder Merkmalsausprägungen durchführen. Letztendlich suchen Sie nach der  *Eignung* oder *Nichteignung* von Raumeinheiten oder berechnen räumliche  *Widerstände* bzw.  *Kosten*, die einen Schätzwert für die Eignung oder Nutzung eines Pixels für einen and den Kriterien orientierten Nutzen des Rasterelements bestimmen.
-
+In dieser Aufgabe sollen Sie unterschiedliche Analysen auf der Grundlage vorgegebener Kriterien oder Merkmalsausprägungen durchführen. Das heißt Sie sollen die  *Eignung* von Rasterzellen (Raumeinheiten) für eine bestimmte Nutzung bewerten. Sie können Werte so evaluierter Rasterzellen auch nutzen um die *Überwindung*  räumlicher  *Widerstände* oder auch  *Kosten* zu akkumulieren um für einen spezifischen Zweck geeignete Strcken oder Korridore auszuweisen.
 
 <!--more-->
 
-Wird das z.B. als Bewegung in einem Raum interpretiert, so können die Werte in einem Pixel als Kosten die das Betreten/Nutzen/Überwinden dieses Pixels gelten. Diese Kosten können also durchaus mit den qualitativen Bezeichnungen wie leicht oder beschwerlich, billig oder teuer, attraktiv oder unattraktiv usw. beschrieben werden. Vor diesem Hintergrund müssen die genutzten Kriterien für die Planung einer z.B. "*kostengünstigen Strecke*" immer als Referenz die Fragestellung bzw. Zielsetzung berücksichtigen. 
+Nimmt man eine Position  A und eine Position B auf einem solchen Raster als Start und Ziel kann die kostengünstigste Strecke als Bewegung durch einem Raum mit unterschiedlicher *Reibung* interpretiert werden, d.h. Sie können die Werte eines Pixels als Kosten, die das Betreten/Nutzen/Überwinden dieses Pixels interpretieren. Diese Kosten können durchaus mit den kategorialen Merkmalsausprägungen wie z.B. *leicht* oder *beschwerlich*, *billig* oder *teuer*, *attraktiv* oder *unattraktiv* usw. beschrieben werden. Vor diesem Hintergrund müssen die genutzten Kriterien für die Planung einer z.B. "*kostengünstigen Strecke*" immer in Bezug auf die Fragestellung bzw. Zielsetzung bewertet werden. 
 
 
   
