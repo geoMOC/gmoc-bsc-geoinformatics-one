@@ -9,11 +9,11 @@ header:
 ---
 
 
-In dieser Aufgabe sollen Sie unterschiedliche Analysen auf der Grundlage vorgegebener Kriterien oder Merkmalsausprägungen durchführen. Das heißt Sie sollen die  *Eignung* von Rasterzellen (Raumeinheiten) für eine bestimmte Nutzung bewerten. Sie können Werte so evaluierter Rasterzellen auch nutzen um die *Überwindung*  räumlicher  *Widerstände* oder auch  *Kosten* zu akkumulieren um für einen spezifischen Zweck geeignete Strcken oder Korridore auszuweisen.
+In dieser Aufgabe sollen Sie unterschiedliche Analysen auf der Grundlage vorgegebener Kriterien oder Merkmalsausprägungen durchführen. Das heißt Sie sollen die  *Eignung* von Rasterzellen (Raumeinheiten) für eine bestimmte Nutzung bewerten. Sie können Werte so evaluierter Rasterzellen auch nutzen um die *Überwindung*  räumlicher  *Widerstände* oder auch  *Kosten* zu akkumulieren, um für einen spezifischen Zweck geeignete Strecken oder Korridore auszuweisen.
 
 <!--more-->
 
-Nimmt man eine Position  A und eine Position B auf einem solchen Raster als Start und Ziel kann die kostengünstigste Strecke als Bewegung durch einem Raum mit unterschiedlicher *Reibung* interpretiert werden, d.h. Sie können die Werte eines Pixels als Kosten, die das Betreten/Nutzen/Überwinden dieses Pixels interpretieren. Diese Kosten können durchaus mit den kategorialen Merkmalsausprägungen wie z.B. *leicht* oder *beschwerlich*, *billig* oder *teuer*, *attraktiv* oder *unattraktiv* usw. beschrieben werden. Vor diesem Hintergrund müssen die genutzten Kriterien für die Planung einer z.B. "*kostengünstigen Strecke*" immer in Bezug auf die Fragestellung bzw. Zielsetzung bewertet werden. 
+Nimmt man eine Position  A und eine Position B auf einem solchen Raster als Start und Ziel, kann die kostengünstigste Strecke als Bewegung durch einen Raum mit unterschiedlicher *Reibung* interpretiert werden, d.h. Sie können die Werte eines Pixels als Kosten für das Betreten/Nutzen/Überwinden dieses Pixels interpretieren. Diese Kosten können durchaus mit den kategorialen Merkmalsausprägungen wie z.B. *leicht* oder *beschwerlich*, *billig* oder *teuer*, *attraktiv* oder *unattraktiv* usw. beschrieben werden. Vor diesem Hintergrund müssen die genutzten Kriterien für die Planung einer z.B. "*kostengünstigen Strecke*" immer in Bezug auf die Fragestellung bzw. Zielsetzung bewertet werden. 
 
 
   
