@@ -60,7 +60,7 @@ Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie 
 | Sitzung | Datum | Thema | Inhalt |
 |:-------:|:--------:|:---------|:---------|
 | 1 | 12.11.  | Einführung | Abfrage Status Quo, Orga, Einführung in geographische und GI Raumkonzepte |
-| 2 | 19.11.  | QGIS Warmup |  Einführung in `QGIS`, Einstiegsbeispiel Datenaquise  |
+| 2 | 19.11.  | QGIS Warmup |  Einführung in QGIS, Einstiegsbeispiel Datenaquise  |
 | 3 | 26.11.  | Fragen & Antworten |  Thematische und räumliche Abfragen auf Attributtabellen |
 | 4 | 03.12.  | Wrap Up | Projektionen, Fragen und Antworten  |
 | 5 | 10.12.  | Analysen | Rasterbasierte Analysen, DGM-Ableitungen  |
@@ -78,7 +78,7 @@ Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie 
 
 Der Kurs ist im Wintersemester auf 2 x 3 ECTS (Übungsaufgaben 3ECTS, Projektarbeit 3 ECTS) angelegt, die jeweils einzeln und unabhägig bearbeitet werden können. Rechnet man dies auf den Zeitaufwand um so sind dies jeweils 90 Stunden. Werden acht Wochen für das Bearbeiten der Aufgaben gerechnet (bereits abzüglich einer Woche Weihnachtsferien), so ergibt dies ca 11 Stunden Zeitaufwand in der Woche um als durchschnittlicher Studierender zu einem befriedigenden Ergebnis zu gelangen (Bologna-Kriterien). Die nachfolgende Abbildung gibt Ihnen eine beipielhafte Aufteilung dieser Zeit, die nach unserer Vorstellung sinnvoll über die Woche verteilt sein sollte und Lerngruppen sowie Eigenstudium beinhaltet.
 
-{% include figure image_path="/assets/images/unit02/example_kursplan_geoinformatik" alt="example_kursplan_geoinformatik" caption="Beispielhafter Kursplan Geoinformatik. Photo: CC0 AG-UI" %}
+{% include figure image_path="/assets/images/example_kursplan_geoinformatik" alt="example_kursplan_geoinformatik" caption="Beispielhafter Kursplan Geoinformatik. Photo: CC0 AG-UI" %}
 
 *Beispielhafter Stundenplan für die Veranstaltung Geoinformatik. Der Gesamtaufwand ist inkl. der Präsenz auf 11 Stunden in der Woche berechnet. Die Termin, Blockung und Aufteilung in Eigenstudium und Lerngruppeist wunschenswert muß aber den eigenen Bedüfrnissen angepasst werden.*
 
