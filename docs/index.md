@@ -58,8 +58,10 @@ Es ist ein individuelles Projekt durchzuführen und ein entsprechender Projektbe
 
 Am 05.11.2020 findet die Online-Auftaktveranstaltung in Big Blue Button (BBB) statt. Den Link finden Sie im [Kursbereich der Ilias-Lernplattform](https://ilias.uni-marburg.de/ilias.php?ref_id=1899952&cmd=frameset&cmdClass=ilrepositorygui&cmdNode=ts&baseClass=ilrepositorygui). Die Online-Materialien sind die Grundlage für den Kurs Geoinformatik. 
 
-* Der Link wird je nach technischer Möglichkeit über Ilias bekanntgegeben. Zur Vorbereitung  der Präsenzzeiten wird in Ilias ein Forum eingerichtet in dem die Fragen, die Berücksichtigung finden sollen, bis jeweils Montag Abend 18:00 Uhr eingestellt werden sollten. 
-* Die Präsenzzeit dient der Beantwortung der Fragen, die zu den Vorlesungsinput den Readern und  den gestellten Übungsaufgaben im Forum gestellt wurden. Sollte die Präsenzveranstaltung technisch nicht stattfinden können wird ein Screencast mit der Beantwortung der Fragen und neuem Input online gestellt
+Der Link wird je nach technischer Möglichkeit über Ilias bekanntgegeben. Zur Vorbereitung  der Präsenzzeiten wird in Ilias ein Forum eingerichtet in dem die Fragen, die Berücksichtigung finden sollen, bis jeweils Montag Abend 18:00 Uhr eingestellt werden sollten. 
+
+Die Präsenzzeit dient der Beantwortung der Fragen, die zu den Vorlesungsinput den Readern und  den gestellten Übungsaufgaben im Forum gestellt wurden. Sollte die Präsenzveranstaltung technisch nicht stattfinden können wird ein Screencast mit der Beantwortung der Fragen und neuem Input online gestellt
+
 
 * Abgabe der Aufgaben   15.01.2021 (8.00 Uhr)
 * Abgabe des Projektes: 15.03.2021 (8.00 Uhr)
