@@ -17,6 +17,14 @@ feature_row_ilos:
   alt: PC monitor laying in the garden of the institute.
   title: Intended learning outcomes
   excerpt: "Template..."
+  
+panel1:  
+  - url: "/assets/images/example_kursplan_geoinformatik.png"
+    image_path: "/assets/images/example_kursplan_geoinformatik.png"
+    caption: "Beispielhafter Stundenplan für die Veranstaltung Geoinformatik. Der Gesamtaufwand ist inkl. der Präsenz auf 11 Stunden in der Woche berechnet. Die Termin, Blockung und Aufteilung in Eigenstudium und Lerngruppeist wünschenswert muss aber den eigenen Bedüfrnissen angepasst werden. Photo: CC0 AG-UI" 
+    alt: "Beispielhafter Stundenplan für die Veranstaltung Geoinformatik. Der Gesamtaufwand ist inkl. der Präsenz auf 11 Stunden in der Woche berechnet. Die Termin, Blockung und Aufteilung in Eigenstudium und Lerngruppeist wünschenswert muss aber den eigenen Bedüfrnissen angepasst werden."  
+
+
 ---
 
 {% include feature_row id="feature_row_intro" type="center" %}
@@ -78,8 +86,8 @@ Am 04.06.2020 findet die Online-Auftaktveranstaltung statt. Den Link finden Sie 
 
 Der Kurs ist im Wintersemester auf 2 x 3 Leistungspunkte (LP) (Übungsaufgaben 3 LP, Projektarbeit 3 LP) angelegt, die jeweils einzeln und unabhägig bearbeitet werden können. Rechnet man dies auf den Zeitaufwand um so sind dies jeweils 90 Stunden. Werden acht Wochen für das Bearbeiten der Aufgaben gerechnet (bereits abzüglich einer Woche Weihnachtsferien), so ergibt dies ca 11 Stunden Zeitaufwand in der Woche um als durchschnittlicher Studierender zu einem befriedigenden Ergebnis zu gelangen (Bologna-Kriterien). Die nachfolgende Abbildung gibt Ihnen eine beipielhafte Aufteilung dieser Zeit, die nach unserer Vorstellung sinnvoll über die Woche verteilt sein sollte und Lerngruppen sowie Eigenstudium beinhaltet.
 
-{% include figure image_path="/assets/images/example_kursplan_geoinformatik.png" alt="example_kursplan_geoinformatik" caption="Beispielhafter Stundenplan für die Veranstaltung Geoinformatik. Der Gesamtaufwand ist inkl. der Präsenz auf 11 Stunden in der Woche berechnet. Die Termin, Blockung und Aufteilung in Eigenstudium und Lerngruppeist wünschenswert muss aber den eigenen Bedüfrnissen angepasst werden. Photo: CC0 AG-UI" layout="half" %}
 
+{% include gallery id="panel1"   layout = "half"  %}
 
 
 
