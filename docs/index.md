@@ -63,7 +63,7 @@ Der Link wird je nach technischer Möglichkeit über Ilias bekanntgegeben. Zur V
 Die Präsenzzeit dient der Beantwortung der Fragen, die zu den Vorlesungsinput den Readern und  den gestellten Übungsaufgaben im Forum gestellt wurden. Sollte die Präsenzveranstaltung technisch nicht stattfinden können wird ein Screencast mit der Beantwortung der Fragen und neuem Input online gestellt
 
 
-* Abgabe der Aufgaben   15.01.2021 (8.00 Uhr)
+* Abgabe der Aufgaben:  15.01.2021 (8.00 Uhr)
 * Abgabe des Projektes: 15.03.2021 (8.00 Uhr)
 {: .notice--danger}
 
