@@ -55,14 +55,14 @@ Sie sollen eine Entscheidungsfindung auf der Grundlage mehrerer Kriterien durchf
 *  Berechnen Sie die Hangneigung 
 *  Extrahieren Sie die aus den [Corine Landnutzungsdaten](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018?tab=mapview) alle Waldflächen so daß Sie ein Raster mit den Werten 1 für *Waldflächen* und 0 für *Keine Waldflächen* erhalten. (Sie finden bereits zugeschnittene Corine-Daten im heruntergeladenen Archiv unter dem Dateinamen `clc2018_1m_MOF_25832.tif`). Tip dieser Vorgang wird auch Reklassizierung von Daten genannt. 
 *  Zur Vorbereitung der Multikriterien-Evaluation sollen die kontinuierlichen Hangneigungswerte in *ganzzahlige* kategoriale Klassen überführt (reklassifiziert) werden. D.h. bei der Reklassifizierung der Hangneigung in drei Klassen 0-15 Grad = Klasse mit dem Wert 1, 15-30 Grad = Klasse mit Wert 2 und  > 30 Grad = Klasse mit Wert 3 (1=flach, 2=mittlere Neigung und 3=steile) werden kategoriale Zielvariablen erzeugt.
-* Legen Sie für **jede Datenebene** eine Gewichtung gemäß der von Ihnen festgelegten Bedeutung in Relation zu ihrer Eignung fest (z.B. Wald/Nichtwald = Faktor 5, Hangneigung = Faktor 3)
+* Legen Sie für **jede Datenebene** eine Gewichtung gemäß der von Ihnen festgelegten Bedeutung in Relation zu ihrer Eignung fest (z.B. Wald/Nichtwald = Faktor 0.5, Hangneigung = Faktor 0.3). Beachten Sie bitte dass Werkzeuge wie das `WMCA Weighted Multicriteria Analysis` eine Gewichtungssumme von genau 1.0 erwarten. Daher müssen die Gewichte entsprechend verteilt werden.
 * Legen Sie für **jede Klasse** in diesem Layer eine Bewertung von 0-10 fest (z.B. Wald = 10, Nichtwald = 1, Hangneigung Klasse 1 = 5 etc.) Bedenken Sie bitte dass die Festlegung der Bewertung die Bedeutung der Kriterien für die Fragestellung berücksichtigen muss. 
 * Erläutern Sie die Ergebnisse  in max. 2 Sätzen.
 {: .notice--success}
 
 ### Hilfestellung 
 
-*  Sie können für die rasterbasierte Umrechnung (Klassifikation/Reklassifikation) der Werte  als generelles Werkzeug den *Raster-Rechner*  oder auch spezielle Werkzeuge wie z.B. das Plugin `WMCA Weighted Multicriteria Analysis` nutzen. Dieses Plugin wird nach der Installation unter dem Haupt-Menü `Raster` angezeigt (Sie müssen evtl. *"Auch experimentelle Erweiterungen anzeigen"* unter den Einstellungen aktivieren).
+*  Sie können für die rasterbasierte Umrechnung (Klassifikation/Reklassifikation) der Werte  als generelles Werkzeug den *Raster-Rechner*  oder auch spezielle Werkzeuge wie z.B. das Plugin `WMCA Weighted Multicriteria Analysis` (WMCA) nutzen. Dieses Plugin wird nach der Installation unter dem Haupt-Menü `Raster` angezeigt (Sie müssen evtl. *"Auch experimentelle Erweiterungen anzeigen"* unter den Einstellungen aktivieren).
 * Weitere und deutlich tiefergehende Hilfe für den gesamten Arbeitsablauf finden Sie QGIS-spezifisch unter [Multi Criteria Overlay Analysis (QGIS3)](https://www.qgistutorials.com/en/docs/3/multi_criteria_overlay.html). 
 
 Da es sich bei dieser Vorgehensweise um ein häufig angewandtes Raster-GIS-Konzept handelt, werden Sie unter allen GI Softwarepaketen ähnliche Werkzeuge finden. So ist auch etwas das  [MCE Tutorial für SAGA GIS](https://svwh.dl.sourceforge.net/project/saga-gis/SAGA%20-%20Documentation/Tutorials/Multi_Criteria_Evaluation_Tutorial/MultiTutorial2.pdf) ein hilfreiche Ressource um den Vorgang zu verstehen.
