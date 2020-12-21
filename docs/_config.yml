@@ -217,7 +217,7 @@ defaults:
       path: ""
       type: unit08
     values:
-      category: "QGIS Webcasts"
+      category: "QGIS Materialien"
       tags: "Unit|08"
       layout: single
       sidebar:
