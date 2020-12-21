@@ -1,5 +1,5 @@
 ---
-title: QGIS Webcasts
+
 toc: true
 toc_label: Inhalt
 
