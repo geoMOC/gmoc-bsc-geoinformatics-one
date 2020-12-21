@@ -3,7 +3,10 @@ title: Thematische Abfragen
 toc: true
 toc_label: Inhalt
 
-
+header:
+  image: /assets/images/splash_L02.png
+  image_description: "Post Boxes in the Marburg Area"
+  caption: "Post Boxes in the Marburg Area. CC0 AG UI"
 ---
 
 
