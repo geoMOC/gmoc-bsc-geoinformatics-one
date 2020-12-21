@@ -1,7 +1,12 @@
 ---
-title: QGIS Reader  
+title: QGIS Webcasts
 toc: true
 toc_label: Inhalt
+
+header:
+  image: /assets/images/splash_L01.png
+  image_description: "The QGIS Evolution"
+  caption: "The QGIS Evolution CC0 AG UI"
 ---
 
 Mit dem QGIS-Reader sollen spezifische Hilfestellungen und best practice Beispiele, die über die Aufgabenstellung hinaus gehen verfügbar gemacht werden. <!--more-->
