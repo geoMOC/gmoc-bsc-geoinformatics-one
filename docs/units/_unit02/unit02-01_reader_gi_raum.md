@@ -2,6 +2,10 @@
 title: Raumrepräsentation in der GI
 toc: true
 toc_label: Inhalt
+header:
+  image: /assets/images/01-splash.jpg
+  image_description: "John Snows "
+  caption: "Map: [**Dr. John Snow**](https://de.wikipedia.org/wiki/John_Snow_(Mediziner)) [Wellcome Library via wikimedia](https://w.wiki/QtV)"
 ---
 
 Wenn wir die reale Welt, im Folgenden auch als Echtwelt oder Realwelt bezeichnet, in Form einer Karte oder in einem Geoinformationssystem abbilden wollen, müssen wir abstrahieren. Das bedeutet, dass wir einzelne Aspekte der Realwelt in den Fokus unserer Abbildung stellen und soweit vereinfachen und generalisieren, dass sie mit den uns zur Verfügung stehenden Methoden tatsächlich abgebildet werden können.<!--more--> 

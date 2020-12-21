@@ -2,6 +2,11 @@
 title: Geographische Daten
 toc: true
 toc_label: Inhalt
+header:
+  image: /assets/images/01-splash.jpg
+  image_description: "John Snows "
+  caption: "Map: [**Dr. John Snow**](https://de.wikipedia.org/wiki/John_Snow_(Mediziner)) [Wellcome Library via wikimedia](https://w.wiki/QtV)"
+  
 ---
 
 Trotz der bisherigen Erläuterungen ist die Beantwortung der Frage „Was sind geographische Daten bzw. Geodaten?“ nicht richtig greifbar. Bislang erscheint die Abstraktion willkürlich und nicht nachvollziehbar zu sein.

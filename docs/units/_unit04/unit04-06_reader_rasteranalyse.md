@@ -2,7 +2,10 @@
 title: – Sichtweite und Sichtfeld
 toc: true
 toc_label: Inhalt
-
+header:
+  image: /assets/images/splash_L03.png
+  image_description: "SRTM ElevationModel Data Marburg"
+  caption: "SRTM Elevation Model Data Marburg. CC0 AG UI"
 ---
 
 

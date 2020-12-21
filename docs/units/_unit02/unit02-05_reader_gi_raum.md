@@ -2,6 +2,10 @@
 title: Definitionen - Begriffe - Software
 toc: true
 toc_label: Inhalt
+header:
+  image: /assets/images/01-splash.jpg
+  image_description: "John Snows "
+  caption: "Map: [**Dr. John Snow**](https://de.wikipedia.org/wiki/John_Snow_(Mediziner)) [Wellcome Library via wikimedia](https://w.wiki/QtV)"
 ---
 
 In der Praxis ist es offenkundig nahezu beliebig an welches Wort der Begriff „Informationssystem“ (IS) angehangen wird und so gibt es neben Geographischen auch Land-, Umwelt- oder Amtlich-Topographische-Informationssysteme. Auch die Abgrenzung der Begriffe Land-, Geo- und Rauminformationssysteme (LIS, GIS und RIS) wird in der Fachliteratur nicht einheitlich gehandhabt. Allgemein wird der Begriff des räumlichen Informationssystems (RIS) als Oberbegriff verwendet, während Attribute wie Landschaft bzw. Geo vor allem die fachliche oder methodische Ausrichtung benennen.

@@ -3,7 +3,12 @@ title: Kriterienverschneidung
 toc: true
 toc_label: Inhalt
 
-
+toc: true
+header:
+  image: /assets/images/splash_L04.png
+  image_description: "Least Cost Path Analysis"
+  caption: "Least Cost path Analysis on a MCE cost raster at the MOF. CC0 AG UI"
+  
 ---
 
 
