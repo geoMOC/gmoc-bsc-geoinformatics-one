@@ -2,11 +2,13 @@
 title: Lerneinheit 1 - Warm Up QGIS
 toc: true
 header:
-  image: /assets/images/01-splash.jpg
-  image_description: "John Snows "
-  caption: "Map: [**Dr. John Snow**](https://de.wikipedia.org/wiki/John_Snow_(Mediziner)) [Wellcome Library via wikimedia](https://w.wiki/QtV)"
+  image: /assets/images/splash_L01.png
+  image_description: "The QGIS Evolution"
+  caption: "The QGIS Evolution CC0 AG UI"
+  
+
 ---
-Der Einstieg in eine komplexe Software ist mühsam und verelangt einiges an Frusttoleranz. Es ist sinnvoll *Analog-Wissen* aufzubauen und sich den Zugang zu den Arbeitsabläufen *logisch-strukturiert* und **nicht** durch *auswendig lernen* der einzelnen Arbeitsschritte zu erarbeiten. Das ist nicht geschenkt zumal GIS Softwarepakete wie ArcGIS oder QGIS zu den eher komplexen Softwarearchitekturen gehören.
+Der Einstieg in eine komplexe Software ist mühsam und verlangt einiges an Frusttoleranz. Durch Ähnlichkeit dere Werkzeuge und Konzepte bei ständiger Entwicklung ist es sinnvoll *Analog-Wissen* aufzubauen und sich den Zugang zu den Arbeitsabläufen *logisch-strukturiert* und **nicht** durch *auswendig lernen* der einzelnen Arbeitsschritte zu erarbeiten. Das ist nicht geschenkt zumal GIS Softwarepakete wie ArcGIS oder QGIS zu den eher komplexen Softwarearchitekturen gehören.
 <!--more-->
 ## Was wir in dieser Einheit vor haben
 Zur Mühsal des Erlernes sowohl neuer konzeptueller als auch Informationstechnik bezogener Problemfelder kommt auch noch die Auseinandersetzung mit einer neuen Software, die mit einer ungewohnten Graphical-User-Interface (GUI) aufwartet, hinzu. Um die Herrausforderungen etwas zu verteilen fangen Sie Schritt für Schritt an und beginnen in dieser ersten Einheit mit einigen grundlegenden und typischen Aufgaben.  
