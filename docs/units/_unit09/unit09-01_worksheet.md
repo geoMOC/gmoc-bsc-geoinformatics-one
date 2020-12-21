@@ -11,7 +11,7 @@ header:
 Der Einstieg in eine komplexe Software ist mühsam und verlangt einiges an Frusttoleranz. Durch Ähnlichkeit dere Werkzeuge und Konzepte bei ständiger Entwicklung ist es sinnvoll *Analog-Wissen* aufzubauen und sich den Zugang zu den Arbeitsabläufen *logisch-strukturiert* und **nicht** durch *auswendig lernen* der einzelnen Arbeitsschritte zu erarbeiten. Das ist nicht geschenkt zumal GIS Softwarepakete wie ArcGIS oder QGIS zu den eher komplexen Softwarearchitekturen gehören.
 <!--more-->
 ## Was wir in dieser Einheit vor haben
-Zur Mühsal des Erlernes sowohl neuer konzeptueller als auch Informationstechnik bezogener Problemfelder kommt auch noch die Auseinandersetzung mit einer neuen Software, die mit einer ungewohnten Graphical-User-Interface (GUI) aufwartet, hinzu. Um die Herrausforderungen etwas zu verteilen fangen Sie Schritt für Schritt an und beginnen in dieser ersten Einheit mit einigen grundlegenden und typischen Aufgaben.  
+Zur Mühsal des Erlernes sowohl neuer konzeptueller als auch Informationstechnik bezogener Problemfelder kommt auch noch die Auseinandersetzung mit einer neuen Software, die mit einer ungewohnten Graphical-User-Interface (GUI) aufwartet, hinzu. Um die Herausforderungen etwas zu verteilen fangen Sie Schritt für Schritt an und beginnen in dieser ersten Einheit mit einigen grundlegenden und typischen Aufgaben.  
 
 ## Lernziele 
 
