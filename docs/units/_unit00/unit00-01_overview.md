@@ -18,7 +18,7 @@ _Im vergangenen Semester haben wir noch auf die Einmalikeit der reinen Distanzle
 _Machen wir gemeinsam das Beste aus der Situation._
 
 
-_Dietrich Göttlicher und  Chris Reudenbach_
+_Dietrich Göttlicher,  Chris Reudenbach und Alice Ziegler_
 
 _P. S. Wenn Sie nicht über die notwendigen technischen Voraussetzungen verfügen (z.B. kein Internetzugang) um an der digitalen Lehre teilzunehmen, melden Sie sich bitte umgehend bei uns._
 
