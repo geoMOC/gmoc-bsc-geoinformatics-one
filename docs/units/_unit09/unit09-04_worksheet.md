@@ -75,7 +75,7 @@ Da es sich bei dieser Vorgehensweise um ein häufig angewandtes Raster-GIS-Konze
 * Open Street Map (OSM) Wegedaten für den  MOF
 * Geländemodell des Marburg Open Forest (MOF) in 1 Meter Auflösung
 * Corine Landnutzung Daten für den MOF
-*  Koordinaten (ETRS89, UTM32 EPSG:32632) Position *Parkplatz*  (478188,5632178), Position Grillhütte (476170,5631657)
+*  Koordinaten (ETRS89, UTM32 EPSG:25832) Position *Parkplatz*  (478188,5632178), Position Grillhütte (476170,5631657)
 
 Die Daten finden Sie im  Zip-Archiv  [Daten-Aufgabe-L04]({{ site.baseurl }}/assets/data/Daten-Aufgabe-L04.zip)
 
