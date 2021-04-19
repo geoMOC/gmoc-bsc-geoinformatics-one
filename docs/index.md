@@ -7,6 +7,8 @@ header:
   overlay_filter: 0.6
   overlay_image: "/assets/images/head-lahnclim-960x212.jpg"
   caption: 'Photo: [**Reudenbach**]'
+  cta_label: Downloads
+  cta_url: "/downloads.html"
   cta_label: Zum Kursinhalt
   cta_url: "/units.html"
 excerpt: Manipulation und Analyse räumlicher Daten.

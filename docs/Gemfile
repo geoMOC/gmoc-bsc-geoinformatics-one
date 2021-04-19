@@ -9,7 +9,7 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 # moer: Comment out line below to loosen version restrictions.
-# gem "jekyll", "~> 3.7.2"
+gem "jekyll", ">= 3.7.4"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # moer: Comment out line below to use custom theme.
@@ -21,14 +21,9 @@ source "https://rubygems.org"
 gem "github-pages", group: :jekyll_plugins
 
 
-
 # If you have any plugins, put them here!
 # moer: Add more plugins.
-# moer: the rack vulnerability is solved by dropping the jekyll-admin plugin 
-#       that depends on sinatra 1.4.2 which ist not compatible to rack 2.x
-#       so drop jekyll-admin and delete the gemfile.lock and run bundle install
-
-group :jekyll_plugins do
+group 'jekyll-plugins' do
   gem "jekyll-feed", "~> 0.6"
   gem "jekyll-paginate"
   gem "jekyll-sitemap"
@@ -36,7 +31,9 @@ group :jekyll_plugins do
   gem "jemoji"
   gem "jekyll-include-cache"
   gem "jekyll-algolia"
-  gem "jekyll-admin"
+  gem "rack", ">= 2.1.4"
+  gem "activesupport", ">= 4.1.11"
+  gem "kramdown", ">= 2.3.1"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -45,5 +42,4 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
-gem "jekyll", ">= 3.8.5"
 

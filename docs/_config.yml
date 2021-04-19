@@ -126,6 +126,10 @@ worksheets:
     output: true
     permalink: /:collection/:title.html
 
+
+## nav: "units"           provides  menu tree
+## nav: "course_unit"     provides  single menu with go back entry menu treee
+
 # Default settings
 defaults:
   # examples
