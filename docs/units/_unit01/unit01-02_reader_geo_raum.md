@@ -3,10 +3,12 @@ title: Geographie - räumliche Interpretation der Welt
 toc: true
 toc_label: Inhalt
 
+
 header:
-  image: /assets/images/01-splash.jpg
-  image_description: "John Snows "
-  caption: "Map: [**Dr. John Snow**](https://de.wikipedia.org/wiki/John_Snow_(Mediziner)) [Wellcome Library via wikimedia](https://w.wiki/QtV)"
+  image: /assets/images/splash_L01_1.png
+  image_description: "MineSeeker World "
+  caption: "What is reality? CC0 AG UI"
+  
 ---
 
 Die Annäherung an die Thematik der Geographischen Informationssysteme (GIS) wirkt für Einsteiger im Kontext der vielfältigen Verwendung des Begriffs und vor allem vor dem Hintergrund der vielfältigen und unterschiedlich komplexen Anwendungen unklar. Dies beginnt bereits mit den Begriffen “Geographie” und “geographisch”, die mit der Wahrnehmung der Erde bzw. Erdoberfläche und ihrem Verständnis und ihrer Beschreibung verbunden sind. Dies rückt die professionelle Beschreibung der Erde, also eine abstrahierte kognitive Welterfahrung, in den Fokus einer ersten Beschäftigung mit GIS. Für den Einsatz von Informationssystemen in der Geographie sollten Sie zunächst einige Grundkonzepte zur Wahrnehmung und Abstraktion sowie zur Kommunikation geographischer Welterfahrung kennen und verstanden haben, wozu wir auf die Ihnen bereits aus früheren Semester bekannten Konzepte der Kartographie zurückgreifen.

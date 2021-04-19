@@ -1,6 +1,11 @@
 ---
 title: Digitales Lernen auf Distanz
 toc: true
+header:
+  image: "/assets/images/splash-geoinformatik.jpg"
+  image_description: "Geoinformatik "
+  caption: "Geoinformatik. CC0 AG UI"
+
 ---
 
 Wir bieten wöchentlich einen Input mit einer neuen Kurseinheit. Diese beginnen wir mit je nach Thematik mit  Live-Streaming, einer Webkonferenz, Videos, Texten oder anderen Materialien. Nach dem Input werden die Übungsaufgaben vorgestellt, die entweder als Prüfungsleistung (L3) bzw. als Studienleistung  (Bachelor) bearbeitet werden müssen. Offene Fragen können jederzeit in der Veranstaltung bzw.via email (Betreff: *[GIBASIC]*) gestellt werden. Alle Fragen werden in der Folgesitzung aufgegriffen oder via Screencast bzw. auf den Kurswebseiten unter FAQ besprochen. 

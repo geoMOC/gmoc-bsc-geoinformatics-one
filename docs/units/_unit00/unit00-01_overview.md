@@ -1,6 +1,10 @@
 ---
 title: Corona-Pandemie und Präsenzveranstaltungen
 toc: false
+header:
+  image: "/assets/images/splash-geoinformatik.jpg"
+  image_description: "Geoinformatik "
+  caption: "Geoinformatik. CC0 AG UI"
 ---
 
 Bedingt durch die Corona-Pandemie findet das Wintersemester digital statt. Hier finden Sie alle notwendigen Informationen zum Lernen auf Distanz im Rahmen des Moduls Geoinformatik.

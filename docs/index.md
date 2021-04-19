@@ -4,9 +4,9 @@ layout: splash
 date: '2020-06-04 13:00:00 +0100'
 header:
   overlay_color: "#000"
-  overlay_filter: 0.6
-  overlay_image: "/assets/images/head-lahnclim-960x212.jpg"
-  caption: 'Photo: [**Reudenbach**]'
+  overlay_filter: 0.4
+  overlay_image: "/assets/images/splash-geoinformatik.jpg"
+  caption: "Geoinformatik. CC0 AG UI"
   cta_label: Downloads
   cta_url: "/downloads.html"
   cta_label: Zum Kursinhalt

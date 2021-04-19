@@ -1,6 +1,11 @@
 ---
 title: Studien- & Prüfungsleistung
 toc: true
+
+header:
+  image: "/assets/images/splash-geoinformatik.jpg"
+  image_description: "Geoinformatik "
+  caption: "Geoinformatik. CC0 AG UI"
 ---
 
 Die Aufgaben in den Kurseinheiten auf dieser Webseite bilden die Grundlage für Studienleistunge bzw. Prüfungsleistung. 

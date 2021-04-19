@@ -2,8 +2,9 @@
 
 id: Units
 header:
-  image: "/assets/images/00-unit-splash.jpg"
-  caption: 'Photo: [**Environmental Informatics Marburg**](https://www.flickr.com/environmentalinformatics-marburg/)'
+  image: "/assets/images/splash-geoinformatik.jpg"
+  image_description: "Geoinformatik "
+  caption: "Geoinformatik. CC0 AG UI"
 
 permalink: /units.html
 sidebar:
