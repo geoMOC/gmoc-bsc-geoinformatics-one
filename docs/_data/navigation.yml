@@ -15,9 +15,9 @@ main:
 
 
 docs:
-  - title: Ways out
+  - title: "Kurseinheiten"
     children:
-      - title: "Course-Units"
+      - title: "Kurseinheiten"
         url: /units.html
       - title: "ILIAS"
         url: https://ilias.uni-marburg.de/ilias.php?ref_id=1858892&cmdClass=ilrepositorygui&cmdNode=ts&baseClass=ilrepositorygui
